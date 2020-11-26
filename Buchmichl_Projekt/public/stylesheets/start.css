@@ -1,0 +1,154 @@
+body{
+    background: rgba(0, 0, 0,0.9);
+    margin: 0;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.showcase::after{
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background-image: url(/public/images/background.jpg);
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    display: block;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transition: all 1000ms;
+
+}
+
+.showcase:hover::after{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+
+.content{
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    color: #333;
+    transition: all 1s;
+}
+
+.content .clickme{
+    margin-top: 1rem;
+    height: 80px;
+    width: 240px;
+    background-color: #C60000;
+    font-size: 2.2rem;
+    font-weight: bolder;
+    color: #f4f4f4;
+    border: 0;
+    padding: 0;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    outline-color:#f4f4f4;
+}
+
+.content .title{
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.content .text{
+    line-height: 1.7;
+    margin-top: 1rem;
+    font-weight: bolder;
+}
+
+.container{
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.grid-4{
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    color: #f4f4f4;
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+.bg-light{
+    background: #f4f4f4;
+    color: #333;
+}
+
+.bg-red{
+    background: #C60000;
+    color: #f4f4f4;
+}
+
+.grid-2{
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+footer{
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+footer p{
+    margin: 0;
+}
+
+/* Small screens*/
+
+@media(mac-width: 560px){
+    .showcase::after{
+        height: 50vh;
+    }
+
+    .content{
+        top: 5%;
+        margin-top: 5px;
+    }
+
+    .content .clickme{
+        height: 40px;
+        width: 120px;
+    }
+
+    .content .text{
+        display: none;
+    }
+
+    .grid-4 .grid-2{
+        grid-template-columns: 1fr;
+    }
+
+    .services div{
+        border-bottom: #333 dashed 1px;
+        padding: 1.2rem 1rem;
+    }
+}
+
+/* Landscape*/
+@media(max-height: 500px){
+    .content .title .text{
+        display: none;
+    }
+
+    .content{
+        top: 0;
+    }
+}
+

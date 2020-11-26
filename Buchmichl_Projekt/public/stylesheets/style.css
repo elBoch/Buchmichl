@@ -1,0 +1,21 @@
+#grid{
+    margin-left: 2%;
+    margin-right:2%;
+    width:96%;
+}
+#calendar2{
+    margin-left: 5px;
+}
+#slide{
+    margin-top: 2%;
+}
+#date-input{
+    background-color: #f9f9f9;
+}
+body{
+    background-color: lightgrey;
+}
+
+#buchen:hover{
+    background-color:lightgreen;
+}

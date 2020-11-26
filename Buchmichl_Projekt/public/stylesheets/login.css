@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
+
+body {
+    background-color: #bbbbbb;
+    font-family: 'Raleway';
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.container {
+    width: 30%;
+    margin: auto;
+    margin-top: 10%;
+    border-style: solid;
+    border-color: #d20d0d;
+    border-width: 5px;
+    border-radius: 20px;
+    background-color: #d20d0d;
+    box-shadow: 10px 10px #404040;
+}
+
+.loginHeader {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-size: 290%;
+}
+
+.input {
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+input {
+    border: 2px solid white;
+    border-radius: 4px;
+    /*box-shadow: 5px 5px #404040;*/
+    display: flex;
+    width: 100%;
+    font-size: 100%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.button {
+    background-color: rgb(44, 44, 44);
+    border: none;
+    color: white;
+    padding: 5% 10%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 4px;
+    /*font-size: 16px;*/
+}
+.button:hover {
+    background-color: white;
+    border: none;
+    color: red;
+    padding: 5% 10%;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 4px;
+    /*font-size: 16px;*/
+}
+
+button:hover {
+    cursor: pointer;
+}

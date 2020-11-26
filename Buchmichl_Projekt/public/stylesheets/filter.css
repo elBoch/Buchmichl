@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway';
+    background-color: white;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+h2{
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: white;
+}
+
+.header {
+    width: 100%;
+    height: auto;
+    background-color: red;
+    text-align: center;
+    padding: 1% 0 1% 0;
+}
+
+.subheader {
+    width: 100%;
+    height: auto;
+    background-color: darkred;
+    text-align: center;
+    padding: 0.5% 0 0.5% 0;
+}
+
+.filterContainer {
+    height: auto;
+    width: auto;
+    padding-top: 8%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.borderContainer {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: red;
+    padding-top: 1%;
+    padding: 2% 60px;
+    background-color: lightgrey;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.flexContainerButton {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+input {
+    border: 0px;
+    outline: 0px;
+    padding: 6px 8px;
+    border-bottom: solid 3px red;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+select {
+    border: 0px;
+    outline: 0px;
+    padding: 6px 8px;
+    border-bottom: solid 3px red;
+    box-sizing: border-box;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+span {
+    font-weight: bold;
+}
+
+button {
+    cursor: pointer;
+    padding: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: 300ms;
+    color: white;
+    background-color: black;
+    border-radius: 12px;
+    border: none;
+}
+
+button:hover {
+    color: red;
+    background-color: white;
+}
+
+input,
+button,
+select:focus{
+    outline: none !important;
+}
