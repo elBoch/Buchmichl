@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
@@ -7,13 +7,13 @@
     box-sizing: border-box;
 }
 
-nav{
+nav {
     background: #053426;
     height: 80px;
     width: 100%;
 }
 
-label.logo{
+label.logo {
     color: white;
     font-size: 35px;
     line-height: 80px;
@@ -22,31 +22,30 @@ label.logo{
     margin: 0;
 }
 
-
-nav ul{
+nav ul {
     float: right;
     margin-right: 20px;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
 }
 
-.details{
+.details {
     width: 50%;
     float: right;
     margin-right: 5%;
 }
 
-h1{
+h1 {
     text-align: center;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -54,25 +53,24 @@ h1{
     font-weight: bold;
 }
 
-.description{
+.description {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.datepicker{
+.datepicker {
     margin-top: 2%;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.infos{
+.infos {
     margin-top: 2%;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.btn-book{
-    
+.btn-book {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,7 +79,7 @@ h1{
     margin-right: 10px;
 }
 
-.btn-book button{
+.btn-book button {
     width: 20%;
     background-color: #053426;
     border-radius: 10px;
@@ -89,7 +87,7 @@ h1{
     outline: nonen;
 }
 
-.btn-book button a{
+.btn-book button a {
     font-size: 24px;
     font-weight: bold;
     color: white;

@@ -17,67 +17,71 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
-    $( function() {
-        $( "#datepicker1" ).datepicker();
-    } );
+        $(function() {
+            $("#datepicker1").datepicker();
+        });
     </script>
     <script>
-        $( function() {
-            $( "#datepicker2" ).datepicker();
-        } );
-        </script>
+        $(function() {
+            $("#datepicker2").datepicker();
+        });
+    </script>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <label class="logo">BUCHMICHL</label>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav>
+            <label class="logo">BUCHMICHL</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<h1>Room One</h1>
+    <h1>Room One</h1>
 
-<div class="w3-content" style="max-width:40%; float: left; margin-left: 3%;">
-  <img class="mySlides" src="img/zimmer1.jpg" style="width:100%;display:none">
-  <img class="mySlides" src="img/zimmer2.jpg" style="width:100%;">
-  <img class="mySlides" src="img/zimmer3.jpg" style="width:100%;display:none">
+    <div class="w3-content" style="max-width:40%; float: left; margin-left: 3%;">
+        <img class="mySlides" src="img/zimmer1.jpg" style="width:100%;display:none">
+        <img class="mySlides" src="img/zimmer2.jpg" style="width:100%;">
+        <img class="mySlides" src="img/zimmer3.jpg" style="width:100%;display:none">
 
-  <div class="w3-row-padding w3-section">
-    <div class="w3-col s4">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+        <div class="w3-row-padding w3-section">
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+            </div>
+        </div>
     </div>
-    <div class="w3-col s4">
-      <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
-    </div>
-    <div class="w3-col s4">
-        <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
-      </div>
-  </div>
-</div>
 
-<div class="details">
-    <div class="description">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, repudiandae voluptatum excepturi tempore recusandae dolore distinctio, delectus nisi dolorem voluptas quia ex quos? Dolores aliquam consequatur odio ad voluptatibus accusantium facilis unde tempore velit consequuntur, asperiores, molestias debitis quo? Voluptatem id quidem totam reprehenderit consequatur nulla, suscipit nihil quam animi tenetur est saepe ut ex fugiat itaque cum magnam nisi maiores similique repudiandae quasi rerum labore. Temporibus quos suscipit quia quibusdam quas dolorum consequatur voluptate quod, id eius optio quaerat voluptatum cum minus facere eaque esse. Mollitia natus laudantium dolorum ipsam praesentium eaque ad perferendis deserunt consequatur, maiores excepturi repellendus!</p>
+    <div class="details">
+        <div class="description">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, repudiandae voluptatum excepturi tempore recusandae dolore distinctio, delectus nisi dolorem voluptas quia ex quos? Dolores aliquam consequatur odio ad voluptatibus accusantium
+                facilis unde tempore velit consequuntur, asperiores, molestias debitis quo? Voluptatem id quidem totam reprehenderit consequatur nulla, suscipit nihil quam animi tenetur est saepe ut ex fugiat itaque cum magnam nisi maiores similique repudiandae
+                quasi rerum labore. Temporibus quos suscipit quia quibusdam quas dolorum consequatur voluptate quod, id eius optio quaerat voluptatum cum minus facere eaque esse. Mollitia natus laudantium dolorum ipsam praesentium eaque ad perferendis
+                deserunt consequatur, maiores excepturi repellendus!</p>
+        </div>
+        <div class="datepicker">
+            <p>Date: <input type="text" id="datepicker1"></p>
+            <br>
+            <p>Date: <input type="text" id="datepicker2"></p>
+        </div>
+        <div class="infos">
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+        </div>
+        <div class="btn-book">
+            <button><a href="#">BUCHEN</a></button>
+        </div>
     </div>
-    <div class="datepicker">
-        <p>Date: <input type="text" id="datepicker1"></p>
-        <br>
-        <p>Date: <input type="text" id="datepicker2"></p>
-    </div>
-    <div class="infos">
-        <p>Attribuite 1</p>
-        <p>Attribuite 1</p>
-        <p>Attribuite 1</p>
-        <p>Attribuite 1</p>
-    </div>
-    <div class="btn-book">
-        <button><a href="#">BUCHEN</a></button>
-    </div>
-</div>
 
 </body>
+
 </html>

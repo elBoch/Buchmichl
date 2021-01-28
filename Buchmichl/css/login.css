@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
@@ -7,13 +7,13 @@
     box-sizing: border-box;
 }
 
-nav{
+nav {
     background: #053426;
     height: 80px;
     width: 100%;
 }
 
-label.logo{
+label.logo {
     color: white;
     font-size: 35px;
     line-height: 80px;
@@ -22,34 +22,33 @@ label.logo{
     margin: 0;
 }
 
-
-nav ul{
+nav ul {
     float: right;
     margin-right: 20px;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 5px;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
 }
 
-.hero{
+.hero {
     height: 100%;
     width: 100%;
-    background-image: url(/img/background.jpg);
+    background-image: url(../img/background.jpg);
     background-position: center;
     background-size: cover;
     position: absolute;
 }
 
-.form-box{
+.form-box {
     width: 380px;
     height: 480px;
     position: relative;
@@ -60,35 +59,46 @@ nav ul li a{
     border-radius: 10px;
 }
 
-.button-box{
+.button-box {
     width: 220px;
     margin: 35px auto;
     position: relative;
 }
 
-.toggle-btn{
+.toggle-btn {
     width: 105px;
     text-align: center;
     cursor: pointer;
-    background: transparent;
+    background: none;
     border: 0;
-    outline: none;
-    background: #053426;
     font-size: 16px;
-    font-weight: bold;
-    color: #AD8D49;
+    font-weight: bolder;
+    border-style: solid;
+    border-color: white;
+    border-bottom: #053426;
+    color: #053426;
     padding: 10px;
     border-radius: 10px;
 }
 
-.input-group{
-    top: 180px;
+.input-group {
     position: absolute;
     width: 280px;
     transition: .5s;
 }
 
-.input-field{
+.input-field {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: gray;
+    border-bottom: 3px solid #053426;
+    /*box-shadow: 5px 5px #404040;*/
+    display: flex;
+    width: 100%;
+    font-size: 120%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    /*
     width: 100%;
     padding-top: 10px 0;
     margin: 5px 0;
@@ -99,10 +109,10 @@ nav ul li a{
     outline: none;
     background: transparent;
     font-size: 16px;
-    margin-top: 5px;
+    margin-top: 5px;*/
 }
 
-.submit-btn{
+.submit-btn {
     width: 85%;
     padding: 10px 30px;
     cursor: pointer;
@@ -112,27 +122,27 @@ nav ul li a{
     border: 0;
     outline: none;
     border-radius: 10px;
-    color: #AD8D49;
+    color: white;
     font-size: 20px;
     font-weight: bold;
 }
 
-.check-box{
+.check-box {
     margin: 30px 10px 30px 0;
     border-color: #053426;
 }
 
-span{
-    color:#053426;
+span {
+    color: #053426;
     font-size: 16px;
     bottom: 68px;
     position: absolute;
 }
 
-#login{
+#login {
     left: 50px;
 }
 
-#register{
+#register {
     left: 450px;
 }
