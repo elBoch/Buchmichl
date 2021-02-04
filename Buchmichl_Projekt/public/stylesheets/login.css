@@ -1,81 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
 
-body {
-    background-color: #bbbbbb;
-    font-family: 'Raleway';
+nav {
+    background: #053426;
+    height: 80px;
+    width: 100%;
+}
+
+label.logo {
     color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    margin: 0;
 }
 
-.center {
-    display: flex;
-    justify-content: space-evenly;
-    margin: auto;
+nav ul {
+    float: right;
+    margin-right: 20px;
 }
 
-.container {
-    width: 30%;
-    margin: auto;
-    margin-top: 10%;
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    background-image: url(../img/background.jpg);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: white;
+    padding: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+}
+
+.toggle-btn {
+    width: 105px;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    font-size: 16px;
+    font-weight: bolder;
     border-style: solid;
-    border-color: #d20d0d;
-    border-width: 5px;
-    border-radius: 20px;
-    background-color: #d20d0d;
-    box-shadow: 10px 10px #404040;
+    border-color: white;
+    border-bottom: #053426;
+    color: #053426;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-.loginHeader {
-    padding-top: 30px;
-    padding-bottom: 40px;
-    font-size: 290%;
+.input-group {
+    position: absolute;
+    width: 280px;
+    transition: .5s;
 }
 
-.input {
-    margin-right: 25%;
-    margin-left: 25%;
-}
-
-input {
-    border: 2px solid white;
-    border-radius: 4px;
+.input-field {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: gray;
+    border-bottom: 3px solid #053426;
     /*box-shadow: 5px 5px #404040;*/
     display: flex;
     width: 100%;
-    font-size: 100%;
+    font-size: 120%;
     padding-top: 4%;
     padding-bottom: 4%;
+    /*
+    width: 100%;
+    padding-top: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 2px solid #053426;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    margin-top: 5px;*/
 }
 
-p {
-    margin: 0;
-    font-weight: bold;
-}
-
-.button {
-    background-color: rgb(44, 44, 44);
-    border: none;
-    color: white;
-    padding: 5% 10%;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    border-radius: 4px;
-    /*font-size: 16px;*/
-}
-.button:hover {
-    background-color: white;
-    border: none;
-    color: red;
-    padding: 5% 10%;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    border-radius: 4px;
-    /*font-size: 16px;*/
-}
-
-button:hover {
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
     cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #053426;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.check-box {
+    margin: 30px 10px 30px 0;
+    border-color: #053426;
+}
+
+span {
+    color: #053426;
+    font-size: 16px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login {
+    left: 50px;
+}
+
+#register {
+    left: 450px;
 }

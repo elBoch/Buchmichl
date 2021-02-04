@@ -1,69 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/stylesheets/filter.css">
+    <title>Buchmichl</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <label class="logo">BUCHMICHL</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!doctype html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>Buchmichl</title>
-            <meta name="description" content="The HTML5 Herald">
-            <meta name="author" content="SitePoint">
-            <link rel="stylesheet" href="/public/stylesheets/filter.css">
-            <script src="https://kit.fontawesome.com/8b1b2bee53.js" crossorigin="anonymous"></script>
-            <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-            <script language="javascript" type="text/javascript" src="/public/view/filterclient.js"></script>
-        </head>
-        <body>
-            <div class="header">
-                <h1>Buchmichl</h1>
-            </div>
-            <div class="subheader">
-                <h2>Wo soll's hingehen?</h2>
-            </div>
-            <div class="filterContainer">
-                <div class="borderContainer">
-                    <div class="flexContainer">
-                        <span>Region:</span>
-                        <input>
-                    </div>
-                    <div class="flexContainer">
-                        <span>Sterne:</span>
-                        <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <div class="flexContainer">
-                        <span>Preis von:</span>&nbsp;&nbsp;&nbsp;
-                        <input>
-                    </div>
-                    <div class="flexContainer">
-                        <span>Preis bis:</span>
-                        <input>
-                    </div>
-                    <div class="flexContainer">
-                        <span class="selectSpan1">Anz. Personen:</span>
-                        <select>
-                            <option>
-                                2
-                            </option>
-                            <option>
-                                3
-                            </option>
-                        </select>
-                    </div>
-                    <div class="flexContainer">
-                        <span class="selectSpan2">Art Unterkunft:</span>
-                        <select>
-                            <option>
-                                Hotel
-                            </option>
-                            <option>
-                                Pension
-                            </option>
-                        </select>
-                    </div>
-                    <div class="flexContainerButton">
-                        <button id="suchen">Suchen <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-    
-            </div>
-        </body>
-    </html>
-    
+    <h1>Wo solls hingehen?</h1>
+
+    <div class="grid-container">
+        <div class="search">
+           Region: 
+        </div>
+        <div class="region-input">
+            <input type="text">
+        </div>
+        <div class="bewertung">
+            Sterne
+        </div>
+        <div class="bewertung-auswahl">
+            <select name="" id="">
+                <option value="1">1 Stern</option>
+                <option value="2">2 Stern</option>
+                <option value="3">3 Stern</option>
+                <option value="4">4 Stern</option>
+                <option value="5">5 Stern</option>
+            </select>
+        </div>
+        <div class="preis-von">
+            Preis von:
+        </div>
+        <div class="preis-von-wert">
+            <input type="number">
+        </div>
+        <div class="preis-bis">
+            Preis bis:
+        </div>
+        <div class="preis-bis-wert">
+            <input type="number">
+        </div>
+        <div class="anz-pers">
+            Anzahl Personen:
+        </div>
+        <div class="anz-pers-wert">
+            <input type="number">
+        </div>
+        <div class="art">
+            Art der Unterkunft
+        </div>
+        <div class="art-wert">
+            <select name="" id="">
+                <option value="1">Hotel</option>
+                <option value="2">Pension</option>
+                <option value="3">Haus</option>
+                <option value="4">Bauernhof</option>
+                <option value="5">Bergütte</option>
+            </select>
+        </div>
+        <div class="bt-search">
+            <a href="#">Suchen</a>
+        </div>
+    </div>
+
+    <div class="rooms">
+        <div class="room">
+            <p><a href="view.html">Room 1</a></p>
+        </div>
+        <div class="room">
+            <p><a href="view.html">Room 2</a></p>
+        </div>
+        <div class="room">
+            <p><a href="view.html">Room 3</a></p>
+        </div>
+        <div class="room">
+            <p><a href="view.html">Room 4</a></p>
+        </div>
+        <div class="room">
+            <p><a href="view.html">Room 5</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

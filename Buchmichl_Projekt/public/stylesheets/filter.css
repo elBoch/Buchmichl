@@ -1,121 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500&display=swap');
-
-html,
-body {
-    height: 100%;
-    width: 100%;
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Raleway';
-    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
+
+nav {
+    background: #053426;
+    height: 80px;
+    width: 100%;
+}
+
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    margin: 0;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+
+/*
+    New Style
+*/
 
 h1 {
-    padding: 0;
-    margin: 0;
-    color: white;
-    font-size: 45px;
+    text-align: center;
+    font-size: 48px;
+    margin-top: 3%;
     font-weight: bold;
+    color: #053426;
 }
 
-h2{
-    padding: 0;
-    margin: 0;
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "search region-input bewertung bewertung-auswahl" "preis-von preis-von-wert preis-bis preis-bis-wert" "anz-pers anz-pers-wert art art-wert" "bt-search bt-search bt-search bt-search";
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2%;
+    grid-gap: 20px;
+}
+
+.search {
+    grid-area: search;
+}
+
+.region-input {
+    grid-area: region-input
+}
+
+.bewertung {
+    grid-area: bewertung;
+}
+
+.bewertung-auswahl {
+    grid-area: bewertung-auswahl;
+}
+
+.preis-von {
+    grid-area: preis-von
+}
+
+.preis-von-wert {
+    grid-area: preis-von-wert;
+}
+
+.preis-bis {
+    grid-area: preis-bis;
+}
+
+.preis-bis-wert {
+    grid-area: preis-bis-wert;
+}
+
+.anz-pers {
+    grid-area: anz-pers;
+}
+
+.anz-pers-wert {
+    grid-area: anz-pers-wert;
+}
+
+.art {
+    grid-area: art;
+}
+
+.art-wert {
+    grid-area: art-wert;
+}
+
+.bt-search {
+    margin-top: 4%;
+    grid-area: bt-search;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+.bt-search a {
+    padding: 8px 25px 8px 25px;
+    text-decoration: none;
+    border: solid 2px #053426;
+    background-color: #053426;
     color: white;
-    font-weight: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
 }
 
-.header {
-    width: 100%;
-    height: auto;
-    background-color: red;
-    text-align: center;
-    padding: 1% 0 1% 0;
-}
-
-.subheader {
-    width: 100%;
-    height: auto;
-    background-color: darkred;
-    text-align: center;
-    padding: 0.5% 0 0.5% 0;
-}
-
-.filterContainer {
-    height: auto;
-    width: auto;
-    padding-top: 8%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.borderContainer {
-    border-radius: 15px;
-    border-style: solid;
-    border-color: red;
-    padding-top: 1%;
-    padding: 2% 60px;
-    background-color: lightgrey;
-}
-
-.flexContainer {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding-bottom: 10%;
-}
-
-.flexContainerButton {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+.bt-search a:hover {
+    background-color: #38785E;
+    border-color: #38785E;
 }
 
 input {
-    border: 0px;
-    outline: 0px;
-    padding: 6px 8px;
-    border-bottom: solid 3px red;
-    box-sizing: border-box;
-    font-size: 15px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #38785E;
+    font-size: 16px;
 }
 
 select {
-    border: 0px;
-    outline: 0px;
-    padding: 6px 8px;
-    border-bottom: solid 3px red;
-    box-sizing: border-box;
-    font-size: 15px;
+    width: 100%;
+    height: 100%;
+    border: solid 2px #38785E;
+    outline: none;
+    font-size: 16px;
+}
+
+select:hover {
     cursor: pointer;
 }
 
-span {
-    font-weight: bold;
+.rooms {
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-top: 4%;
 }
 
-button {
-    cursor: pointer;
-    padding: 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-    transition: 300ms;
-    color: white;
-    background-color: black;
-    border-radius: 12px;
-    border: none;
+.room {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    height: auto;
+    background-color: #C2A25D;
+    border-radius: 10px;
 }
 
-button:hover {
-    color: red;
-    background-color: white;
+.room p {
+    text-align: center;
+    padding: 100px;
 }
 
-input,
-button,
-select:focus{
-    outline: none !important;
+.room p a {
+    text-decoration: underline;
+    color: #053426;
+    font-size: 32px;
 }

@@ -1,130 +1,87 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Zimmeransicht</title>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script language="javascript" type="text/javascript" src="/public/view/ansichtclient.js"></script>
-    
-    <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <script src="js/view.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Zimmeransicht</title>
 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/git/jquery.mobile-git.css" />
-    <link rel="stylesheet"
-        href="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="https://rawgithub.com/jquery/jquery-ui/1-10-stable/ui/jquery.ui.datepicker.js"></script>
-    <script src="http://code.jquery.com/mobile/git/jquery.mobile-git.js"></script>
-    <script
-        src="https://rawgithub.com/arschmitz/jquery-mobile-datepicker-wrapper/master/jquery.mobile.datepicker.js"></script>
-
-    <!-- eigene CSS-Anweisungen -->
-    <link href="/public/stylesheets/style.css" rel="stylesheet">
-    <style>
-        .nav {
-            background-color: #e75252;
-            color: white;
-            font-weight: lighter;
-        }
-    </style>
+    <!--Datepicker-->
+    <title>jQuery UI Datepicker - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker1").datepicker();
+        });
+    </script>
+    <script>
+        $(function() {
+            $("#datepicker2").datepicker();
+        });
+    </script>
 </head>
 
 <body>
-    <div class="content" data-role="page">
-        <div data-role="header" style="background-color: #f90808;color: white;">
-            <h1>Buchmichl</h1>
-            <div data-role="navbar" class="nav">
-                <ul>
-                    <li class="nav"><a href="#" id="home">Startseite</a></li>
-                    <li><a class="nav" href="#">Zimmer suchen</a></li>
-                    <li><a class="nav" href="#">Impressum</a></li>
-                </ul>
+
+    <header>
+        <nav>
+            <label class="logo">BUCHMICHL</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Room One</h1>
+
+    <div class="w3-content" style="max-width:40%; float: left; margin-left: 3%;">
+        <img class="mySlides" src="img/zimmer1.jpg" style="width:100%;display:none">
+        <img class="mySlides" src="img/zimmer2.jpg" style="width:100%;">
+        <img class="mySlides" src="img/zimmer3.jpg" style="width:100%;display:none">
+
+        <div class="w3-row-padding w3-section">
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+            </div>
+            <div class="w3-col s4">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
             </div>
         </div>
-
-        <h1 style="margin-left: 2%;">Horwath Suite</h1>
-
-        <div class="ui-grid-a" id="grid">
-            <div class="ui-block-a" min-width="100px" >
-                    <img src="/public/images/zimmer1.jpg" width="89%" height="80%">
-                    <br />
-
-                    <div class="ui-grid-c" min-width="80%" max-width="80%" id="slide">
-                        <div class="ui-block-a">
-                            <img src="/public/images/zimmer2.jpg" width="55%" height="50%">
-                        </div>
-                        <div class="ui-block-b">
-                            <img src="/public/images/zimmer3.jpg" width="55%" height="50%">
-                        </div>
-                        <div class="ui-block-c">
-                            <img src="/public/images/zimmer4.jpg" width="55%" height="50%">
-                        </div>
-                        <div class="ui-block-d">
-                            <img src="/public/images/zimmer5.jpg" width="55%" height="50%">
-                        </div>
-                    </div>
-                    <br>
-                    <h3>Zimmerinfos:</h3>
-                <textarea
-                    readonly>Zimmerart: christliche Suite &#13;&#10;Dusche und WC inkludiert &#13;&#10;Halbpension: ja &#13;&#10;5 Sterne</textarea>
-
-
-            </div>
-
-            <div class="ui-block-b" min-width="100px">
-                
-
-
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <label>Anreise:</label>
-                        <input type="text" data-role="date" data-inline="true" id="date-von" height="400px">
-                    </div>
-                    <div class="ui-block-b" id="calenar2">
-                        <label>Abreise:</label>
-                        <input type="text" data-role="date" data-inline="true" id="date-bis" height="400px">
-                    </div>
-
-                </div>
-                <div class="ui-grid-solo">
-                    <div class="ui-block-a">
-                        <a href="#dialog" class="ui-btn ui-corner-all ui-icon-action ui-btn-icon-left" id="buchen2"
-                            width="200px">Buchen</a>
-                            
-                            
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-
-
-
-
-
     </div>
 
-    <div data-role="dialog" id="dialog">
-        <div data-role="header">
-            <h1>Buchung abschließen</h1>
+    <div class="details">
+        <div class="description">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, repudiandae voluptatum excepturi tempore recusandae dolore distinctio, delectus nisi dolorem voluptas quia ex quos? Dolores aliquam consequatur odio ad voluptatibus accusantium
+                facilis unde tempore velit consequuntur, asperiores, molestias debitis quo? Voluptatem id quidem totam reprehenderit consequatur nulla, suscipit nihil quam animi tenetur est saepe ut ex fugiat itaque cum magnam nisi maiores similique repudiandae
+                quasi rerum labore. Temporibus quos suscipit quia quibusdam quas dolorum consequatur voluptate quod, id eius optio quaerat voluptatum cum minus facere eaque esse. Mollitia natus laudantium dolorum ipsam praesentium eaque ad perferendis
+                deserunt consequatur, maiores excepturi repellendus!</p>
         </div>
-        <div data-role="content">
-            <p>Buchung einmal Horwath Suite.
-                Aufenthalt von TT.MM.JJJJ bis TT.MM.JJJJJ<br>
-                Preis: 1.000 € pro Nacht<br>
-                Halbpension: 300€<br>
-                Gesamtpreis: 2.300 €
-            </p>
-            <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-btn-a ui-icon-back ui-btn-icon-left"
-                data-rel="back">Zurück</a>
-            <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-btn-a ui-icon-check ui-btn-icon-left"
-                data-rel="back">Abschließen</a>
+        <div class="datepicker">
+            <p>Date: <input type="text" id="datepicker1"></p>
+            <br>
+            <p>Date: <input type="text" id="datepicker2"></p>
+        </div>
+        <div class="infos">
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+            <p>Attribuite 1</p>
+        </div>
+        <div class="btn-book">
+            <button><a href="#">BUCHEN</a></button>
         </div>
     </div>
+
 </body>
 
 </html>

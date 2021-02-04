@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#buchen").on('click',function(e){
+    $("#login").on('click',function(e){
         console.log("here we go");
 
         e.preventDefault();
