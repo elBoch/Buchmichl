@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../public/stylesheets/start.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../public/view/startclient.js" type="text/javascript"></script>
     <title>Buchmichl</title>
 </head>
 
@@ -15,7 +17,7 @@
         <nav>
             <label class="logo">BUCHMICHL</label>
             <ul>
-                <li><a href="login.ejs">Login</a></li>
+                <li><a id="login" >Login</a></li>
             </ul>
         </nav>
 
@@ -25,7 +27,7 @@
             </div>
             <div class="text">Auf zu ihrem nächsten Urlaub</div>
             <div class="bt">
-                <a class="bt-book" href="filter.ejs">JETZT BUCHEN</a>
+                <a class="bt-book" id="filter">JETZT FINDEN</a>
             </div>
         </div>
     </header>

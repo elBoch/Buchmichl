@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
-    <script src="js/view.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Zimmeransicht</title>
@@ -16,6 +15,8 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../public/view/ansichtclient.js" type="text/javascript"></script>
     <script>
         $(function() {
             $("#datepicker1").datepicker();
@@ -34,7 +35,7 @@
         <nav>
             <label class="logo">BUCHMICHL</label>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a id="home">Home</a></li>
             </ul>
         </nav>
     </header>
@@ -42,19 +43,19 @@
     <h1>Room One</h1>
 
     <div class="w3-content" style="max-width:40%; float: left; margin-left: 3%;">
-        <img class="mySlides" src="img/zimmer1.jpg" style="width:100%;display:none">
-        <img class="mySlides" src="img/zimmer2.jpg" style="width:100%;">
-        <img class="mySlides" src="img/zimmer3.jpg" style="width:100%;display:none">
+        <img class="mySlides" src="../public/images/zimmer1.jpg" style="width:100%;display:none">
+        <img class="mySlides" src="../public/images/zimmer2.jpg" style="width:100%;">
+        <img class="mySlides" src="../public/images/zimmer3.jpg" style="width:100%;display:none">
 
         <div class="w3-row-padding w3-section">
             <div class="w3-col s4">
-                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
             </div>
             <div class="w3-col s4">
-                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
             </div>
             <div class="w3-col s4">
-                <img class="demo w3-opacity w3-hover-opacity-off" src="img/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
             </div>
         </div>
     </div>
