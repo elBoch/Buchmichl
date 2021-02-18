@@ -182,3 +182,11 @@ select:hover {
     color: #053426;
     font-size: 32px;
 }
+
+.suchen {
+    cursor: pointer;
+}
+
+#home {
+    cursor: pointer;
+}

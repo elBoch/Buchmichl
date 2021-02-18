@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+body {
+    overflow: hidden;
+}
+
 .showcase::after {
     content: '';
     height: 100vh;
@@ -58,6 +62,7 @@
     text-decoration: none;
     outline-color: #AD8D49;
     margin-left: 25%;
+    cursor: pointer;
 }
 
 .content .title {
@@ -105,4 +110,8 @@ nav ul li a {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
+}
+
+#login {
+    cursor: pointer;
 }

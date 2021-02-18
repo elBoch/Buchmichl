@@ -16,7 +16,7 @@ router.post('/authenticate',(req,res)=>{
   db.one("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
       .then(function (data) {
 
-        if(data.passwort== req.body.passw){
+        if(data.passwort == req.body.passw){
             res.send({query:'ok'});
         }
         else{
@@ -25,7 +25,7 @@ router.post('/authenticate',(req,res)=>{
       })
       .catch(function (error) {
         console.log("ERROR:", error);
-        alert("Falscher Username oder Passwort!");
+        res.send({query:'nicht ok'});
       });
 
 });
