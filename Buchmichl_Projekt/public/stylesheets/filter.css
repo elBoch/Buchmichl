@@ -183,7 +183,7 @@ select:hover {
     font-size: 32px;
 }
 
-.suchen {
+#suchen {
     cursor: pointer;
 }
 
