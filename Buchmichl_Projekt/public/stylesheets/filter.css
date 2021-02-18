@@ -1,3 +1,25 @@
+body {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    display: block;
+}
+
+.container {
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-top: 3%;
+    padding: 3%;
+    border-style: solid;
+    border-color: white;
+    border-radius: 15px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -58,8 +80,8 @@ h1 {
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas: "search region-input bewertung bewertung-auswahl" "preis-von preis-von-wert preis-bis preis-bis-wert" "anz-pers anz-pers-wert art art-wert" "bt-search bt-search bt-search bt-search";
-    width: 50%;
-    margin-left: 25%;
+    width: 100%;
+    margin-left: auto;
     margin-top: 2%;
     grid-gap: 20px;
 }
