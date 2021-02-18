@@ -52,6 +52,31 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $("#regestrieren").on('click', function (e) {
+
+        var username = document.getElementById('r_username').value;
+        var passwort = document.getElementById('r_passwort').value;
+        var email = document.getElementById('r_email').value;
+
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/register',
+            data: {
+                name: username,
+                passw: passwort,
+                email: email
+            },
+            success: function (data) {
+                console.log("Successfully saved the matched beans to the user.");
+
+            }
+        });
+
+    });
+});
+
 $(document).ready(function(){
     $("#home").on('click',function(e){
         console.log("here we go");

@@ -11,9 +11,9 @@ router.get('/login', (req, res) => {
     });
 });
 
-router.post('/authenticate',(req,res)=>{
+router.post('/authenticate',(req,res) => {
     db.one("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
-        .then(function (data) {
+        .then( (data) => {
   
           if(data.passwort == req.body.passw){
               res.send({query:'ok'});
@@ -22,10 +22,14 @@ router.post('/authenticate',(req,res)=>{
               res.send({query:'nicht ok'});
           }
         })
-        .catch(function (error) {
+        .catch( (error) => {
           //console.log("ERROR:", error);
           res.send({query:'nicht ok'});
         });
   
   });
+
+router.post('/register', (req, res) => {
+    
+});
 module.exports = router;
