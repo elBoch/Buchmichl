@@ -2,16 +2,34 @@ $(document).ready(function(){
     $("#suchen").on('click',function(e){
         console.log("here we go");
 
+        var region = document.getElementById("region").value;
+        var sterne = document.getElementById("sterne").value.split(' ')[0];
+        var preis_von = document.getElementById("preis_von").value;
+        var preis_bis = document.getElementById("preis_bis").value;
+        var anz_pers = document.getElementById("anz_pers").value;
+        var unterkunftart = document.getElementById("unterkunftart").value;
+
+        console.log(region,sterne,preis_von,preis_bis,anz_pers,unterkunftart);
+
         e.preventDefault();
         //var data = $('input[name=quote]').val();
         $.ajax({
-            type: 'GET',
-            url: '/ansicht',
+            type: 'POST',
+            url: '/getUnterkunftList',
             //contentType: 'application/json',
-            //data: "test",
+            data: {
+                region: region,
+                sterne:sterne,
+                preis_von: preis_von,
+                preis_bis:preis_bis,
+                anz_pers:anz_pers,
+                unterkunftart:unterkunftart
+            },
             success: function(data) {
                 console.log("Successfully saved the matched beans to the user.");
-                window.location='/ansicht';
+                console.log(data);
+                //window.location.reload();
+                
             }
         }).done(function ( ) {
             console.log("OK");

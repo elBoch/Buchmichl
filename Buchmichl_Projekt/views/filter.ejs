@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="../public/view/filterclient.js" type="text/javascript"></script>
     <title>Buchmichl</title>
 </head>
+
 <body>
     <header>
         <nav>
@@ -19,21 +21,20 @@
             </ul>
         </nav>
     </header>
-
     <div class="container">
         <h1>Wo solls hingehen?</h1>
         <div class="grid-container">
             <div class="search">
-               Region: 
+                Region:
             </div>
             <div class="region-input">
-                <input type="text">
+                <input type="text" id="region">
             </div>
             <div class="bewertung">
                 Sterne
             </div>
             <div class="bewertung-auswahl">
-                <select name="" id="">
+                <select name="" id="sterne">
                     <option value="1">1 Stern</option>
                     <option value="2">2 Sterne</option>
                     <option value="3">3 Sterne</option>
@@ -45,30 +46,31 @@
                 Preis von:
             </div>
             <div class="preis-von-wert">
-                <input type="number">
+                <input type="number" id="preis_von">
             </div>
             <div class="preis-bis">
                 Preis bis:
             </div>
             <div class="preis-bis-wert">
-                <input type="number">
+                <input type="number" id="preis_bis">
             </div>
             <div class="anz-pers">
                 Anzahl Personen:
             </div>
             <div class="anz-pers-wert">
-                <input type="number">
+                <input type="number" id="anz_pers">
             </div>
             <div class="art">
                 Art der Unterkunft
             </div>
             <div class="art-wert">
-                <select name="" id="">
-                    <option value="1">Hotel</option>
-                    <option value="2">Pension</option>
-                    <option value="3">Haus</option>
-                    <option value="4">Bauernhof</option>
-                    <option value="5">Bergütte</option>
+                <select name="" id="unterkunftart">
+                    <option value="Hotel">Hotel</option>
+                    <option value="Pension">Pension</option>
+                    <option value="Haus">Haus</option>
+                    <option value="Bauernhof">Bauernhof</option>
+                    <option value="Bergütte">Bergütte</option>
+                    <option value="Gasthof">Gasthof</option>
                 </select>
             </div>
             <div class="bt-search">
@@ -76,7 +78,10 @@
             </div>
         </div>
     </div>
-    
+    <div id="list">
+    </div>
+
 
 </body>
+
 </html>

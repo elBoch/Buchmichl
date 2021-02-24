@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/authenticate',(req,res) => {
-    db.one("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
+    db.query("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
         .then( (data) => {
   
           if(data.passwort == req.body.passw){
@@ -33,3 +33,4 @@ router.post('/register', (req, res) => {
     
 });
 module.exports = router;
+module.exports.db = db;
