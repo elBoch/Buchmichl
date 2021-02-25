@@ -12,10 +12,12 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/authenticate',(req,res) => {
+  console.log(req.body.name);
     db.query("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
         .then( (data) => {
+          console.log(data[0].passwort);
   
-          if(passwordHash.verify(req.body.passw, data.passw)){
+          if(passwordHash.verify(req.body.passw, data[0].passwort)){
               res.send({query:'ok'});
           }
           else{
