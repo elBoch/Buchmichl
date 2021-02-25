@@ -30,7 +30,16 @@ router.post('/authenticate',(req,res) => {
   });
 
 router.post('/register', (req, res) => {
-    
+    db.query('INSERT INTO benutzer (username, passwort, vorname, nachname, geburtsdatum, addresse, email, admin) VALUES($1,$2, \'vorname\',\'nachname\',\'01.01.2020\',\'addresse\',$3,\'false\')',
+    [req.body.name, req.body.passw, req.body.email])
+    .then((data)=>{
+      console.log("sdjfg");
+      res.send('register successed');
+    })
+    .catch( (error) => {
+      console.log("ERROR:", error);
+      res.send('register failed');
+    });
 });
 module.exports = router;
 module.exports.db = db;

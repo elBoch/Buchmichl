@@ -70,6 +70,11 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log("Successfully saved the matched beans to the user.");
+                console.log(data);
+                alert(data);
+                if(data=='register successed'){
+                    window.location = "/filter";
+                }
 
             }
         });
