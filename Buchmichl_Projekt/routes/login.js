@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pgp = require("pg-promise")(/*/options/*/);
 var db = pgp("postgresql://postgres:postgres@127.0.0.1/buchmichl");
-
+var passwordHash = require('password-hash');
 
 router.get('/login', (req, res) => {
 
@@ -15,7 +15,7 @@ router.post('/authenticate',(req,res) => {
     db.query("SELECT passwort FROM benutzer WHERE username=$1",[req.body.name])
         .then( (data) => {
   
-          if(data.passwort == req.body.passw){
+          if(passwordHash.verify(req.body.passw, data.passw)){
               res.send({query:'ok'});
           }
           else{
@@ -30,8 +30,9 @@ router.post('/authenticate',(req,res) => {
   });
 
 router.post('/register', (req, res) => {
+  var hashedPassword = passwordHash.generate(req.body.passw);
     db.query('INSERT INTO benutzer (username, passwort, vorname, nachname, geburtsdatum, addresse, email, admin) VALUES($1,$2, \'vorname\',\'nachname\',\'01.01.2020\',\'addresse\',$3,\'false\')',
-    [req.body.name, req.body.passw, req.body.email])
+    [req.body.name,hashedPassword , req.body.email])
     .then((data)=>{
       console.log("sdjfg");
       res.send('register successed');
