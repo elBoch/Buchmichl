@@ -37,6 +37,7 @@ router.post('/getUnterkunftList', (req, res) => {
                       "FROM unterkunft u INNER JOIN zimmerartinunterkunft zu ON u.unterkunftid=zu.unterkunftid "+
                                         "INNER JOIN zimmer z ON z.zimmerartid = zu.zimmerartid AND z.unterkunftid= zu.unterkunftid "+ 
                                         "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid "+
+                                        "INNER JOIN region r ON u.regionid = r.regionid "+
                       "WHERE z.preis BETWEEN "+req.body.preis_von+" AND ";
 
     if(req.body.preis_bis !=""){
