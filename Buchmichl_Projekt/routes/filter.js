@@ -58,7 +58,7 @@ router.post('/getUnterkunftList', (req, res) => {
       filterStatement+=" AND ua.unterkunftartname = '"+req.body.unterkunftart+"'";
     }
 
-    filterStatement+";";
+    filterStatement+=" ORDER BY u.unterkunftid;";
 
   }
 

@@ -6,6 +6,8 @@ body {
     background-repeat: none;
     background-position: center;
     display: block;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
@@ -211,4 +213,11 @@ select:hover {
 
 #home {
     cursor: pointer;
+}
+
+template {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 }

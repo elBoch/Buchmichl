@@ -29,7 +29,7 @@ $(document).ready(function(){
                 console.log("Successfully saved the matched beans to the user.");
                 console.log(data);
                 //window.location.reload();
-                
+                printData(data);
             }
         }).done(function ( ) {
             console.log("OK");
@@ -75,3 +75,24 @@ $(document).ready(function(){
 
 
 });
+
+function printData(data) {
+    var temp = document.getElementsByTagName("template")[0];
+
+    //console.log(data[0].unterkunftname);
+    for(let i = 0; i < data.length; i++) {   
+        if(i == 0 || data[i].unterkunftartname != data[i-1].unterkunftartname) {
+            try{
+                var clone = temp.content.cloneNode(true);
+                clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
+                clone.getElementById("t_price").innerHTML = "Preis: " + data[i].preis + "€";
+                clone.getElementById("t_art").innerHTML = "Art: " + data[i].unterkunftartname;
+                clone.getElementById("t_region").innerHTML = "Region: " + data[i].regionname;
+                clone.getElementById("t_stars").innerHTML = "Sterne: " + data[i].sterne;
+                document.body.appendChild(clone);
+            }catch(error){
+
+            }
+        }        
+    }
+}
