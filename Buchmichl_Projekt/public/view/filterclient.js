@@ -81,6 +81,8 @@ function printData(data) {
     var temp = document.getElementsByTagName("template")[0];
    
     //TODO: removen der List items
+    document.getElementById("list").innerHTML='';
+    //$("#list").html("");
     
 
     //console.log(data[0].unterkunftname);
@@ -93,7 +95,7 @@ function printData(data) {
                 clone.getElementById("t_region").innerHTML = "Region: " + data[i].regionname;
                 clone.getElementById("t_stars").innerHTML = "Sterne: " + data[i].sterne;
                 clone.getElementById("t_anz_pers").innerHTML = "Personen: " + data[i].anzahlpersonen;
-                document.body.appendChild(clone);
+                document.getElementById("list").appendChild(clone);
             } catch (error) {
 
             }
