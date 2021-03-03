@@ -87,14 +87,18 @@ function printData(data) {
 
     //console.log(data[0].unterkunftname);
     for (let i = 0; i < data.length; i++) {
-        if (i == 0 || data[i].unterkunftartname != data[i - 1].unterkunftartname) {
+        if (i === 0 || data[i].unterkunftartname !== data[i - 1].unterkunftartname) {
             try {
                 var clone = temp.content.cloneNode(true);
                 clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
-                clone.getElementById("t_art").innerHTML = "Art: " + data[i].unterkunftartname;
-                clone.getElementById("t_region").innerHTML = "Region: " + data[i].regionname;
-                clone.getElementById("t_stars").innerHTML = "Sterne: " + data[i].sterne;
-                clone.getElementById("t_anz_pers").innerHTML = "Personen: " + data[i].anzahlpersonen;
+                clone.getElementById("t_name").style.marginTop = "0";
+                clone.getElementById("t_art").innerHTML = "<b>Art: </b>" + data[i].unterkunftartname;
+                clone.getElementById("t_region").innerHTML = "<b>Region: </b>" + data[i].regionname;
+                clone.getElementById("t_stars").innerHTML = "<b>Sterne: </b>" + data[i].sterne;
+                clone.getElementById("t_anz_pers").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
+                if(i===0) {
+                    clone.getElementById("t_hr").style.display = "none";
+                }
                 document.getElementById("list").appendChild(clone);
             } catch (error) {
 

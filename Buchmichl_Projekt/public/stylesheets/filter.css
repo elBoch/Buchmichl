@@ -12,14 +12,11 @@ body {
 
 .container {
     background-color: white;
-    width: fit-content;
+    width: 60%;
     height: fit-content;
     margin: auto;
-    margin-top: 3%;
+    margin-top: 0;
     padding: 3%;
-    border-style: solid;
-    border-color: white;
-    border-radius: 15px;
 }
 
 * {
@@ -82,8 +79,8 @@ h1 {
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;
     grid-template-areas: "search region-input bewertung bewertung-auswahl" "preis-von preis-von-wert preis-bis preis-bis-wert" "anz-pers anz-pers-wert art art-wert" "bt-search bt-search bt-search bt-search";
-    width: 100%;
-    margin-left: auto;
+    width: fit-content;
+    margin: auto;
     margin-top: 2%;
     grid-gap: 20px;
 }
@@ -220,4 +217,41 @@ template {
     justify-content: center;
     align-items: center;
     background-color: white;
+}
+
+hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#list {
+    margin-top: 3%;
+}
+
+
+.listItemText {
+    padding-top: 0;
+    vertical-align: top;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 100%;
+    row-gap: 15px;
+}
+
+.listItemText > * {
+    width: 50%;
+    /*flex-grow: 1;
+    flex-shrink: 0;*/
+}
+
+.listItemText > h3 {
+    color: #053426;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.listItemText > #bt_details {
+    width: 100px;
 }
