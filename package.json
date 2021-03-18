@@ -22,11 +22,13 @@
   },
   "homepage": "https://github.com/benadeja/nodejs#readme",
   "dependencies": {
+    "database": "^0.0.2",
     "ejs": "^3.1.6",
     "express": "^4.16.4",
     "hbs": "^4.1.1",
     "jquery": "^3.5.1",
     "password-hash": "^1.2.2",
+    "pg": "^8.5.1",
     "pg-promise": "^10.9.1"
   }
 }

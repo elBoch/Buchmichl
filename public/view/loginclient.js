@@ -1,9 +1,9 @@
-$(document).ready(function () {
+$(document).ready( () => {
     $("#anmelden").on('click', function (e) {
 
-        var username = document.getElementById('username').value;
-        var passwort = document.getElementById('passwort').value;
-        var redirect = false;
+        const username = document.getElementById('username').value;
+        const passwort = document.getElementById('passwort').value;
+        let redirect = false;
 
         e.preventDefault();
         $.ajax({
@@ -15,7 +15,7 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log("Successfully saved the matched beans to the user.");
-
+                console.log(data);
             }
         }).done(function (data) {
 
@@ -52,12 +52,12 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
+$(document).ready(() => {
     $("#regestrieren").on('click', function (e) {
 
-        var username = document.getElementById('r_username').value;
-        var passwort = document.getElementById('r_passwort').value;
-        var email = document.getElementById('r_email').value;
+        const username = document.getElementById('r_username').value;
+        const passwort = document.getElementById('r_passwort').value;
+        const email = document.getElementById('r_email').value;
 
         e.preventDefault();
         $.ajax({
@@ -82,17 +82,14 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function(){
-    $("#home").on('click',function(e){
+$(document).ready(() => {
+    $("#home").on('click',e => {
         console.log("here we go");
 
         e.preventDefault();
-        //var data = $('input[name=quote]').val();
         $.ajax({
             type: 'GET',
             url: '/',
-            //contentType: 'application/json',
-            //data: "test",
             success: function(data) {
                 console.log("Successfully saved the matched beans to the user.");
                 window.location='/';
