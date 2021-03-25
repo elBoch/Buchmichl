@@ -35,12 +35,12 @@ $(document).ready(function(){
         //var data = $('input[name=quote]').val();
         $.ajax({
             type: 'GET',
-            url: '/filter',
+            url: '/hotelList',
             //contentType: 'application/json',
             //data: "test",
             success: function(data) {
                 console.log("Successfully saved the matched beans to the user.");
-                window.location='/filter';
+                window.location='/hotelList';
             }
         }).done(function ( ) {
             console.log("OK");

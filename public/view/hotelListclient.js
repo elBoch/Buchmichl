@@ -28,9 +28,9 @@ $(document).ready(function () {
             success: function (data) {
                 console.log("Successfully saved the matched beans to the user.");
                 console.log(data);
-                
+
                 printData(data);
-                
+
             }
         }).done(function () {
             console.log("OK");
@@ -79,11 +79,11 @@ $(document).ready(function () {
 
 function printData(data) {
     var temp = document.getElementsByTagName("template")[0];
-   
+
     //TODO: removen der List items
-    document.getElementById("list").innerHTML='';
+    document.getElementById("list").innerHTML = '';
     //$("#list").html("");
-    
+
 
     //console.log(data[0].unterkunftname);
     for (let i = 0; i < data.length; i++) {
@@ -96,7 +96,7 @@ function printData(data) {
                 clone.getElementById("t_region").innerHTML = "<b>Region: </b>" + data[i].regionname;
                 clone.getElementById("t_stars").innerHTML = "<b>Sterne: </b>" + data[i].sterne;
                 clone.getElementById("t_anz_pers").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
-                if(i===0) {
+                if (i === 0) {
                     clone.getElementById("t_hr").style.display = "none";
                 }
                 document.getElementById("list").appendChild(clone);
@@ -105,4 +105,26 @@ function printData(data) {
             }
         }
     }
+}
+
+
+function clicked() {
+    console.log("lskdhf");
+    $.ajax({
+        type: 'GET',
+        url: '/roomList',
+        //contentType: 'application/json',
+        //data: "test",
+        success: function (data) {
+            console.log("Successfully saved the matched beans to the user.");
+            window.location = '/roomList';
+        }
+    }).done(function () {
+        console.log("OK");
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+    });
 }

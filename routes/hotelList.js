@@ -39,8 +39,8 @@ const buildStatement = (req) => {
   filterStatement += " ORDER BY u.unterkunftid;";
 };
 
-router.get("/filter", (req, res) => {
-  res.render("filter.ejs", {
+router.get("/hotelList", (req, res) => {
+  res.render("hotelList.ejs", {
     pageTitle: "Filter",
     data: "nothing",
   });
@@ -51,7 +51,7 @@ router.post("/getUnterkunftList", (req, res) => {
   db1
     .query(filterStatement)
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       res.send(data.rows);
       filterStatement = "";
     })

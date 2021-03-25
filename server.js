@@ -17,9 +17,9 @@ app.use(express.static('public'));
 
 app.use(require('./routes/start'));
 app.use(require('./routes/login'));
-app.use(require('./routes/list'));
-app.use(require('./routes/filter'));
-app.use(require('./routes/ansicht'));
+app.use(require('./routes/roomList'));
+app.use(require('./routes/hotelList'));
+app.use(require('./routes/detailedRoom'));
 
 
 
