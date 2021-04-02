@@ -62,6 +62,12 @@ h1 {
     margin-top: 2%;
     margin-left: 10px;
     margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sec-date{
+    margin-left: 50px;
 }
 
 .infos {

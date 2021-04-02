@@ -1,18 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/list.css">
     <script language="javascript" type="text/javascript" src="/public/view/roomListclient.js" defer></script>
 <head>
   <meta charset="utf-8">
   <title>Some Website</title>
 </head>
+    <body>
+      <header>
+          <nav>
+              <label class="logo">BUCHMICHL</label>
+              <ul>
+                  <li>
+                      <a id="home">Home</a>
+                  </li>
+              </ul>
+          </nav>
+      </header>
+      <div class="container">
+          <h1>Finde dein Zimmer!</h1>
+            <div class="grid-container">
+              <div class="anz-pers">
+                Anzahl Betten:
+            </div>
+            <div class="anz-pers-wert">
+                <input type="number" id="anz_pers">
+            </div>
+              <div class="bewertung">
+                  Sterne
+              </div>
+              <div class="bewertung-auswahl">
+                  <select name="" id="sterne">
+                      <option value="Egal">Egal</option>
+                      <option value="1">1 Stern</option>
+                      <option value="2">2 Sterne</option>
+                      <option value="3">3 Sterne</option>
+                      <option value="4">4 Sterne</option>
+                      <option value="5">5 Sterne</option>
+                  </select>
+              </div>
+              <div class="preis-von">
+                  Preis von:
+              </div>
+              <div class="preis-von-wert">
+                  <input type="number" id="preis_von" value="0">
+              </div>
+              <div class="preis-bis">
+                  Preis bis:
+              </div>
+              <div class="preis-bis-wert">
+                  <input type="number" id="preis_bis">
+              </div>
+              
+              <div class="bt-search">
+                  <a id="suchen">Suchen</a>
+              </div>
+              <br>
+              <br>
+          </div>
 
-<body>
-  {{> header}}
-  
-  <button id="detailRoom">detail</button>
+      <div id="list">
+          
+      </div>
 
-  {{> footer}}
-</body>
 
+      </div>
+      <template>
+          <div class="listContainer">
+              <hr id="t_hr">
+              <table>
+                  <tbody>
+                      <tr>
+                          <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto"/></td>
+                          <td class="listItemText">
+                              <h3 id="t_name">Platzhalter</h3>
+                              <p id="t_stars">Sterne: Values</p>
+                              <p id="t_anz_betten">Betten: Values</p>
+                              <p id="t_price">Preis: Values</p>
+                              <button id="detailRoom">Details</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </template>
+      <button id="detailRoom">Details</button>
+    </body>
 </html>
