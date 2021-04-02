@@ -40,7 +40,7 @@
         </nav>
     </header>
 
-    <h1>Roomname</h1>
+    <h1><%= unterkunftname%></h1>
 
     <div class="w3-content" style="max-width:40%; float: left; margin-left: 3%;">
         <img class="mySlides" src="../public/images/zimmer1.jpg" style="width:100%;display:none">
@@ -64,21 +64,27 @@
     <div class="details">
         <div class="description">
             <!-- Irgendwelche Infos zum Zimmer -->
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, hic distinctio. Consectetur suscipit similique placeat quis, voluptas sed, aliquam dolore deleniti dolorum error assumenda debitis omnis doloribus laudantium voluptatum numquam eligendi, nisi libero in saepe ipsum! Facilis ut ullam totam, eos quisquam impedit? Doloribus corporis harum delectus laudantium aliquam sint reprehenderit nostrum soluta ipsam autem dolore dicta, quo sunt molestiae atque dolorum totam nesciunt ad animi odit cupiditate vero voluptates inventore. Reprehenderit eos dolore magnam suscipit nulla beatae enim, dicta provident necessitatibus ipsa nihil architecto omnis facilis aperiam pariatur hic adipisci est voluptatem. Voluptatum in, eum ipsum natus odit non!</p>
-        </div>
+            <p><%= unterkunftstext%></p>
+         </div>
         <div class="datepicker">
             <p>Date: <input type="text" id="datepicker1"></p>
             
             <p class="sec-date">Date: <input type="text" id="datepicker2"></p>
         </div>
         <div class="infos">
-            <h5>Ausstattung</h5>
+            <h5>Region</h5>
             <p>Values</p>
+            <h5>Region</h5>
+            <p>Sterne</p>
+            <h5>Unterkunftausstattung</h5>
+            <p><%=einrichtungen%></p>
             <h5>Verpflegung</h5>
             <p>Values</p>
-            <h5>Zimmerart</h5>
+            <h5>Unterkunftart</h5>
             <p>Values</p>
-            <h5>Zimmerart</h5>
+            <h5>Freizeitausstattung</h5>
+            <p>Values</p>
+            <h5>Sehenswürdigkeiten</h5>
             <p>Values</p>
         </div>
         <div class="btn-book">
