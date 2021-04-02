@@ -11,7 +11,6 @@ const client = new Client({
 client.on("error", (er) => console.log);
 client.connect();
 
-//var db = pgp("postgresql://postgres://kkrxjxdhduntnc:ae8b79d1199e4142793100aebdb647e15711b5e0e2bca190b7e8875b8f64590b@ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d9k5kpg39ia48r");
 const passwordHash = require("password-hash");
 
 router.get("/login", (req, res) => {
@@ -20,20 +19,20 @@ router.get("/login", (req, res) => {
   });
 });
 
-router.post("/authenticate", (req, res) => {
-  //console.log(req.body.name);
-  client
-    .query("SELECT passwort FROM benutzer WHERE username=$1", [req.body.name])
-    .then((data) => {
-      if (passwordHash.verify(req.body.passw, data[0].passwort)) {
-        res.send({ query: "ok" });
-      } else {
-        res.send({ query: "nicht ok" });
-      }
-    })
-    .catch((error) => {
+router.post("/authenticate", async (req, res) => {
+  try {
+    const data = await client.query(
+      "SELECT passwort FROM benutzer WHERE username=$1",
+      [req.body.name]
+    );
+    if (passwordHash.verify(req.body.passw, data[0].passwort)) {
+      res.send({ query: "ok" });
+    } else {
       res.send({ query: "nicht ok" });
-    });
+    }
+  } catch (error) {
+    res.send({ query: "nicht ok" });
+  }
 });
 
 router.post("/register", async (req, res) => {
