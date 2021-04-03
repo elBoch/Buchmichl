@@ -1,0 +1,120 @@
+body {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background-image: url('./background.jpg');
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    display: block;
+    overflow: hidden;
+}
+
+.accommodation-form {
+    background-color: white;
+    width: 45%;
+    min-width: 800px;
+    margin: 0 auto 0 auto;
+    color: #053426;
+    height: 100%;
+}
+
+.accommodation-form-content {
+    width: 90%;
+    margin: auto;
+}
+
+.header-form {
+    padding-top: 4%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.input-name {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 150%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-weight: bold;
+    margin-bottom: 1%;
+}
+
+.input-form {
+    width: 100%;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-bottom: 3px solid rgb(157, 157, 157);
+    display: flex;
+    font-size: 110%;
+    margin-bottom: 3%;
+}
+
+.input-form:focus {
+    border-color: #053426;
+}
+
+option {
+    font-size: 1rem;
+}
+
+.input-stars {
+    width: fit-content;
+    margin-bottom: 0;
+}
+
+
+.checkbox {
+    padding-top: auto;
+    padding-bottom: auto;
+}
+
+.input-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-form {
+    text-align: center;
+    height: 100%;
+    align-items: center;
+}
+
+
+.address {
+    width: 100%; /*no schaun*/
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-row: auto auto;
+    grid-column-gap: 1%;
+    
+}
+
+.styled-p {
+    font-size: 1rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.equipment-tag {
+    width: fit-content;
+    padding: .5%;
+    border-color: gray;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+
+.tag-section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}

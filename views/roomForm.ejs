@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/login.css">
+    <link rel="stylesheet" href="../stylesheets/roomForm.css"
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../public/view/loginclient.js" type="text/javascript" defer></script>
+    <title>Buchmichl</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <label class="logo">BUCHMICHL</label>
+            <ul>
+                <li><a id="home">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="accommodation-form">
+        <div class="accommodation-form-content">
+            <h1 class="header-form">Unterkunft erstellen</h1>
+            <div class="input-name">
+                <p>Name Unterkunft</p>
+                <input type="text" class="input-form"/>
+            </div>
+            
+            <div class="input-name">
+                <p>Anschrift</p>
+                <div class="address">
+                    <div>
+                        <p class="styled-p">Straße</p>
+                        <input class="input-form" />
+                    </div>
+                    <div>
+                        <p class="styled-p">Nummer</p>
+                        <input class="input-form" />
+                    </div>
+                    <div>
+                        <p class="styled-p">Ort</p>
+                        <input class="input-form" />
+                    </div>
+                    <div>
+                        <p class="styled-p">PLZ</p>
+                        <input class="input-form" />
+                    </div>
+                </div>
+                <!--<input type="text" class="input-form"/>-->
+            </div>
+            <br>
+            
+            <div class="input-name">
+                <p>Unterkunftsart</p>
+                <select class="input-form">
+                    <option>Hotel</option>
+                    <option>Jugendherberge</option>
+                    <option>Wos suns no gib</option>
+                </select>
+
+            </div>
+
+            <div class="input-name">
+                <p>Freitzeitausstattung</p>
+                <div class="tag-section">
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Pool</p>
+                        </div>
+                    </div>
+                    
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Wander-/Fahrradweg</p>
+                        </div>
+                    </div>
+                    
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Sauna</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Wellness</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">E-Bikes</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Bar</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Fitnessraum</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Volleyballplatz</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Tennisplatz</p>
+                        </div>
+                    </div>
+                    <div class="input-checkbox equipment-tag">
+                        <div class="checkbox-form">
+                            <input type="checkbox" />&nbsp;
+                        </div>
+                        <div class="chekbox-form">
+                            <p class="styled-p">Boote</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <div class="input-name">
+                <p>Sterne</p>
+                <div class="input-checkbox">
+                    <input type="number" min="3" max="5" accept="" value="" class="input-form input-stars"/>&nbsp;
+                    <div class="checkbox-form">
+                        <input type="checkbox" class="checkbox"/>
+                    </div>
+                    <p class="input-stars">&nbsp;S</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <input type="button" class="submit-btn" value="Erstellen"/>
+    </div>
+</body>
+
+</html>
