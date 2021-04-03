@@ -27,7 +27,12 @@ router.post("/authenticate", async (req, res) => {
       "SELECT passwort FROM benutzer WHERE username=$1",
       [req.body.name]
     );
-    if (passwordHash.verify(req.body.passw, data[0].passwort)) {
+    //console.log(passwordHash.verify(req.body.passw, data.rows[0].passwort));
+    if (passwordHash.verify(req.body.passw, data.rows[0].passwort)) {
+      let cookieHash = req.body.name;
+      res.cookie('HorwathCookie', cookieHash, { maxAge: 900000, httpOnly: true });
+      //console.log('cookie created successfully');
+
       res.send({ query: "ok" });
     } else {
       res.send({ query: "nicht ok" });
@@ -35,6 +40,19 @@ router.post("/authenticate", async (req, res) => {
   } catch (error) {
     res.send({ query: "nicht ok" });
   }
+  // check if client sent cookie
+  /*let cookie = req.cookies.cookieName;
+  if (cookie === undefined) {
+    // no: set a new cookie
+    let randomNumber=Math.random().toString();
+    randomNumber=randomNumber.substring(2,randomNumber.length);
+    res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
+    console.log('cookie created successfully');
+  } else {
+    // yes, cookie was already present 
+    console.log('cookie exists', cookie);
+  } 
+  next(); */
 });
 
 router.post("/register", async (req, res) => {
@@ -45,11 +63,11 @@ router.post("/register", async (req, res) => {
       [req.body.name]
     );
 
-    if (data[0].count != 0) {
+    if (data.rows[0].count != 0) {
       res.send("username bereits vergeben");
     } else {
       await client.query(
-        "INSERT INTO benutzer (username, passwort, vorname, nachname, geburtsdatum, addresse, email, admin) VALUES($1,$2, 'vorname','nachname','01.01.2020','addresse',$3,'false')",
+        "INSERT INTO benutzer (username, passwort, vorname, nachname, geburtsdatum, addresse, email, admin) VALUES($1,$2, 'vorname','nachname','01.01.2020','adresse',$3,'false')",
         [req.body.name, hashedPassword, req.body.email]
       );
       res.send("register successed");

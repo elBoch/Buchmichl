@@ -15,7 +15,7 @@ $(document).ready( () => {
             },
             success: function (data) {
                 console.log("Successfully saved the matched beans to the user.");
-                console.log(data);
+                //console.log(data);
             }
         }).done(function (data) {
 
@@ -23,14 +23,14 @@ $(document).ready( () => {
 
                 $.ajax({
                     type: 'GET',
-                    url: '/filter',
+                    url: '/hotelList',
                     data: {
                         name: username,
                         passw: passwort
                     },
                     success: function (data) {
                         console.log("Successfully saved the matched beans to the user.");
-                        window.location = '/filter';
+                        window.location = '/hotelList';
                     }
                 }).done(function () {
                     console.log("OK");
@@ -73,7 +73,7 @@ $(document).ready(() => {
                 console.log(data);
                 alert(data);
                 if(data=='register successed'){
-                    window.location = "/filter";
+                    window.location = "/hotelList";
                 }
 
             }
