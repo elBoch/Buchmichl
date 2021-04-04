@@ -46,15 +46,23 @@ router.get("/detailedRoom", async (req, res) => {
     verpflegung: verpflegungString,
   });
 
-  const zimmer = await client.query(
-    "SELECT ua.unterkunftartname " +
-      "FROM unterkunftart ua INNER JOIN unterkunft u ON u.unterkunftartid = ua.unterkunftartid WHERE u.unterkunftname=$1",
-    [unterkunft]
-  );
+
 });
 
 router.post("/detailedRoom", (req, res) => {
   unterkunft = req.body.unterkunft;
+});
+
+router.post("/getRoomList", async (req, res) => {
+  const zimmer = await client.query(
+    "SELECT z.preis, z.anzahlpersonen, za.zimmerartname "+
+    "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid "+
+                      "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid "+
+                      "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid "+
+    "WHERE u.unterkunftname = $1;",
+    [unterkunft]
+  );
+  res.send(zimmer.rows);
 });
 
 const buildString = (data, type) => {
