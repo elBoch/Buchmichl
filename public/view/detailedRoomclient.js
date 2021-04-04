@@ -44,3 +44,27 @@ function currentDiv(n) {
     x[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " w3-opacity-off";
   }
+
+
+  /* Martin's Spaßecke */
+
+  const printData = (data) => {
+    let temp = document.getElementsByTagName("template")[0];
+  
+    document.getElementById("list").innerHTML = "";
+  
+    for (let i = 0; i < data.length; i++) {
+      if ( i === 0 ||data[i].unterkunftartname !== data[i - 1].unterkunftartname) {
+        try {
+          let clone = temp.content.cloneNode(true);
+          clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
+          clone.getElementById("t_name").style.marginTop = "0";
+          clone.getElementById("t_personen").innerHTML = "<b>Personen: </b>" + data[i].unterkunftartname;
+          clone.getElementById("t_zimmerart").innerHTML = "<b>Zimmerart: </b>" + data[i].regionname;
+          clone.getElementById("t_price").innerHTML = "<b>Preis: </b>" + data[i].sterne;
+          clone.getElementById("bt_details").value = data[i].unterkunftname;
+          document.getElementById("list").appendChild(clone);
+        } catch (error) {}
+      }
+    }
+  }
