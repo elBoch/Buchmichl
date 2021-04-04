@@ -55,3 +55,27 @@ $(document).ready(function(){
     });
 
 });
+
+$(document).ready(() => {
+    $("#logout").on("click", function (e) {
+      console.log("here we go");
+  
+      e.preventDefault();
+      $.ajax({
+        type: "GET",
+        url: "/logout",
+        success: function (data) {
+          console.log("Successfully saved the matched beans to the user.");
+          window.location = "/";
+        },
+      })
+        .done(() => {
+          console.log("OK");
+        })
+        .fail((jqXHR, textStatus, errorThrown) => {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+        });
+    });
+  });

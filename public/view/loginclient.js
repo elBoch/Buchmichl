@@ -30,19 +30,23 @@ $(document).ready(() => {
                     success: function (data) {
                         console.log("Successfully saved the matched beans to the user.");
                         console.log(data);
+                        $.ajax({
+                            type: 'GET',
+                            url: '/hotelList',
+                            success: function (data) {
+                                console.log("Successfully saved the matched beans to the user.");
+                                window.location = '/hotelList';
+                            }
+                        });
 
 
                     }
-                }).done(function (data) {
-                    $.ajax({
-                        type: 'GET',
-                        url: '/hotelList',
-                        success: function (data) {
-                            console.log("Successfully saved the matched beans to the user.");
-                            window.location = '/hotelList';
-                        }
-                    });
+                }).then( function( data ) {
+                    console.log("lkdsfh");
+                   
                 });
+
+                
 
 
 

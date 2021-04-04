@@ -37,6 +37,7 @@ router.get('/checkIfAuthenticated', async (req, res) => {
     catch (err) {
         req.app.locals.authenticated=false;
     }
+    res.send("finished");
     console.log("in api"+req.app.locals.authenticated);
 
 });
