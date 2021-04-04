@@ -1,4 +1,6 @@
-$(document).ready( () => {
+let authenticated = false;
+
+$(document).ready(() => {
     $("#anmelden").on('click', function (e) {
 
         const username = document.getElementById('username').value;
@@ -21,29 +23,31 @@ $(document).ready( () => {
 
             if (data.query == "ok") {
 
+
                 $.ajax({
                     type: 'GET',
-                    url: '/hotelList',
-                    data: {
-                        name: username,
-                        passw: passwort
-                    },
+                    url: '/checkIfAuthenticated',
                     success: function (data) {
                         console.log("Successfully saved the matched beans to the user.");
-                        window.location = '/hotelList';
+                        console.log(data);
+
+
                     }
-                }).done(function () {
-                    console.log("OK");
-
-                }).fail(function (jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-
+                }).done(function (data) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/hotelList',
+                        success: function (data) {
+                            console.log("Successfully saved the matched beans to the user.");
+                            window.location = '/hotelList';
+                        }
+                    });
                 });
 
+
+
             }
-            else{
+            else {
                 alert("Falsche Eingabe");
             }
 
@@ -72,7 +76,7 @@ $(document).ready(() => {
                 console.log("Successfully saved the matched beans to the user.");
                 console.log(data);
                 alert(data);
-                if(data=='register successed'){
+                if (data == 'register successed') {
                     window.location = "/hotelList";
                 }
 
@@ -83,21 +87,21 @@ $(document).ready(() => {
 });
 
 $(document).ready(() => {
-    $("#home").on('click',e => {
+    $("#home").on('click', e => {
         console.log("here we go");
 
         e.preventDefault();
         $.ajax({
             type: 'GET',
             url: '/',
-            success: function(data) {
+            success: function (data) {
                 console.log("Successfully saved the matched beans to the user.");
-                window.location='/';
+                window.location = '/';
             }
-        }).done(function ( ) {
+        }).done(function () {
             console.log("OK");
-            
-        }).fail(function ( jqXHR, textStatus, errorThrown ) {
+
+        }).fail(function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
             console.log(textStatus);
             console.log(errorThrown);

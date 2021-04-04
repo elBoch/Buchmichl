@@ -5,6 +5,7 @@ var app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const crypto = require('express-crypto');
 
 
 
@@ -21,6 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(crypto({ secret: 'Földschneider' }, app));
 
 app.use(express.static('public'));
 
@@ -31,7 +33,7 @@ app.use(require('./routes/roomList'));
 app.use(require('./routes/hotelList'));
 app.use(require('./routes/detailedRoom'));
 
-
+app.locals.authenticated = false;
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);

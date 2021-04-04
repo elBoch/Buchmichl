@@ -15,44 +15,11 @@ client.connect();
 
 const passwordHash = require("password-hash");
 
+
 router.get("/login", (req, res) => {
   res.render("login.ejs", {
     pageTitle: "Login",
   });
-});
-
-router.post("/authenticate", async (req, res) => {
-  try {
-    const data = await client.query(
-      "SELECT passwort FROM benutzer WHERE username=$1",
-      [req.body.name]
-    );
-    //console.log(passwordHash.verify(req.body.passw, data.rows[0].passwort));
-    if (passwordHash.verify(req.body.passw, data.rows[0].passwort)) {
-      let cookieHash = req.body.name;
-      res.cookie('HorwathCookie', cookieHash, { maxAge: 900000, httpOnly: true });
-      //console.log('cookie created successfully');
-
-      res.send({ query: "ok" });
-    } else {
-      res.send({ query: "nicht ok" });
-    }
-  } catch (error) {
-    res.send({ query: "nicht ok" });
-  }
-  // check if client sent cookie
-  /*let cookie = req.cookies.cookieName;
-  if (cookie === undefined) {
-    // no: set a new cookie
-    let randomNumber=Math.random().toString();
-    randomNumber=randomNumber.substring(2,randomNumber.length);
-    res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
-    console.log('cookie created successfully');
-  } else {
-    // yes, cookie was already present 
-    console.log('cookie exists', cookie);
-  } 
-  next(); */
 });
 
 router.post("/register", async (req, res) => {
@@ -77,5 +44,16 @@ router.post("/register", async (req, res) => {
     res.send("register failed");
   }
 });
+
+router.get("/logout",(req,res)=> {
+  req.app.locals.authenticated=false;
+  res.clearCookie("HorwathToken");
+  res.render("start.ejs", {
+    pageTitle: "Login",
+    profil:"<a id='login'>Login</a>",
+  });
+});
+
+
 module.exports = router;
 module.exports.client = client;

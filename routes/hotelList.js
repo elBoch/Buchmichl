@@ -40,10 +40,19 @@ const buildStatement = (req) => {
 };
 
 router.get("/hotelList", (req, res) => {
-  res.render("hotelList.ejs", {
-    pageTitle: "Filter",
-    data: "nothing",
-  });
+  console.log("vor rendern"+req.app.locals.authenticated);
+  if (req.app.locals.authenticated) {
+    res.render("hotelList.ejs", {
+      pageTitle: "Filter",
+      profil: "<a id='logout'>Logout</a>",
+    });
+  }
+  else{
+    res.render("hotelList.ejs", {
+      pageTitle: "Filter",
+      profil: "<a id='login'>Login</a>",
+    });
+  }
 });
 
 router.post("/getUnterkunftList", (req, res) => {

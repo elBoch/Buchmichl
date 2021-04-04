@@ -3,6 +3,7 @@ const router = express.Router();
 const client = require("./login").client;
 let unterkunft;
 
+
 router.get("/detailedRoom", async (req, res) => {
   const unterkunftView = await client.query(
     "SELECT * FROM unterkunft WHERE unterkunftname=$1",

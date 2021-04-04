@@ -26,6 +26,7 @@
     "database": "^0.0.2",
     "ejs": "^3.1.6",
     "express": "^4.16.4",
+    "express-crypto": "^1.0.5",
     "express-session": "^1.17.1",
     "hbs": "^4.1.1",
     "jquery": "^3.5.1",
