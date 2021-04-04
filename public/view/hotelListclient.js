@@ -98,7 +98,7 @@ const printData = (data) => {
         clone.getElementById("t_art").innerHTML = "<b>Art: </b>" + data[i].unterkunftartname;
         clone.getElementById("t_region").innerHTML = "<b>Region: </b>" + data[i].regionname;
         clone.getElementById("t_stars").innerHTML = "<b>Sterne: </b>" + data[i].sterne;
-        clone.getElementById("t_anz_pers").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
+        //clone.getElementById("t_anz_pers").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
         clone.getElementById("bt_details").value = data[i].unterkunftname;
         if (i === 0) {
           clone.getElementById("t_hr").style.display = "none";
