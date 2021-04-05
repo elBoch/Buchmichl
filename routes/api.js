@@ -28,17 +28,20 @@ router.get('/checkIfAuthenticated', async (req, res) => {
 
 
         if (passwordHash.verify(daten[1], user.rows[0].passwort)) {
-            req.app.locals.authenticated=true;
+            req.app.locals.authenticated = true;
+            req.app.locals.username = daten[0];
         }
         else {
-            req.app.locals.authenticated=false;
+            req.app.locals.authenticated = false;
+            req.app.locals.username = "";
         }
     }
     catch (err) {
-        req.app.locals.authenticated=false;
+        req.app.locals.authenticated = false;
+        req.app.locals.username = "";
     }
     res.send("finished");
-    console.log("in api"+req.app.locals.authenticated);
+    //console.log("in api" + req.app.locals.authenticated);
 
 });
 

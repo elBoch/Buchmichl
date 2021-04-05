@@ -1,115 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../public/stylesheets/filter.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="../public/view/hotelListclient.js" type="text/javascript" defer></script>
-        <title>Buchmichl</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <label class="logo">BUCHMICHL</label>
-                <ul>
-                    <li>
-                        <a id="home">Home</a>
-                    </li>
-                    <li>
-                        <%-profil%>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <div class="container">
-            <h1>Wo solls hingehen?</h1>
-            <div class="grid-container">
-                <div class="search">
-                    Region:
-                </div>
-                <div class="region-input">
-                    <input type="text" id="region">
-                </div>
-                <div class="bewertung">
-                    Sterne
-                </div>
-                <div class="bewertung-auswahl">
-                    <select name="" id="sterne">
-                        <option value="Egal">Egal</option>
-                        <option value="1">1 Stern</option>
-                        <option value="2">2 Sterne</option>
-                        <option value="3">3 Sterne</option>
-                        <option value="4">4 Sterne</option>
-                        <option value="5">5 Sterne</option>
-                    </select>
-                </div>
-                <div class="preis-von">
-                    Preis von:
-                </div>
-                <div class="preis-von-wert">
-                    <input type="number" id="preis_von" value="0">
-                </div>
-                <div class="preis-bis">
-                    Preis bis:
-                </div>
-                <div class="preis-bis-wert">
-                    <input type="number" id="preis_bis">
-                </div>
-                <div class="anz-pers">
-                    Anzahl Personen:
-                </div>
-                <div class="anz-pers-wert">
-                    <input type="number" id="anz_pers">
-                </div>
-                <div class="art">
-                    Art der Unterkunft
-                </div>
-                <div class="art-wert">
-                    <select name="" id="unterkunftart">
-                        <option value="Egal">Egal</option>
-                        <option value="Hotel">Hotel</option>
-                        <option value="Pension">Pension</option>
-                        <option value="Haus">Haus</option>
-                        <option value="Appartment">Appartment</option>
-                        <option value="Bauernhof">Bauernhof</option>
-                        <option value="Bergütte">Bergütte</option>
-                        <option value="Gasthof">Gasthof</option>
-                    </select>
-                </div>
-                <div class="bt-search">
-                    <a id="suchen">Suchen</a>
-                </div>
-                <br>
-                <br>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/stylesheets/filter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../public/view/hotelListclient.js" type="text/javascript" defer></script>
+    <title>Buchmichl</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <label class="logo">BUCHMICHL</label>
+                </li>
+                <li class="dropdown">
+                    <a id="home">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Settings <%=username%></a>
+                    <div class="dropdown-content">
+                        <!-- Musst den Text noch ändern, wie du es halt brauchst-->
+                        <%-options%>
+
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Wo solls hingehen?</h1>
+        <div class="grid-container">
+            <div class="search">
+                Region:
             </div>
-        
-        <div id="list">
-           
+            <div class="region-input">
+                <input type="text" id="region">
+            </div>
+            <div class="bewertung">
+                Sterne
+            </div>
+            <div class="bewertung-auswahl">
+                <select name="" id="sterne">
+                    <option value="Egal">Egal</option>
+                    <option value="1">1 Stern</option>
+                    <option value="2">2 Sterne</option>
+                    <option value="3">3 Sterne</option>
+                    <option value="4">4 Sterne</option>
+                    <option value="5">5 Sterne</option>
+                </select>
+            </div>
+            <div class="preis-von">
+                Preis von:
+            </div>
+            <div class="preis-von-wert">
+                <input type="number" id="preis_von" value="0">
+            </div>
+            <div class="preis-bis">
+                Preis bis:
+            </div>
+            <div class="preis-bis-wert">
+                <input type="number" id="preis_bis">
+            </div>
+            <div class="anz-pers">
+                Anzahl Personen:
+            </div>
+            <div class="anz-pers-wert">
+                <input type="number" id="anz_pers">
+            </div>
+            <div class="art">
+                Art der Unterkunft
+            </div>
+            <div class="art-wert">
+                <select name="" id="unterkunftart">
+                    <option value="Egal">Egal</option>
+                    <option value="Hotel">Hotel</option>
+                    <option value="Pension">Pension</option>
+                    <option value="Haus">Haus</option>
+                    <option value="Appartment">Appartment</option>
+                    <option value="Bauernhof">Bauernhof</option>
+                    <option value="Bergütte">Bergütte</option>
+                    <option value="Gasthof">Gasthof</option>
+                </select>
+            </div>
+            <div class="bt-search">
+                <a id="suchen">Suchen</a>
+            </div>
+            <br>
+            <br>
         </div>
 
-        
+        <div id="list">
+
+        </div>
+
+
     </div>
-        <template>
-            <div class="listContainer">
-                <hr id="t_hr">
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto"/></td>
-                            <td class="listItemText">
-                                <h3 id="t_name">Platzhalter</h3>
-                                <p id="t_art"> Art: Values</p>
-                                <p id="t_region">Region: Values</p>
-                                <p id="t_stars">Sterne: Values</p>
-                                <button id="bt_details" onclick="clicked(this.value)" value="">View Details</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </template>
-    </body>
+    <template>
+        <div class="listContainer">
+            <hr id="t_hr">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto" /></td>
+                        <td class="listItemText">
+                            <h3 id="t_name">Platzhalter</h3>
+                            <p id="t_art"> Art: Values</p>
+                            <p id="t_region">Region: Values</p>
+                            <p id="t_stars">Sterne: Values</p>
+                            <button id="bt_details" onclick="clicked(this.value)" value="">View Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</body>
+
 </html>

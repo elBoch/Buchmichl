@@ -10,17 +10,17 @@ router.get("/detailedRoom", async (req, res) => {
     [unterkunft]
   );
   const unterkunftData = await client.query(
-    "SELECT e.einrichtungsname, ua.unterkunftartname, r.regionname, fa.freizeitausstattungsname, u.sterne, s.sehenswuerdigkeitsname, v.verpflegungname "+
-    "FROM einrichtung e INNER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid "+
-                       "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid "+
-                       "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid "+
-                       "INNER JOIN region r ON r.regionid = u.regionid "+
-                       "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid "+
-                       "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid "+
-                       "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid "+
-                       "INNER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid "+
-                       "INNER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid "+
-                       "INNER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid "+
+    "SELECT e.einrichtungsname, ua.unterkunftartname, r.regionname, fa.freizeitausstattungsname, u.sterne, s.sehenswuerdigkeitsname, v.verpflegungname " +
+    "FROM einrichtung e INNER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid " +
+    "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
+    "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
+    "INNER JOIN region r ON r.regionid = u.regionid " +
+    "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid " +
+    "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid " +
+    "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid " +
+    "INNER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid " +
+    "INNER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid " +
+    "INNER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid " +
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
@@ -29,22 +29,42 @@ router.get("/detailedRoom", async (req, res) => {
   let sterneString = buildString(unterkunftData.rows, "sterne");
   let unterkunftartString = buildString(unterkunftData.rows, "unterkunftartname");
   let regionString = buildString(unterkunftData.rows, "regionname");
-  let freizeitausstattungString = buildString(unterkunftData.rows,"freizeitausstattungsname");
-  let sehenswuerdigkeitString = buildString(unterkunftData.rows,"sehenswuerdigkeitsname");
-  let verpflegungString = buildString(unterkunftData.rows,"verpflegungname");
+  let freizeitausstattungString = buildString(unterkunftData.rows, "freizeitausstattungsname");
+  let sehenswuerdigkeitString = buildString(unterkunftData.rows, "sehenswuerdigkeitsname");
+  let verpflegungString = buildString(unterkunftData.rows, "verpflegungname");
 
-  res.render("detailedRoom.ejs", {
-    pageTitle: "Detail",
-    unterkunftname: unterkunftView.rows[0].unterkunftname,
-    unterkunftstext: unterkunftView.rows[0].unterkunftstext,
-    einrichtungen: einrichtungsString,
-    sterne: sterneString,
-    unterkunftart: unterkunftartString,
-    region: regionString,
-    freizeitausstattung: freizeitausstattungString,
-    sehenswuerdigkeit: sehenswuerdigkeitString,
-    verpflegung: verpflegungString,
-  });
+  if (req.app.locals.authenticated) {
+    res.render("detailedRoom.ejs", {
+      pageTitle: "Detail",
+      username: req.app.locals.username,
+      options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
+      unterkunftname: unterkunftView.rows[0].unterkunftname,
+      unterkunftstext: unterkunftView.rows[0].unterkunftstext,
+      einrichtungen: einrichtungsString,
+      sterne: sterneString,
+      unterkunftart: unterkunftartString,
+      region: regionString,
+      freizeitausstattung: freizeitausstattungString,
+      sehenswuerdigkeit: sehenswuerdigkeitString,
+      verpflegung: verpflegungString,
+    });
+  }
+  else {
+    res.render("detailedRoom.ejs", {
+      pageTitle: "Detail",
+      username: req.app.locals.username,
+      options: "<a id='login'>Login</a>",
+      unterkunftname: unterkunftView.rows[0].unterkunftname,
+      unterkunftstext: unterkunftView.rows[0].unterkunftstext,
+      einrichtungen: einrichtungsString,
+      sterne: sterneString,
+      unterkunftart: unterkunftartString,
+      region: regionString,
+      freizeitausstattung: freizeitausstattungString,
+      sehenswuerdigkeit: sehenswuerdigkeitString,
+      verpflegung: verpflegungString,
+    });
+  }
 
 
 });
@@ -55,10 +75,10 @@ router.post("/detailedRoom", (req, res) => {
 
 router.post("/getRoomList", async (req, res) => {
   const zimmer = await client.query(
-    "SELECT z.preis, z.anzahlpersonen, za.zimmerartname "+
-    "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid "+
-                      "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid "+
-                      "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid "+
+    "SELECT z.preis, z.anzahlpersonen, za.zimmerartname " +
+    "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid " +
+    "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid " +
+    "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid " +
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
@@ -74,7 +94,7 @@ const buildString = (data, type) => {
 
   let dataString = "";
   for (let i = 0; i < dataArray.length; i++) {
-    if(dataArray[i] != null) {
+    if (dataArray[i] != null) {
       if (i == dataArray.length - 1) {
         dataString += dataArray[i];
       } else {

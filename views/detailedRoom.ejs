@@ -18,12 +18,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../public/view/detailedRoomclient.js" type="text/javascript" defer></script>
     <script>
-        $(function() {
+        $(function () {
             $("#datepicker1").datepicker();
         });
     </script>
     <script>
-        $(function() {
+        $(function () {
             $("#datepicker2").datepicker();
         });
     </script>
@@ -33,14 +33,26 @@
 
     <header>
         <nav>
-            <label class="logo">BUCHMICHL</label>
             <ul>
-                <li><a id="home">Home</a></li>
+                <li class="logo">
+                    <label class="logo">BUCHMICHL</label>
+                </li>
+                <li class="dropdown"><a id="home">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Settings <%=username%></a>
+                    <div class="dropdown-content">
+                        <!-- Musst den Text noch ändern, wie du es halt brauchst-->
+                        <%-options%>
+
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <h1><%= unterkunftname%></h1>
+    <h1>
+        <%= unterkunftname%>
+    </h1>
 
 
     <div class="danke-alex">
@@ -48,16 +60,19 @@
             <img class="mySlides" src="../public/images/zimmer1.jpg" style="width:100%;display:none">
             <img class="mySlides" src="../public/images/zimmer2.jpg" style="width:100%;">
             <img class="mySlides" src="../public/images/zimmer3.jpg" style="width:100%;display:none">
-    
+
             <div class="w3-row-padding w3-section">
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer1.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer1.jpg"
+                        style="width:100%;cursor:pointer" onclick="currentDiv(1)">
                 </div>
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer2.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer2.jpg"
+                        style="width:100%;cursor:pointer" onclick="currentDiv(2)">
                 </div>
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer3.jpg" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer3.jpg"
+                        style="width:100%;cursor:pointer" onclick="currentDiv(3)">
                 </div>
             </div>
         </div>
@@ -65,49 +80,65 @@
         <div class="details">
             <div class="description">
                 <!-- Irgendwelche Infos zum Zimmer -->
-                <p><%= unterkunftstext%></p>
-             </div>
+                <p>
+                    <%= unterkunftstext%>
+                </p>
+            </div>
             <div class="datepicker">
                 <p>Date: <input type="text" id="datepicker1"></p>
-                
+
                 <p class="sec-date">Date: <input type="text" id="datepicker2"></p>
             </div>
             <div class="infos">
                 <h5>Sterne</h5>
-                <p><%=sterne%></p>
+                <p>
+                    <%=sterne%>
+                </p>
                 <h5>Region</h5>
-                <p><%=region%></p>
+                <p>
+                    <%=region%>
+                </p>
                 <h5>Unterkunftausstattung</h5>
-                <p><%=einrichtungen%></p>
+                <p>
+                    <%=einrichtungen%>
+                </p>
                 <h5>Verpflegung</h5>
-                <p><%=verpflegung%></p>
+                <p>
+                    <%=verpflegung%>
+                </p>
                 <h5>Unterkunftart</h5>
-                <p><%=unterkunftart%></p>
+                <p>
+                    <%=unterkunftart%>
+                </p>
                 <h5>Freizeitausstattung</h5>
-                <p><%=freizeitausstattung%></p>
+                <p>
+                    <%=freizeitausstattung%>
+                </p>
                 <h5>Sehenswürdigkeiten</h5>
-                <p><%=sehenswuerdigkeit%></p>
+                <p>
+                    <%=sehenswuerdigkeit%>
+                </p>
             </div>
             <div class="btn-book">
                 <button><a href="#">BUCHEN</a></button>
             </div>
         </div>
-        
+
     </div>
 
 
     <div id="list">
-        
+
     </div>
 
-    
+
     <template>
         <div class="listContainer">
             <hr id="t_hr">
             <table>
                 <tbody>
                     <tr>
-                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto"/></td>
+                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto" /></td>
                         <td class="listItemText">
                             <h3 id="t_name">Zimmername</h3>
                             <p id="t_personen">Personen: 69</p>
@@ -120,7 +151,7 @@
             </table>
         </div>
     </template>
-    
+
 </body>
 
 </html>

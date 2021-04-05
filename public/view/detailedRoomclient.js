@@ -1,3 +1,21 @@
+window.onload=() => {
+  $.ajax({
+    type: "GET",
+    url: "/checkIfAuthenticated",
+    success: function (data) {
+      console.log("Successfully saved the matched beans to the user.Authenticted");
+    },
+  })
+    .done(() => {
+      console.log("OK");
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      console.log(jqXHR);
+      console.log(textStatus);
+      console.log(errorThrown);
+    });
+};
+
 
 $(document).ready(function () {
   $("#home").on("click", function (e) {
@@ -16,6 +34,29 @@ $(document).ready(function () {
         console.log("OK");
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      });
+  });
+});
+$(document).ready(() => {
+  $("#konto").on("click", function (e) {
+    console.log("here we go");
+
+    e.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "/konto",
+      success: function (data) {
+        console.log("Successfully saved the matched beans to the user.");
+        window.location = "/konto";
+      },
+    })
+      .done(() => {
+        console.log("OK");
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);
@@ -51,6 +92,29 @@ $(document).ready(() => {
       success: function (data) {
         console.log("Successfully saved the matched beans to the user.");
         window.location = "/";
+      },
+    })
+      .done(() => {
+        console.log("OK");
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      });
+  });
+});
+$(document).ready(() => {
+  $("#login").on("click", function (e) {
+    console.log("here we go");
+
+    e.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "/login",
+      success: function (data) {
+        console.log("Successfully saved the matched beans to the user.");
+        window.location = "/login";
       },
     })
       .done(() => {

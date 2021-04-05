@@ -32,8 +32,10 @@ app.use(require('./routes/login'));
 app.use(require('./routes/roomList'));
 app.use(require('./routes/hotelList'));
 app.use(require('./routes/detailedRoom'));
+app.use(require('./routes/konto'));
 
 app.locals.authenticated = false;
+app.locals.username;
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);

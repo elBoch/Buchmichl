@@ -1,9 +1,9 @@
-$(document).ready(() => {
+window.onload=() => {
   $.ajax({
     type: "GET",
     url: "/checkIfAuthenticated",
     success: function (data) {
-      console.log("Successfully saved the matched beans to the user.");
+      console.log("Successfully saved the matched beans to the user.Authenticted");
     },
   })
     .done(() => {
@@ -14,7 +14,7 @@ $(document).ready(() => {
       console.log(textStatus);
       console.log(errorThrown);
     });
-});
+};
 
 
 $(document).ready(() => {
@@ -83,6 +83,29 @@ $(document).ready(() => {
       });
   });
 });
+$(document).ready(() => {
+  $("#konto").on("click", function (e) {
+    console.log("here we go");
+
+    e.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "/konto",
+      success: function (data) {
+        console.log("Successfully saved the matched beans to the user.");
+        window.location = "/konto";
+      },
+    })
+      .done(() => {
+        console.log("OK");
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      });
+  });
+});
 
 $(document).ready(() => {
   $("#logout").on("click", function (e) {
@@ -95,6 +118,30 @@ $(document).ready(() => {
       success: function (data) {
         console.log("Successfully saved the matched beans to the user.");
         window.location = "/";
+      },
+    })
+      .done(() => {
+        console.log("OK");
+      })
+      .fail((jqXHR, textStatus, errorThrown) => {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(errorThrown);
+      });
+  });
+});
+
+$(document).ready(() => {
+  $("#login").on("click", function (e) {
+    console.log("here we go");
+
+    e.preventDefault();
+    $.ajax({
+      type: "GET",
+      url: "/login",
+      success: function (data) {
+        console.log("Successfully saved the matched beans to the user.");
+        window.location = "/login";
       },
     })
       .done(() => {
