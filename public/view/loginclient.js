@@ -1,4 +1,3 @@
-let authenticated = false;
 
 $(document).ready(() => {
     $("#anmelden").on('click', function (e) {
@@ -22,28 +21,13 @@ $(document).ready(() => {
         }).done(function (data) {
 
             if (data.query == "ok") {
-
-
                 $.ajax({
                     type: 'GET',
-                    url: '/checkIfAuthenticated',
+                    url: '/hotelList',
                     success: function (data) {
                         console.log("Successfully saved the matched beans to the user.");
-                        console.log(data);
-                        $.ajax({
-                            type: 'GET',
-                            url: '/hotelList',
-                            success: function (data) {
-                                console.log("Successfully saved the matched beans to the user.");
-                                window.location = '/hotelList';
-                            }
-                        });
-
-
+                        window.location = '/hotelList';
                     }
-                }).then( function( data ) {
-                    console.log("lkdsfh");
-                   
                 });
 
                 

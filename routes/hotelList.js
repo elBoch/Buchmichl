@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const db1 = require("./login").client;
+let checkAuthentication = require("./api").checkAuthentication;
+
 let filterStatement = "";
 
 const buildStatement = (req) => {
@@ -39,9 +41,9 @@ const buildStatement = (req) => {
   filterStatement += " ORDER BY u.unterkunftid;";
 };
 
-router.get("/hotelList", (req, res) => {
-  //console.log("vor rendern"+req.app.locals.authenticated);
-  if (req.app.locals.authenticated) {
+router.get("/hotelList", async(req, res) => {
+  let check = await checkAuthentication(req,res);
+  if (check) {
     res.render("hotelList.ejs", {
       pageTitle: "Filter",
       username: req.app.locals.username,

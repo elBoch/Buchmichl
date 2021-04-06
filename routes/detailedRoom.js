@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const client = require("./login").client;
+let checkAuthentication = require("./api").checkAuthentication;
 let unterkunft;
 
 
@@ -33,7 +34,10 @@ router.get("/detailedRoom", async (req, res) => {
   let sehenswuerdigkeitString = buildString(unterkunftData.rows, "sehenswuerdigkeitsname");
   let verpflegungString = buildString(unterkunftData.rows, "verpflegungname");
 
-  if (req.app.locals.authenticated) {
+
+  let check = await checkAuthentication(req,res);
+
+  if (check) {
     res.render("detailedRoom.ejs", {
       pageTitle: "Detail",
       username: req.app.locals.username,

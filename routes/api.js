@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const crypto = require('crypto');
 const client = require("./login").client;
 
+const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
 const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
@@ -12,7 +12,7 @@ const passwordHash = require("password-hash");
 
 
 
-router.get('/checkIfAuthenticated', async (req, res) => {
+/*router.get('/checkIfAuthenticated', async (req, res) => {
     try {
         const decipher = crypto.createDecipheriv(algorithm, key, iv);
         let decrypted = decipher.update(req.cookies['HorwathToken'] + "", 'hex', 'utf8');
@@ -43,7 +43,7 @@ router.get('/checkIfAuthenticated', async (req, res) => {
     res.send("finished");
     //console.log("in api" + req.app.locals.authenticated);
 
-});
+});*/
 
 
 router.post("/authenticate", async (req, res) => {
@@ -76,3 +76,37 @@ router.post("/authenticate", async (req, res) => {
 });
 
 module.exports = router;
+
+module.exports.checkAuthentication = async function checkIfAuthenticated(req,res){
+    try {
+        const decipher = crypto.createDecipheriv(algorithm, key, iv);
+        let cookieData = req.cookies['HorwathToken'];
+        
+        let decrypted = decipher.update(cookieData + "", 'hex', 'utf8');
+
+        decrypted = decrypted + decipher.final('utf8');
+        
+
+        let daten = decrypted.split(",");
+
+        const user = await client.query(
+            "SELECT passwort FROM benutzer WHERE username=$1;",
+            [daten[0]]
+        );
+
+
+        if (passwordHash.verify(daten[1], user.rows[0].passwort)) {
+            req.app.locals.username = daten[0];
+            return true;
+            
+        }
+        else {
+            req.app.locals.username = "";
+            return false;
+        }
+    }
+    catch (err) {
+        req.app.locals.username = "";
+        return false;
+    }
+}

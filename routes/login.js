@@ -46,7 +46,6 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/logout",(req,res)=> {
-  req.app.locals.authenticated=false;
   req.app.locals.username="";
   res.clearCookie("HorwathToken");
   res.render("start.ejs", {

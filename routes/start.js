@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+let checkAuthentication = require("./api").checkAuthentication;
 
-router.get('/', (req, res) => {
-    if (req.app.locals.authenticated) {
+router.get('/', async(req, res) => {
+    let check = await checkAuthentication(req,res);
+    if (check) {
         res.render('start.ejs', {
             pageTitle: 'Start',
             username: req.app.locals.username,
