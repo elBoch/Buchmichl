@@ -1,18 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Client } = require("pg");
-const client = new Client({
-  connectionString:
-    "postgres://kkrxjxdhduntnc:ae8b79d1199e4142793100aebdb647e15711b5e0e2bca190b7e8875b8f64590b@ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d9k5kpg39ia48r",
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
-
-
-client.on("error", (er) => console.log);
-client.connect();
-
+const client = require("./api").client;
 const passwordHash = require("password-hash");
 
 
@@ -57,4 +45,3 @@ router.get("/logout",(req,res)=> {
 
 
 module.exports = router;
-module.exports.client = client;

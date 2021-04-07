@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const client = require("./login").client;
+const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
 let unterkunft;
 
@@ -15,7 +15,9 @@ router.get("/detailedRoom", async (req, res) => {
     "FROM einrichtung e INNER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid " +
     "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
     "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
-    "INNER JOIN region r ON r.regionid = u.regionid " +
+    "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
+    "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
+    "INNER JOIN region r ON r.regionid = g.regionid " +
     "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid " +
     "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid " +
     "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid " +
@@ -37,10 +39,10 @@ router.get("/detailedRoom", async (req, res) => {
 
   let check = await checkAuthentication(req,res);
 
-  if (check) {
+  if (check!="") {
     res.render("detailedRoom.ejs", {
       pageTitle: "Detail",
-      username: req.app.locals.username,
+      username: check,
       options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
       unterkunftname: unterkunftView.rows[0].unterkunftname,
       unterkunftstext: unterkunftView.rows[0].unterkunftstext,
@@ -56,7 +58,7 @@ router.get("/detailedRoom", async (req, res) => {
   else {
     res.render("detailedRoom.ejs", {
       pageTitle: "Detail",
-      username: req.app.locals.username,
+      username: check,
       options: "<a id='login'>Login</a>",
       unterkunftname: unterkunftView.rows[0].unterkunftname,
       unterkunftstext: unterkunftView.rows[0].unterkunftstext,

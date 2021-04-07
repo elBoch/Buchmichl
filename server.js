@@ -35,8 +35,7 @@ app.use(require('./routes/detailedRoom'));
 app.use(require('./routes/konto'));
 app.use(require('./routes/adminpanelunterkunft'));
 app.use(require('./routes/adminpanelzimmer'));
-app.locals.authenticated = false;
-app.locals.username;
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);

@@ -4,17 +4,17 @@ let checkAuthentication = require("./api").checkAuthentication;
 
 router.get('/', async(req, res) => {
     let check = await checkAuthentication(req,res);
-    if (check) {
+    if (check!="") {
         res.render('start.ejs', {
             pageTitle: 'Start',
-            username: req.app.locals.username,
+            username: check,
             options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
         });
     }
     else {
     res.render('start.ejs', {
         pageTitle: 'Start',
-        username: req.app.locals.username,
+        username: check,
         options: "<a id='login'>Login</a>",
     });
 }

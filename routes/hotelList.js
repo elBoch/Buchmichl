@@ -1,17 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const db1 = require("./login").client;
+const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
 
-let filterStatement = "";
+
 
 const buildStatement = (req) => {
+  let filterStatement = "";
   filterStatement +=
     " SELECT * " +
     "FROM unterkunft u INNER JOIN zimmerartinunterkunft zu ON u.unterkunftid=zu.unterkunftid " +
     "INNER JOIN zimmer z ON z.zimmerartid = zu.zimmerartid AND z.unterkunftid= zu.unterkunftid " +
     "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
-    "INNER JOIN region r ON u.regionid = r.regionid " +
+    "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
+    "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
+    "INNER JOIN region r ON g.regionid = r.regionid " +
     "WHERE z.preis BETWEEN " +
     req.body.preis_von +
     " AND ";
@@ -26,7 +29,7 @@ const buildStatement = (req) => {
   }
   if (req.body.region != "") {
     filterStatement +=
-      " AND u.regionid=(SELECT regionid FROM region WHERE regionname='" +
+      " AND r.regionid=(SELECT regionid FROM region WHERE regionname='" +
       req.body.region +
       "')";
   }
@@ -39,38 +42,35 @@ const buildStatement = (req) => {
   }
 
   filterStatement += " ORDER BY u.unterkunftid;";
+  return filterStatement;
 };
+
 
 router.get("/hotelList", async(req, res) => {
   let check = await checkAuthentication(req,res);
-  if (check) {
+  if (check!="") {
     res.render("hotelList.ejs", {
       pageTitle: "Filter",
-      username: req.app.locals.username,
+      username: check,
       options: "<a id='konto'>Konto</a><a id='logout'>Logout</a> ",
     });
   }
   else{
     res.render("hotelList.ejs", {
       pageTitle: "Filter",
-      username: req.app.locals.username,
+      username: check,
       options: "<a id='login'>Login</a>",
     });
   }
 });
 
-router.post("/getUnterkunftList", (req, res) => {
-  buildStatement(req);
-  db1
-    .query(filterStatement)
-    .then((data) => {
-      //console.log(data);
-      res.send(data.rows);
-      filterStatement = "";
-    })
-    .catch((error) => {
-      console.log("ERROR:", error);
-    });
+router.post("/getUnterkunftList", async(req, res) => {
+  //console.log(buildStatement(req));
+  const data = await client.query(
+    buildStatement(req),
+    []
+  );
+  res.send(data.rows);
 });
 
 module.exports = router;

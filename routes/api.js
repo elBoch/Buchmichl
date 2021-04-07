@@ -1,49 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const client = require("./login").client;
 
 const crypto = require('crypto');
 const algorithm = 'aes-256-cbc';
 const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
 
-
 const passwordHash = require("password-hash");
 
+const { Client } = require("pg");
+const client = new Client({
+  connectionString:
+    "postgres://kkrxjxdhduntnc:ae8b79d1199e4142793100aebdb647e15711b5e0e2bca190b7e8875b8f64590b@ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d9k5kpg39ia48r",
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 
-/*router.get('/checkIfAuthenticated', async (req, res) => {
-    try {
-        const decipher = crypto.createDecipheriv(algorithm, key, iv);
-        let decrypted = decipher.update(req.cookies['HorwathToken'] + "", 'hex', 'utf8');
-
-        decrypted = decrypted + decipher.final('utf8');
-
-        let daten = decrypted.split(",");
-
-        const user = await client.query(
-            "SELECT passwort FROM benutzer WHERE username=$1;",
-            [daten[0]]
-        );
+client.on("error", (er) => console.log);
+client.connect();
 
 
-        if (passwordHash.verify(daten[1], user.rows[0].passwort)) {
-            req.app.locals.authenticated = true;
-            req.app.locals.username = daten[0];
-        }
-        else {
-            req.app.locals.authenticated = false;
-            req.app.locals.username = "";
-        }
-    }
-    catch (err) {
-        req.app.locals.authenticated = false;
-        req.app.locals.username = "";
-    }
-    res.send("finished");
-    //console.log("in api" + req.app.locals.authenticated);
-
-});*/
 
 
 router.post("/authenticate", async (req, res) => {
@@ -76,6 +54,7 @@ router.post("/authenticate", async (req, res) => {
 });
 
 module.exports = router;
+module.exports.client = client;
 
 module.exports.checkAuthentication = async function checkIfAuthenticated(req,res){
     try {
@@ -96,17 +75,17 @@ module.exports.checkAuthentication = async function checkIfAuthenticated(req,res
 
 
         if (passwordHash.verify(daten[1], user.rows[0].passwort)) {
-            req.app.locals.username = daten[0];
-            return true;
+            //req.app.locals.username = daten[0];
+            return daten[0];
             
         }
         else {
-            req.app.locals.username = "";
-            return false;
+            //req.app.locals.username = "";
+            return "";
         }
     }
     catch (err) {
-        req.app.locals.username = "";
-        return false;
+        //req.app.locals.username = "";
+        return "";
     }
 }

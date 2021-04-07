@@ -143,7 +143,7 @@ const printData = (data) => {
   document.getElementById("list").innerHTML = "";
 
   for (let i = 0; i < data.length; i++) {
-    if ( i === 0 ||data[i].unterkunftartname !== data[i - 1].unterkunftartname) {
+    if ( i === 0 ||data[i].unterkunftid !== data[i - 1].unterkunftid) {
       try {
         let clone = temp.content.cloneNode(true);
         clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
