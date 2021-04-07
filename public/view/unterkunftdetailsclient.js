@@ -110,6 +110,25 @@ $(document).ready(() => {
   });
 });
 
+const zimmerdetails = () => {
+  $.ajax({
+    type: "POST",
+    url: "/zimmerdetails",
+    success: function (data) {
+      
+      window.location = "/zimmerdetails";
+    },
+  })
+  $.ajax({
+    type: "GET",
+    url: "/zimmerdetails",
+    success: function (data) {
+      console.log("Successfully saved the matched beans to the user.");
+      window.location = "/zimmerdetails";
+    },
+  })
+}
+
 function currentDiv(n) {
   showDivs((slideIndex = n));
 }

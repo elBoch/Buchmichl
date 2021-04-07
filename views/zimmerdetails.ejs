@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../public/stylesheets/unterkunftdetails.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Unterkunftansicht</title>
+    <title>Zimmeransicht</title>
 
     <!--Datepicker-->
     <title>jQuery UI Datepicker - Default functionality</title>
@@ -17,6 +17,16 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../public/view/unterkunftdetailsclient.js" type="text/javascript" defer></script>
+    <script>
+        $(function () {
+            $("#datepicker1").datepicker();
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+    </script>
 </head>
 
 <body>
@@ -41,7 +51,7 @@
     </header>
 
     <h1>
-        <%= unterkunftname%>
+        
     </h1>
 
 
@@ -71,68 +81,21 @@
             <div class="description">
                 <!-- Irgendwelche Infos zum Zimmer -->
                 <p>
-                    <%= unterkunftstext%>
+                   
                 </p>
             </div>
-            <div class="infos">
-                <h5>Sterne</h5>
-                <p>
-                    <%=sterne%>
-                </p>
-                <h5>Region</h5>
-                <p>
-                    <%=region%>
-                </p>
-                <h5>Unterkunftausstattung</h5>
-                <p>
-                    <%=einrichtungen%>
-                </p>
-                <h5>Verpflegung</h5>
-                <p>
-                    <%=verpflegung%>
-                </p>
-                <h5>Unterkunftart</h5>
-                <p>
-                    <%=unterkunftart%>
-                </p>
-                <h5>Freizeitausstattung</h5>
-                <p>
-                    <%=freizeitausstattung%>
-                </p>
-                <h5>Sehenswürdigkeiten</h5>
-                <p>
-                    <%=sehenswuerdigkeit%>
-                </p>
+            <div class="datepicker">
+                <p>Date: <input type="text" id="datepicker1"></p>
+
+                <p class="sec-date">Date: <input type="text" id="datepicker2"></p>
+            </div>
+
+            <div class="btn-book">
+                <button><a href="#">BUCHEN</a></button>
             </div>
         </div>
 
     </div>
-
-
-    <div id="list">
-
-    </div>
-
-
-    <template>
-        <div class="listContainer">
-            <hr id="t_hr">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto" /></td>
-                        <td class="listItemText">
-                            <h3 id="t_name">Zimmername</h3>
-                            <p id="t_personen">Personen: 69</p>
-                            <p id="t_zimmerart">Zimmerart: Einzelzimmer</p>
-                            <p id="t_price">Preis: 69€</p>
-                            <button id="detailRoom" onclick="zimmerdetails()">Details</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </template>
 
 </body>
 

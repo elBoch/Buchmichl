@@ -35,6 +35,7 @@ app.use(require('./routes/unterkunftdetails'));
 app.use(require('./routes/kontodetails'));
 app.use(require('./routes/unterkunftform'));
 app.use(require('./routes/zimmerform'));
+app.use(require('./routes/zimmerdetails'));
 
 
 app.listen(port, () => {

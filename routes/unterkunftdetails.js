@@ -91,7 +91,7 @@ router.post("/getRoomList", async (req, res) => {
   res.send(zimmer.rows);
 });
 
-const buildString = (data, type) => {
+module.exports.buildString = (data, type) => {
   const dataSet = new Set();
   for (let i = 0; i < data.length; i++) {
     dataSet.add(data[i][type]);
