@@ -46,17 +46,17 @@ const buildStatement = (req) => {
 };
 
 
-router.get("/hotelList", async(req, res) => {
+router.get("/unterkunftlist", async(req, res) => {
   let check = await checkAuthentication(req,res);
   if (check!="") {
-    res.render("hotelList.ejs", {
+    res.render("unterkunftlist.ejs", {
       pageTitle: "Filter",
       username: check,
       options: "<a id='konto'>Konto</a><a id='logout'>Logout</a> ",
     });
   }
   else{
-    res.render("hotelList.ejs", {
+    res.render("unterkunftlist.ejs", {
       pageTitle: "Filter",
       username: check,
       options: "<a id='login'>Login</a>",

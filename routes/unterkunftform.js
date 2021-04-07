@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/adminPanelZimmer', (req, res) => {
-        res.render('adminPanelZimmer.ejs', {
+router.get('/unterkunftform', (req, res) => {
+        res.render('unterkunftform.ejs', {
             pageTitle: 'Start',
         });
 });

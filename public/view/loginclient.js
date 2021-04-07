@@ -23,10 +23,10 @@ $(document).ready(() => {
             if (data.query == "ok") {
                 $.ajax({
                     type: 'GET',
-                    url: '/hotelList',
+                    url: '/unterkunftlist',
                     success: function (data) {
                         console.log("Successfully saved the matched beans to the user.");
-                        window.location = '/hotelList';
+                        window.location = '/unterkunftlist';
                     }
                 });
 
@@ -65,7 +65,7 @@ $(document).ready(() => {
                 console.log(data);
                 alert(data);
                 if (data == 'register successed') {
-                    window.location = "/hotelList";
+                    window.location = "/unterkunftlist";
                 }
 
             }

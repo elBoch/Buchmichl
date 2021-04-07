@@ -5,7 +5,7 @@ let checkAuthentication = require("./api").checkAuthentication;
 let unterkunft;
 
 
-router.get("/detailedRoom", async (req, res) => {
+router.get("/unterkunftdetails", async (req, res) => {
   const unterkunftView = await client.query(
     "SELECT * FROM unterkunft WHERE unterkunftname=$1",
     [unterkunft]
@@ -40,7 +40,7 @@ router.get("/detailedRoom", async (req, res) => {
   let check = await checkAuthentication(req,res);
 
   if (check!="") {
-    res.render("detailedRoom.ejs", {
+    res.render("unterkunftdetails.ejs", {
       pageTitle: "Detail",
       username: check,
       options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
@@ -56,7 +56,7 @@ router.get("/detailedRoom", async (req, res) => {
     });
   }
   else {
-    res.render("detailedRoom.ejs", {
+    res.render("unterkunftdetails.ejs", {
       pageTitle: "Detail",
       username: check,
       options: "<a id='login'>Login</a>",
@@ -75,7 +75,7 @@ router.get("/detailedRoom", async (req, res) => {
 
 });
 
-router.post("/detailedRoom", (req, res) => {
+router.post("/unterkunftdetails", (req, res) => {
   unterkunft = req.body.unterkunft;
 });
 

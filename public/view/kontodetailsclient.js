@@ -1,14 +1,14 @@
 $(document).ready(() => {
-    $("#adminPanelUnterkunft").on("click", (e) => {
+    $("#unterkunftform").on("click", (e) => {
       console.log("here we go");
   
       e.preventDefault();
       $.ajax({
         type: "GET",
-        url: "/adminPanelUnterkunft",
+        url: "/unterkunftform",
         success: function (data) {
           console.log("Successfully saved the matched beans to the user.");
-          window.location = "/adminPanelunterkunft";
+          window.location = "/unterkunftform";
         },
       })
         .done(() => {
@@ -23,16 +23,16 @@ $(document).ready(() => {
   });
 
   $(document).ready(() => {
-    $("#adminPanelZimmer").on("click", (e) => {
+    $("#zimmerform").on("click", (e) => {
       console.log("here we go");
   
       e.preventDefault();
       $.ajax({
         type: "GET",
-        url: "/adminPanelZimmer",
+        url: "/zimmerform",
         success: function (data) {
           console.log("Successfully saved the matched beans to the user.");
-          window.location = "/adminPanelzimmer";
+          window.location = "/zimmerform";
         },
       })
         .done(() => {

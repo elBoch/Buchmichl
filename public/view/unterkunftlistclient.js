@@ -72,10 +72,10 @@ $(document).ready(() => {
     e.preventDefault();
     $.ajax({
       type: "GET",
-      url: "/konto",
+      url: "/kontodetails",
       success: function (data) {
         console.log("Successfully saved the matched beans to the user.");
-        window.location = "/konto";
+        window.location = "/kontodetails";
       },
     })
       .done(() => {
@@ -169,11 +169,11 @@ const clicked = (value) => {
   console.log(value);
   $.ajax({
     type: "POST",
-    url: "/detailedRoom",
+    url: "/unterkunftdetails",
     data:{ unterkunft: value},
     success: (data) => {
       console.log("Successfully saved the matched beans to the user.");
-      window.location = "/detailedRoom";
+      window.location = "/unterkunftdetails";
     },
   })
     .done(() => {
@@ -187,10 +187,10 @@ const clicked = (value) => {
 
   $.ajax({
     type: "GET",
-    url: "/detailedRoom",
+    url: "/unterkunftdetails",
     success: (data) => {
       console.log("Successfully saved the matched beans to the user.");
-      window.location = "/detailedRoom";
+      window.location = "/unterkunftdetails";
     },
   })
     .done(() => {

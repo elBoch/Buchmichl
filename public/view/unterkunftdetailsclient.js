@@ -29,10 +29,10 @@ $(document).ready(() => {
     e.preventDefault();
     $.ajax({
       type: "GET",
-      url: "/konto",
+      url: "/kontodetails",
       success: function (data) {
         console.log("Successfully saved the matched beans to the user.");
-        window.location = "/konto";
+        window.location = "/kontodetails";
       },
     })
       .done(() => {

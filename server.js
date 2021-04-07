@@ -30,11 +30,11 @@ app.use(require('./routes/api'));
 app.use(require('./routes/start'));
 app.use(require('./routes/login'));
 app.use(require('./routes/roomList'));
-app.use(require('./routes/hotelList'));
-app.use(require('./routes/detailedRoom'));
-app.use(require('./routes/konto'));
-app.use(require('./routes/adminpanelunterkunft'));
-app.use(require('./routes/adminpanelzimmer'));
+app.use(require('./routes/unterkunftlist'));
+app.use(require('./routes/unterkunftdetails'));
+app.use(require('./routes/kontodetails'));
+app.use(require('./routes/unterkunftform'));
+app.use(require('./routes/zimmerform'));
 
 
 app.listen(port, () => {

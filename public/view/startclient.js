@@ -35,10 +35,10 @@ $(document).ready(() => {
       e.preventDefault();
       $.ajax({
         type: "GET",
-        url: "/konto",
+        url: "/kontodetails",
         success: function (data) {
           console.log("Successfully saved the matched beans to the user.");
-          window.location = "/konto";
+          window.location = "/kontodetails";
         },
       })
         .done(() => {
@@ -53,19 +53,19 @@ $(document).ready(() => {
   });
 
 $(document).ready(function(){
-    $("#filter").on('click',function(e){
+    $("#unterkunftlist").on('click',function(e){
         console.log("here we go");
 
         e.preventDefault();
         //var data = $('input[name=quote]').val();
         $.ajax({
             type: 'GET',
-            url: '/hotelList',
+            url: '/unterkunftlist',
             //contentType: 'application/json',
             //data: "test",
             success: function(data) {
                 console.log("Successfully saved the matched beans to the user.");
-                window.location='/hotelList';
+                window.location='/unterkunftlist';
             }
         }).done(function ( ) {
             console.log("OK");

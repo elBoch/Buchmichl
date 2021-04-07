@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../stylesheets/roomForm.css">
+    <link rel="stylesheet" href="../public/stylesheets/zimmerform.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../public/view/adminPanelclientunterkunft.js" type="text/javascript" defer></script>
+    <script src="../public/view/zimmerformclient.js" type="text/javascript" defer></script>
     <title>Buchmichl</title>
 </head>
 
@@ -24,22 +24,14 @@
 
     <div class="accommodation-form">
         <div class="accommodation-form-content">
-            <h1 class="header-form">Unterkunft erstellen</h1>
+            <h1 class="header-form">Zimmer erstellen</h1>
             <div class="input-name">
-                <p>Name Unterkunft</p>
-                <input type="text" class="input-form"/>
-            </div>
-            <div class="input-name">
-                <p>Unterkunft Beschreibung</p>
-                <input type="text" class="input-form"/>
-            </div>
-            <div class="input-name">
-                <p>Region</p>
+                <p>Name Zimmer</p>
                 <input type="text" class="input-form"/>
             </div>
             
-            <div class="input-name">
-                <p>Anschrift</p>
+            <!-- <div class="input-name">
+                <p>Zimmer Art</p>
                 <div class="address">
                     <div>
                         <p class="styled-p">Straße</p>
@@ -58,99 +50,18 @@
                         <input class="input-form" />
                     </div>
                 </div>
-                <!--<input type="text" class="input-form"/>-->
-            </div>
-            <br>
+            </div> -->
             
             <div class="input-name">
-                <p>Unterkunftsart</p>
+                <p>Zimmerart</p>
                 <select class="input-form">
+                    <option>Suite</option>
                     <option>Hotel</option>
-                    <option>Jugendherberge</option>
-                    <option>Wos suns no gib</option>
+                    <option>Apartment</option>
                 </select>
 
             </div>
 
-            <div class="input-name">
-                <p>Freitzeitausstattung</p>
-                <div class="tag-section">
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Meer</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Wander-/Fahrradweg</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Fußballplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">E-Bikes</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Tennishalle</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Fitnesszentrum</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Volleyballplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Tennisplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Golfplatz</p>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
 
             <div class="input-name">
                 <p>Zimmerausstattung</p>
@@ -202,14 +113,14 @@
             </div>
 
             <div class="input-name">
-                <p>Unterkunftsausstattung</p>
+                <p>Verpflegungsmöglichkeiten</p>
                 <div class="tag-section">
                     <div class="input-checkbox equipment-tag">
                         <div class="checkbox-form">
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">Sauna</p>
+                            <p class="styled-p">Halbpension</p>
                         </div>
                     </div>
                     
@@ -218,7 +129,7 @@
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">Schwimmbad</p>
+                            <p class="styled-p">Vollpension</p>
                         </div>
                     </div>
                     
@@ -227,7 +138,7 @@
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">WLAN</p>
+                            <p class="styled-p">All-Inclusive</p>
                         </div>
                     </div>
                     <div class="input-checkbox equipment-tag">
@@ -235,7 +146,7 @@
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">Restaurant</p>
+                            <p class="styled-p">Ohne</p>
                         </div>
                     </div>
                     <div class="input-checkbox equipment-tag">
@@ -243,7 +154,7 @@
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">Bar</p>
+                            <p class="styled-p">+ Bar</p>
                         </div>
                     </div>
                     <div class="input-checkbox equipment-tag">
@@ -251,22 +162,30 @@
                             <input type="checkbox" />&nbsp;
                         </div>
                         <div class="chekbox-form">
-                            <p class="styled-p">Mini-Golf Anlage</p>
+                            <p class="styled-p">+ Nachmittags-Snack</p>
                         </div>
                     </div>
                 </div>
                 <br>
             </div>
 
-            <div class="input-name">
-                <p>Sterne</p>
-                <div class="input-checkbox">
-                    <input type="number" min="3" max="5" accept="" value="" class="input-form input-stars"/>&nbsp;
-                    <div class="checkbox-form">
-                        <input type="checkbox" class="checkbox"/>
+            <div class="input-name personen-preis-helper">
+                <div style="margin-right: 20px;">
+                    <p>Personen</p>
+                    <div class="input-checkbox">
+                        <input type="number" min="3" max="5" accept="" value="" class="input-form input-stars"/>&nbsp;
+                        <div class="checkbox-form">
+                            <input type="checkbox" class="checkbox"/>
+                        </div>
+                        <p class="input-stars">&nbsp;S</p>
                     </div>
-                    <p class="input-stars">&nbsp;S</p>
                 </div>
+
+                <div>
+                    <p>Preis pro Nacht in €</p>
+                    <input type="number" min="0" value=" " accept=" " class="input-form input-stars" style="width: 100px;"/>
+                </div>
+                
             </div>
             <br>
             <br>
