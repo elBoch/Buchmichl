@@ -40,7 +40,7 @@
         </nav>
     </header>
 
-    <h1>
+    <h1 id="unterkunft">
         <%= unterkunftname%>
     </h1>
 
@@ -126,7 +126,7 @@
                             <p id="t_personen">Personen: 69</p>
                             <p id="t_zimmerart">Zimmerart: Einzelzimmer</p>
                             <p id="t_price">Preis: 69€</p>
-                            <button id="detailRoom" onclick="zimmerdetails()">Details</button>
+                            <button id="detailRoom" onclick="zimmerdetails(this.value)">Details</button>
                         </td>
                     </tr>
                 </tbody>

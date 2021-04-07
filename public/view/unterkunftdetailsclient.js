@@ -110,23 +110,27 @@ $(document).ready(() => {
   });
 });
 
-const zimmerdetails = () => {
+const zimmerdetails = (value) => {
+  let unterkunft = document.getElementById("unterkunft").innerText;
+  let zimmer = value
+  //console.log(zimmer);
   $.ajax({
     type: "POST",
     url: "/zimmerdetails",
+    data:{unterkunft: unterkunft, zimmer:zimmer},
     success: function (data) {
       
-      window.location = "/zimmerdetails";
+      $.ajax({
+        type: "GET",
+        url: "/zimmerdetails",
+        success: function (data) {
+          console.log("Successfully saved the matched beans to the user.");
+          window.location = "/zimmerdetails";
+        },
+      });
     },
-  })
-  $.ajax({
-    type: "GET",
-    url: "/zimmerdetails",
-    success: function (data) {
-      console.log("Successfully saved the matched beans to the user.");
-      window.location = "/zimmerdetails";
-    },
-  })
+  });
+  
 }
 
 function currentDiv(n) {
@@ -167,7 +171,7 @@ const printData = (data) => {
         clone.getElementById("t_personen").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
         clone.getElementById("t_zimmerart").innerHTML = "<b>Zimmerart: </b>" + data[i].zimmerartname;
         clone.getElementById("t_price").innerHTML = "<b>Preis: </b>" + data[i].preis;
-        clone.getElementById("detailRoom").value = data[i].zimmerartname;
+        clone.getElementById("detailRoom").value = data[i].zimmerartname+","+data[i].preis;
         document.getElementById("list").appendChild(clone);
   }
 };

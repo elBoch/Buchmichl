@@ -51,7 +51,7 @@
     </header>
 
     <h1>
-        
+        <%= zimmername%>
     </h1>
 
 
@@ -81,13 +81,35 @@
             <div class="description">
                 <!-- Irgendwelche Infos zum Zimmer -->
                 <p>
-                   
+                   <%=zimmertext%>
                 </p>
             </div>
             <div class="datepicker">
                 <p>Date: <input type="text" id="datepicker1"></p>
 
                 <p class="sec-date">Date: <input type="text" id="datepicker2"></p>
+            </div>
+            <div class="infos">
+                <h5>Preis</h5>
+                <p>
+                    <%=preis%>
+                </p>
+                <h5>Anzahl Personen</h5>
+                <p>
+                    <%=anzahlpersonen%>
+                </p>
+                <h5>Verpflegung</h5>
+                <p>
+                    <%=verpflegung%>
+                </p>
+                <h5>Zimmerart</h5>
+                <p>
+                    <%=zimmerart%>
+                </p>
+                <h5>Zimmerausstattung</h5>
+                <p>
+                    <%=zimmerausstattung%>
+                </p>
             </div>
 
             <div class="btn-book">
