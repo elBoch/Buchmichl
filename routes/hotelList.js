@@ -10,11 +10,11 @@ const buildStatement = (req) => {
   filterStatement +=
     " SELECT * " +
     "FROM unterkunft u INNER JOIN zimmerartinunterkunft zu ON u.unterkunftid=zu.unterkunftid " +
-    "INNER JOIN zimmer z ON z.zimmerartid = zu.zimmerartid AND z.unterkunftid= zu.unterkunftid " +
-    "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
-    "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
-    "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
-    "INNER JOIN region r ON g.regionid = r.regionid " +
+                      "INNER JOIN zimmer z ON z.zimmerartid = zu.zimmerartid AND z.unterkunftid= zu.unterkunftid " +
+                      "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
+                      "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
+                      "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
+                      "INNER JOIN region r ON g.regionid = r.regionid " +
     "WHERE z.preis BETWEEN " +
     req.body.preis_von +
     " AND ";

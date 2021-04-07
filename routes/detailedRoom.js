@@ -13,17 +13,17 @@ router.get("/detailedRoom", async (req, res) => {
   const unterkunftData = await client.query(
     "SELECT e.einrichtungsname, ua.unterkunftartname, r.regionname, fa.freizeitausstattungsname, u.sterne, s.sehenswuerdigkeitsname, v.verpflegungname " +
     "FROM einrichtung e INNER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid " +
-    "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
-    "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
-    "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
-    "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
-    "INNER JOIN region r ON r.regionid = g.regionid " +
-    "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid " +
-    "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid " +
-    "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid " +
-    "INNER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid " +
-    "INNER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid " +
-    "INNER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid " +
+                       "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
+                       "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
+                       "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
+                       "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
+                       "INNER JOIN region r ON r.regionid = g.regionid " +
+                       "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid " +
+                       "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid " +
+                       "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid " +
+                       "INNER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid " +
+                       "INNER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid " +
+                       "INNER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid " +
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
@@ -83,8 +83,8 @@ router.post("/getRoomList", async (req, res) => {
   const zimmer = await client.query(
     "SELECT z.preis, z.anzahlpersonen, za.zimmerartname " +
     "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid " +
-    "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid " +
-    "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid " +
+                      "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid " +
+                      "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid " +
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
