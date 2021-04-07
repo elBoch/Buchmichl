@@ -1,11 +1,19 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
 body {
     background-image: url('../images/background.jpg');
     background-size: cover;
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-position: center;
     display: block;
+    display: flex;
+    flex-direction: column;
     /*overflow: hidden;*/
-    height: auto;
+    height: 100%;
+    width: 100%;
 }
 
 * {
@@ -53,9 +61,10 @@ nav ul li a {
     background-color: white;
     width: 45%;
     min-width: 800px;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     color: #053426;
     height: 100%;
+    flex-grow: 1;
 }
 
 .accommodation-form-content {
@@ -106,7 +115,7 @@ option {
     margin-bottom: 0;
 }
 
-
+f
 .checkbox {
     padding-top: auto;
     padding-bottom: auto;
@@ -163,7 +172,7 @@ option {
     padding: 10px 30px;
     cursor: pointer;
     display: block;
-    margin: auto;
+    margin: 20px auto;
     background: #053426;
     border: 0;
     outline: none;
@@ -173,7 +182,6 @@ option {
     font-weight: bold;
 }
 
-.personen-preis-helper {
-    display: flex;
-    flex-direction: row;
+h1 {
+    text-align: center;
 }
