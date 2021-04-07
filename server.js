@@ -33,7 +33,8 @@ app.use(require('./routes/roomList'));
 app.use(require('./routes/hotelList'));
 app.use(require('./routes/detailedRoom'));
 app.use(require('./routes/konto'));
-
+app.use(require('./routes/adminpanelunterkunft'));
+app.use(require('./routes/adminpanelzimmer'));
 app.locals.authenticated = false;
 app.locals.username;
 

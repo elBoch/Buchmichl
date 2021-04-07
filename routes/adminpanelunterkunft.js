@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/konto', (req, res) => {
-        res.render('kontoansicht.ejs', {
+router.get('/adminPanelUnterkunft', (req, res) => {
+        res.render('adminPanelunterkunft.ejs', {
             pageTitle: 'Start',
         });
 });
