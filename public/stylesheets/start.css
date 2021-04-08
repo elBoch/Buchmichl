@@ -136,6 +136,10 @@ li a, .dropbtn {
 li.dropdown {
     display: inline-block;
 }
+
+li.dropdown:hover{
+    cursor: pointer;
+}
   
 .dropdown-content {
     display: none;

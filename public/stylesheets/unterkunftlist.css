@@ -28,11 +28,6 @@ body {
     box-sizing: border-box;
 }
 
-nav {
-    background: #053426;
-    height: 80px;
-    width: 100%;
-}
 
 label.logo {
     color: white;
@@ -42,24 +37,6 @@ label.logo {
     font-weight: bold;
     margin: 0;
 }
-
-nav ul {
-    float: right;
-    margin-right: 20px;
-}
-
-nav ul li {
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-}
-
-nav ul li a {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
 
 /*
     New Style
@@ -256,8 +233,6 @@ hr {
     width: 100px;
 }
 
-
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -307,7 +282,10 @@ li a, .dropbtn {
 li.dropdown {
     display: inline-block;
 }
-  
+
+li.dropdown:hover{
+    cursor: pointer;
+}
 .dropdown-content {
     display: none;
     position: absolute;

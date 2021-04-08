@@ -17,11 +17,6 @@ body {
     box-sizing: border-box;
 }
 
-nav {
-    background: #053426;
-    height: 80px;
-    width: 100%;
-}
 
 label.logo {
     color: white;
@@ -32,22 +27,6 @@ label.logo {
     margin: 0;
 }
 
-nav ul {
-    float: right;
-    margin-right: 20px;
-}
-
-nav ul li {
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 5px;
-}
-
-nav ul li a {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-}
 
 .accommodation-form {
     background-color: white;
@@ -225,6 +204,10 @@ li a, .dropbtn {
 
 li.dropdown {
     display: inline-block;
+}
+
+li.dropdown:hover{
+    cursor: pointer;
 }
   
 .dropdown-content {
