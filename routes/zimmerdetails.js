@@ -16,7 +16,7 @@ router.get('/zimmerdetails', async(req, res) => {
                                   "LEFT OUTER JOIN verpflegung v ON v.verpflegungid = zvi.verpflegungid " +
                                   "LEFT OUTER JOIN zimmerausstattunginunterkunft zaiu ON zaiu.zimmerartid = ziu.zimmerartid AND zaiu.unterkunftid = ziu.unterkunftid " +
                                   "LEFT OUTER JOIN zimmerausstattung zas ON zas.ausstattungid = zaiu.ausstattungid " +
-                "WHERE u.unterkunftname = $1 AND za.zimmerartname=$2 AND z.preis=$3; ",
+                "WHERE u.unterkunftname = $1 AND z.zimmername=$2 AND z.preis=$3; ",
                 [unterkunft,zimmer,preis]
       );
       //console.log(zimmerData.rows);

@@ -23,13 +23,21 @@ client.connect();
 
 
 
-
 router.post("/authenticate", async (req, res) => {
     try {
         const data = await client.query(
             "SELECT passwort FROM benutzer WHERE username=$1",
             [req.body.name]
         );
+        /*const data2 = await client.query(
+            "UPDATE benutzer SET passwort = $1 WHERE username='hormad17'",
+            [passwordHash.generate(data.rows[0].passwort)]
+        );
+        const data3 = await client.query(
+            "SELECT passwort FROM benutzer WHERE username=$1",
+            [req.body.name]
+        );*/
+
         if (passwordHash.verify(req.body.passw, data.rows[0].passwort)) {
 
 
@@ -68,13 +76,13 @@ module.exports.checkAuthentication = async function checkIfAuthenticated(req,res
 
         let daten = decrypted.split(",");
 
-        const user = await client.query(
+        const passw = await client.query(
             "SELECT passwort FROM benutzer WHERE username=$1;",
             [daten[0]]
         );
 
 
-        if (passwordHash.verify(daten[1], user.rows[0].passwort)) {
+        if (passwordHash.verify(daten[1], passw.rows[0].passwort)) {
             //req.app.locals.username = daten[0];
             return daten[0];
             

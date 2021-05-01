@@ -72,12 +72,12 @@ const printData = (data) => {
 
   for (let i = 0; i < data.length; i++) {
         let clone = temp.content.cloneNode(true);
-        clone.getElementById("t_name").innerHTML = data[i].zimmerartname;
+        clone.getElementById("t_name").innerHTML = data[i].zimmername;
         clone.getElementById("t_name").style.marginTop = "0";
         clone.getElementById("t_personen").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
         clone.getElementById("t_zimmerart").innerHTML = "<b>Zimmerart: </b>" + data[i].zimmerartname;
         clone.getElementById("t_price").innerHTML = "<b>Preis: </b>" + data[i].preis;
-        clone.getElementById("detailRoom").value = data[i].zimmerartname+","+data[i].preis;
+        clone.getElementById("detailRoom").value = data[i].zimmername+","+data[i].preis;
         document.getElementById("list").appendChild(clone);
   }
 };

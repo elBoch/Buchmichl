@@ -81,7 +81,7 @@ router.post("/unterkunftdetails", (req, res) => {
 
 router.post("/getRoomList", async (req, res) => {
   const zimmer = await client.query(
-    "SELECT z.preis, z.anzahlpersonen, za.zimmerartname " +
+    "SELECT z.zimmername, z.preis, z.anzahlpersonen, za.zimmerartname " +
     "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid " +
                       "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid " +
                       "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid " +

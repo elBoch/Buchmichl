@@ -34,15 +34,17 @@
             <h1 class="header-form">Unterkunft erstellen</h1>
             <div class="input-name">
                 <p>Name Unterkunft</p>
-                <input type="text" class="input-form"/>
+                <input type="text" class="input-form" id="unterkunft-name"/>
             </div>
             <div class="input-name">
                 <p>Unterkunft Beschreibung</p>
-                <input type="text" class="input-form"/>
+                <input type="text" class="input-form" id="unterkunft-description"/>
             </div>
             <div class="input-name">
                 <p>Region</p>
-                <input type="text" class="input-form"/>
+                <select class="input-form" id="region">
+                    <%-region%>
+                </select>
             </div>
             
             <div class="input-name">
@@ -50,19 +52,19 @@
                 <div class="address">
                     <div>
                         <p class="styled-p">Straße</p>
-                        <input class="input-form" />
+                        <input class="input-form" id="street"/>
                     </div>
                     <div>
                         <p class="styled-p">Nummer</p>
-                        <input class="input-form" />
+                        <input class="input-form" id="house-number"/>
                     </div>
                     <div>
                         <p class="styled-p">Ort</p>
-                        <input class="input-form" />
+                        <input class="input-form" id="location"/>
                     </div>
                     <div>
                         <p class="styled-p">PLZ</p>
-                        <input class="input-form" />
+                        <input class="input-form" id="plz"/>
                     </div>
                 </div>
                 <!--<input type="text" class="input-form"/>-->
@@ -71,198 +73,24 @@
             
             <div class="input-name">
                 <p>Unterkunftsart</p>
-                <select class="input-form">
-                    <option>Hotel</option>
-                    <option>Appartment</option>
-                    <option>Gasthof</option>
-                    <option>Berghütte</option>
-                    <option>Pension</option>
+                <select class="input-form" id="unterkunftart">
+                    <%-unterkunftart%>
                 </select>
 
             </div>
 
             <div class="input-name">
                 <p>Freitzeitausstattung</p>
-                <div class="tag-section">
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Meer</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Wander-/Fahrradweg</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Fußballplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">E-Bikes</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Tennishalle</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Fitnesszentrum</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Volleyballplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Tennisplatz</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Golfplatz</p>
-                        </div>
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="input-name">
-                <p>Zimmerausstattung</p>
-                <div class="tag-section">
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Dusche</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">WC</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Fernseher</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Balkon</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Schreibtisch</p>
-                        </div>
-                    </div>
+                <div class="tag-section" id="freetime-activities">
+                    <%-freizeitausstattung%>
                 </div>
                 <br>
             </div>
 
             <div class="input-name">
                 <p>Unterkunftsausstattung</p>
-                <div class="tag-section">
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Sauna</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Schwimmbad</p>
-                        </div>
-                    </div>
-                    
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">WLAN</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Restaurant</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Bar</p>
-                        </div>
-                    </div>
-                    <div class="input-checkbox equipment-tag">
-                        <div class="checkbox-form">
-                            <input type="checkbox" />&nbsp;
-                        </div>
-                        <div class="chekbox-form">
-                            <p class="styled-p">Mini-Golf Anlage</p>
-                        </div>
-                    </div>
+                <div class="tag-section" id="unterkunft-equipment">
+                    <%-unterkunftausstattung%>
                 </div>
                 <br>
             </div>
@@ -270,16 +98,16 @@
             <div class="input-name">
                 <p>Sterne</p>
                 <div class="input-checkbox">
-                    <input type="number" min="1" max="5" accept="" value="" class="input-form input-stars"/>&nbsp;
+                    <input type="number" min="0" max="5" accept="" value="" class="input-form input-stars" id="stars"/>&nbsp;
                     <div class="checkbox-form">
                         <input type="checkbox" class="checkbox"/>
                     </div>
-                    <p class="input-stars">&nbsp;S</p>
+                    <p class="input-stars" >&nbsp;S</p>
                 </div>
             </div>
             <br>
             <br>
-            <input type="button" class="submit-btn" value="Erstellen"/>
+            <input type="button" id="create" class="submit-btn" value="Erstellen"/>
             <br>
             <br>
     </div>
