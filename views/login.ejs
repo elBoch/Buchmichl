@@ -13,7 +13,7 @@
     <title>Buchmichl</title>
 </head>
 
-<body>
+<body style="overflow-y: scroll;">
     <header>
         <nav>
             <ul>
@@ -34,17 +34,29 @@
                 <input type="text" id="r_firstname" class="input-field" placeholder="firstname" required>
                 <input type="text" id="r_lastname" class="input-field" placeholder="lastname" required>
                 <input type="text" id="r_username" class="input-field" placeholder="username" required>
+                <input type="text" id="r_date" class="input-field" placeholder="birthdate (DD.MM.YYYY)" required>
                 <input type="email" id="r_email" class="input-field" placeholder="email" required>
+                <input type="email" id="r_telefonnummer" class="input-field" placeholder="phonenumber (only for Admins)">
                 <input type="password" id="r_passwort" class="input-field" placeholder="password" required>
-                <input type="password" class="input-field" placeholder="repeat-password" required>
+                <input type="password" id="r_repeat_passwort"class="input-field" placeholder="repeat-password" required>
+                <div class="checkbox-form">
+                    <table>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox" id="checkboxAdmin"/></td>
+                            <td><p class="input-stars">Admin</p></td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+
                 <button type="submit" class="submit-btn" id="regestrieren">Register</button>
                 <p class="msg">Already registered? <a href="#">Login</a></p>
             </form>
 
             <form class="login-form">
                 <h2 class="lp-header">Login</h2>
-                <input type="text" id="r_username" class="input-field" placeholder="username" required>
-                <input type="password" id="r_passwort" class="input-field" placeholder="password" required>
+                <input type="text" id="l_username" class="input-field" placeholder="username" required />
+                <input type="password" id="l_passwort" class="input-field" placeholder="password" required />
                 <button type="submit" class="submit-btn" id="anmelden">Login</button>
                 <p class="msg">Not registered? <a href="#">Register</a></p>
             </form>
@@ -53,10 +65,11 @@
 
     <script src="https://code.jquery.com/jquery.3.3.1"></script>
     <script>
-        $("p").click(function() {
+        $("p").click(function () {
             $('form').toggle(1000);
         })
     </script>
 
 </body>
+
 </html>

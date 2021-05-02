@@ -22,7 +22,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-app.use(crypto({ secret: 'Földschneider' }, app));
+app.use(crypto({ secret: 'CiscoDisco123' }, app));
 
 app.use(express.static('public'));
 

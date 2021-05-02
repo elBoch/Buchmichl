@@ -2,10 +2,11 @@
 $(document).ready(() => {
     $("#anmelden").on('click', function (e) {
 
-        const username = document.getElementById('username').value;
-        const passwort = document.getElementById('passwort').value;
+        const username = document.getElementById('l_username').value;
+        const passwort = document.getElementById('l_passwort').value;
         let redirect = false;
 
+        //console.log(username);
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -29,11 +30,6 @@ $(document).ready(() => {
                         window.location = '/unterkunftlist';
                     }
                 });
-
-                
-
-
-
             }
             else {
                 alert("Falsche Eingabe");
@@ -46,30 +42,50 @@ $(document).ready(() => {
 
 $(document).ready(() => {
     $("#regestrieren").on('click', function (e) {
-
+        try{
         const username = document.getElementById('r_username').value;
         const passwort = document.getElementById('r_passwort').value;
+        const passwort_repeat = document.getElementById('r_repeat_passwort').value;
         const email = document.getElementById('r_email').value;
+        const vorname = document.getElementById("r_firstname").value;
+        const nachname = document.getElementById("r_lastname").value;
+        const date = document.getElementById("r_date").value;
+        const realDate = Date.parse(date);
+        const admin = document.getElementById("checkboxAdmin").checked;
+        const telefonnnummer = document.getElementById("r_telefonnummer").value;
 
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '/register',
-            data: {
-                name: username,
-                passw: passwort,
-                email: email
-            },
-            success: function (data) {
-                console.log("Successfully saved the matched beans to the user.");
-                console.log(data);
-                alert(data);
-                if (data == 'register successed') {
-                    window.location = "/unterkunftlist";
+        if(passwort === passwort_repeat){
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/register',
+                data: {
+                    username: username,
+                    passwort: passwort,
+                    email: email,
+                    vorname:vorname,
+                    nachname:nachname,
+                    date:date,
+                    admin:admin,
+                    telefonnnummer:telefonnnummer,
+                },
+                success: function (data) {
+                    console.log("Successfully saved the matched beans to the user.");
+                    console.log(data);
+                    alert(data);
+                    if (data == 'register successed') {
+                        window.location = "/unterkunftlist";
+                    }
+    
                 }
+            });
+        }else{
+            alert("Bitte geben Sie zweimal das gleiche Passwort ein.");
+        }
 
-            }
-        });
-
+    }
+    catch(err){
+        alert("Bitte alles Ausfüllen!");
+    }
     });
 });

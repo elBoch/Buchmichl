@@ -49,7 +49,7 @@ router.post("/authenticate", async (req, res) => {
 
 
             //console.log(cookieHash);
-            res.cookie('HorwathToken', cookieHash, { maxAge: 900000, httpOnly: true });
+            res.cookie('AUTH-Token', cookieHash, { maxAge: 900000, httpOnly: true });
             //console.log('cookie created successfully');
 
             res.send({ query: "ok" });
@@ -67,7 +67,7 @@ module.exports.client = client;
 module.exports.checkAuthentication = async function checkIfAuthenticated(req,res){
     try {
         const decipher = crypto.createDecipheriv(algorithm, key, iv);
-        let cookieData = req.cookies['HorwathToken'];
+        let cookieData = req.cookies['AUTH-Token'];
         
         let decrypted = decipher.update(cookieData + "", 'hex', 'utf8');
 
