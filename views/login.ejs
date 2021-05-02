@@ -27,48 +27,36 @@
         </nav>
     </header>
 
-    <div class="hero">
-        <div class="form-box">
-            <br>
-            <br>
-            <div class="button-box">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="login()">Login</button>
-                <button type="button" class="toggle-btn" onclick="register()">Register</button>
-            </div>
-            <form id="loginForm" action="" class="input-group">
-                <input type="text" id="username" class="input-field" placeholder="username" required>
-                <input type="password" id="passwort" class="input-field" placeholder="password" required>
-                <input type="checkbox" class="check-box"><span>Remember Password</span>
-                <button type="submit" class="submit-btn" id="anmelden">Login</button>
-            </form>
-            <form id="register" action="" class="input-group">
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form">
+                <h2 class="lp-header">Register</h2>
+                <input type="text" id="r_firstname" class="input-field" placeholder="firstname" required>
+                <input type="text" id="r_lastname" class="input-field" placeholder="lastname" required>
                 <input type="text" id="r_username" class="input-field" placeholder="username" required>
                 <input type="email" id="r_email" class="input-field" placeholder="email" required>
                 <input type="password" id="r_passwort" class="input-field" placeholder="password" required>
-                <input type="checkbox" class="check-box"><span>I agree to the terms of service</span>
+                <input type="password" class="input-field" placeholder="repeat-password" required>
                 <button type="submit" class="submit-btn" id="regestrieren">Register</button>
+                <p class="msg">Already registered? <a href="#">Login</a></p>
+            </form>
+
+            <form class="login-form">
+                <h2 class="lp-header">Login</h2>
+                <input type="text" id="r_username" class="input-field" placeholder="username" required>
+                <input type="password" id="r_passwort" class="input-field" placeholder="password" required>
+                <button type="submit" class="submit-btn" id="anmelden">Login</button>
+                <p class="msg">Not registered? <a href="#">Register</a></p>
             </form>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery.3.3.1"></script>
     <script>
-        var x = document.getElementById("login");
-        var y = document.getElementById("register");
-        var z = document.getElementById("btn");
-
-        function register() {
-            x.style.left = "-400px";
-            y.style.left = "50px";
-            z.style.left = "110px";
-        }
-
-        function login() {
-            x.style.left = "50px";
-            y.style.left = "450px";
-            z.style.left = "0px";
-        }
+        $("p").click(function() {
+            $('form').toggle(1000);
+        })
     </script>
-</body>
 
+</body>
 </html>

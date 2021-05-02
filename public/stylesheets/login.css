@@ -1,7 +1,3 @@
-body {
-    overflow: hidden;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +5,16 @@ body {
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
 }
 
 label.logo {
@@ -101,78 +107,64 @@ li.dropdown:hover{
     display: block;
 }
 
+.login-page{
+    max-width: 25%;
+    margin: 0 auto;
+    margin-top: 8%
+}
 
-.hero {
-    height: 100%;
+.form{
+    z-index: 1;
+    background-color: white;
     width: 100%;
-    background-image: url('../images/background.jpg');
-    background-position: center;
-    background-size: cover;
-    position: absolute;
-}
-
-.form-box {
-    width: 380px;
-    height: 480px;
-    position: relative;
-    margin: 6% auto;
-    background: white;
-    padding: 5px;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.button-box {
-    width: 220px;
-    margin: 35px auto;
-    position: relative;
-}
-
-.toggle-btn {
-    width: 105px;
+    margin: 0 auto;
+    padding: 45px;
     text-align: center;
-    cursor: pointer;
-    background: none;
-    border: 0;
-    font-size: 16px;
-    font-weight: bolder;
-    border-style: solid;
-    border-color: white;
-    border-bottom: #053426;
-    color: #053426;
-    padding: 10px;
     border-radius: 10px;
 }
 
-.input-group {
-    position: absolute;
-    width: 280px;
-    transition: .5s;
+.register-form .login-form{
+    outline: none;
+    width: 100%;
+    margin: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    
+}
+
+.form button:hover, .form button:active{
+    background: #AD8D49;
+    border: none;
+}
+
+.msg{
+    margin: 15px 0 0;
+    color: black;
+    font-size: 14px;
+}
+
+.form .msg a{
+    color: #AD8D49;
+    text-decoration: none;
+}
+
+.register-form{
+    display: none;
 }
 
 .input-field {
-    outline: 0;
-    border-width: 0 0 2px;
-    border-color: gray;
-    border-bottom: 3px solid #053426;
-    /*box-shadow: 5px 5px #404040;*/
-    display: flex;
-    width: 100%;
-    font-size: 120%;
-    padding-top: 4%;
-    padding-bottom: 4%;
-    /*
-    width: 100%;
-    padding-top: 10px 0;
-    margin: 5px 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 2px solid #053426;
-    outline: none;
-    background: transparent;
     font-size: 16px;
-    margin-top: 5px;*/
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #053426;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.input-field:focus{
+    border-bottom: 3px solid #AD8D49;
 }
 
 .submit-btn {
@@ -190,26 +182,9 @@ li.dropdown:hover{
     font-weight: bold;
 }
 
-.check-box {
-    margin: 30px 10px 30px 0;
-    border-color: #053426;
-}
-
-span {
+.lp-header{
+    font-size: 24px;
+    font-weight: bold;
     color: #053426;
-    font-size: 16px;
-    bottom: 68px;
-    position: absolute;
-}
-
-#loginForm {
-    left: 50px;
-}
-
-#register {
-    left: 450px;
-}
-
-#home {
-    cursor: pointer;
+    padding-bottom: 20px;
 }
