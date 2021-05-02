@@ -105,34 +105,20 @@
             </div>
         </div>
 
+    </div><div id="list">
     </div>
-
-
-    <div id="list">
-
-    </div>
-
 
     <template>
         <div class="listContainer">
-            <hr id="t_hr">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto" /></td>
-                        <td class="listItemText">
-                            <h3 id="t_name">Zimmername</h3>
-                            <p id="t_personen">Personen: 69</p>
-                            <p id="t_zimmerart">Zimmerart: Einzelzimmer</p>
-                            <p id="t_price">Preis: 69€</p>
-                            <button id="detailRoom" onclick="zimmerdetails(this.value)">Details</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+            <div class="listItem">
+                <h3 id="t_name">Zimmername</h3>
+                <p id="t_personen">Personen: 69</p>
+                <p id="t_zimmerart">Zimmerart: Einzelzimmer</p>
+                <p id="t_price">Preis: 69€</p>
+                <button class="detail-btn" id="detailRoom" onclick="zimmerdetails(this.value)">Details</button>
+            </div>
     </template>
-
 </body>
 
 </html>

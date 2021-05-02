@@ -99,6 +99,7 @@ hr {
 }
 
 
+
 .listItemText {
     padding-top: 0;
     vertical-align: top;
@@ -112,8 +113,7 @@ hr {
 
 .listItemText > * {
     width: 50%;
-    /*flex-grow: 1;
-    flex-shrink: 0;*/
+    margin: 0 auto;
 }
 
 .listItemText > h3 {
@@ -124,6 +124,15 @@ hr {
 
 .listItemText > #bt_details {
     width: 100px;
+}
+
+.listItemText h3{
+    font-size: 24px;
+    color: #AD8D49;
+}
+
+.listItemText p, button{
+    font-size: 16px;
 }
 
 .list {
@@ -221,3 +230,88 @@ li.dropdown:hover{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.submit-btn {
+    padding: 5px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #053426;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
+    width: 20%;
+}
+
+.submit-btn:hover{
+    background-color: #AD8D49;
+}
+
+.listContainer{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin: 20px;
+    margin: 0 auto;
+}
+
+.listItem{
+   width: 100%;
+   margin: 20px;
+}
+
+.listItem h3{
+    font-size: 24px;
+    color: #AD8D49;
+}
+
+.listItem p{
+    font-size: 16px;
+}
+
+.submit-btn {
+    padding: 2px;
+    margin-top: 20px;
+    margin-right: 8%;
+    cursor: pointer;
+    display: block;
+    background: #053426;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    width: 20%;
+    float: right;
+}
+
+.submit-btn:hover{
+    background-color: #AD8D49;
+}
+
+.detail-btn {
+    padding: 2px;
+    margin-top: 20px;
+    margin-right: 8%;
+    cursor: pointer;
+    display: block;
+    background: #053426;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 20%;
+    float: right;
+}
+
+.detail-btn:hover{
+    background-color: #AD8D49;
+}
+

@@ -236,3 +236,22 @@ li.dropdown:hover{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.submit-btn {
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+    background: #053426;
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    width: 20%;
+    float: left;
+}
+
+.submit-btn:hover{
+    background-color: #AD8D49;
+}

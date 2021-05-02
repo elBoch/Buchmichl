@@ -10,6 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../public/view/globalrequestclient.js" type="text/javascript" defer></script>
     <script src="../public/view/unterkunftlistclient.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
     <title>Buchmichl</title>
 </head>
 
@@ -32,6 +34,7 @@
             </ul>
         </nav>
     </header>
+    
     <div class="container">
         <h1>Wo solls hingehen?</h1>
         <div class="grid-container">
@@ -45,6 +48,7 @@
                 Sterne
             </div>
             <div class="bewertung-auswahl">
+                
                 <select name="" id="sterne">
                     <option value="Egal">Egal</option>
                     <option value="1">1 Stern</option>
@@ -94,31 +98,36 @@
             <br>
         </div>
 
-        <div id="list">
-
-        </div>
-
-
+        <div id="list"></div>
     </div>
+
     <template>
         <div class="listContainer">
-            <hr id="t_hr">
-            <table>
-                <tbody>
-                    <tr>
-                        <td><img src="../public/images/zimmer5.jpg" width="250px" height="auto" /></td>
-                        <td class="listItemText">
-                            <h3 id="t_name">Platzhalter</h3>
-                            <p id="t_art"> Art: Values</p>
-                            <p id="t_region">Region: Values</p>
-                            <p id="t_stars">Sterne: Values</p>
-                            <button id="bt_details" onclick="clicked(this.value)" value="">View Details</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+            <div class="listItem">
+                <h3 id="t_name">Platzhalter</h3>
+                <p id="t_art"> Art: Values</p>
+                <p id="t_region">Region: Values</p>
+                <p id="t_stars">Sterne: Values</p>
+                <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
+            </div>
     </template>
+
 </body>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script src="dist/starrr.js"></script>
+<script>
+    $('#star1').starrr({
+      change: function(e, value){
+        if (value) {
+          $('.your-choice-was').show();
+          $('.choice').text(value);
+        } else {
+          $('.your-choice-was').hide();
+        }
+      }
+    });
+</script>
 
 </html>
