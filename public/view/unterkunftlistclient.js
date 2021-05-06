@@ -46,9 +46,11 @@ const printData = (data) => {
   let temp = document.getElementsByTagName("template")[0];
 
   document.getElementById("list").innerHTML = "";
+  console.log(data);
 
   for (let i = 0; i < data.length; i++) {
-    if ( i === 0 ||data[i].unterkunftid !== data[i - 1].unterkunftid) {
+    if ( i == 0 || data[i].unterkunftid !== data[i - 1].unterkunftid) {
+      //console.log(i);
       try {
         let clone = temp.content.cloneNode(true);
         clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
@@ -58,9 +60,9 @@ const printData = (data) => {
         clone.getElementById("t_stars").innerHTML = "<b>Sterne: </b>" + data[i].sterne;
         //clone.getElementById("t_anz_pers").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;
         clone.getElementById("bt_details").value = data[i].unterkunftname;
-        if (i === 0) {
+        /*if (i === 0) {
           clone.getElementById("t_hr").style.display = "none";
-        }
+        }*/
         document.getElementById("list").appendChild(clone);
       } catch (error) {}
     }
