@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/stylesheets/start.css">
+    <link rel="stylesheet" href="../public/stylesheets/global.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,32 +14,32 @@
     <title>Buchmichl</title>
 </head>
 
-<body>
-    <header class="showcase">
-        <nav>
-            <ul>
-                <li class="logo">
-                    <label class="logo">BUCHMICHL</label>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Settings <%=username%></a>
-                    <div class="dropdown-content">
-                        <%-options%>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    <div class="content">
-        <div class="title">
-            Willkommen auf Buchmichl!
+    <body>
+        <header class="showcase">
+            <nav>
+                <ul>
+                    <li class="logo">
+                        <label class="logo">BUCHMICHL</label>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Settings <%=username%></a>
+                        <div class="dropdown-content">
+                            <%-options%>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        <div class="content">
+            <div class="title">
+                Willkommen auf Buchmichl!
+            </div>
+            <div class="text">Auf zu Ihrem nächsten Urlaub</div>
+            <div class="bt">
+                <a class="bt-book" id="unterkunftlist">JETZT FINDEN</a>
+            </div>
         </div>
-        <div class="text">Auf zu Ihrem nächsten Urlaub</div>
-        <div class="bt">
-            <a class="bt-book" id="unterkunftlist">JETZT FINDEN</a>
-        </div>
-    </div>
-</header>
-
-</body>
-
+    </header>
+    
+    </body>
+</div>
 </html>

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/stylesheets/unterkunftlist.css">
+    <link rel="stylesheet" href="../public/stylesheets/global.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../public/view/globalrequestclient.js" type="text/javascript" defer></script>
     <script src="../public/view/unterkunftlistclient.js" type="text/javascript" defer></script>
@@ -14,120 +15,101 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
     <title>Buchmichl</title>
 </head>
+<div class="page">
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><label class="logo">BUCHMICHL</label></li>
+                    <li class="dropdown "><a id="home" class="dropbtn">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Settings <%=username%></a>
+                        <div class="dropdown-content">
+                            <%-options%>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="container">
+            <h1>Wo solls hingehen?</h1>
+            <div class="grid-container">
+                <div class="search">
+                    Region:
+                </div>
+                <div class="region-input">
+                    <input type="text" id="region">
+                </div>
+                <div class="bewertung">
+                    Sterne
+                </div>
+                <div class="bewertung-auswahl">
+                    
+                    <select name="" id="sterne">
+                        <option value="Egal">Egal</option>
+                        <option value="1">1 Stern</option>
+                        <option value="2">2 Sterne</option>
+                        <option value="3">3 Sterne</option>
+                        <option value="4">4 Sterne</option>
+                        <option value="5">5 Sterne</option>
+                    </select>
+                </div>
+                <div class="preis-von">
+                    Preis von:
+                </div>
+                <div class="preis-von-wert">
+                    <input type="number" id="preis_von" value="0">
+                </div>
+                <div class="preis-bis">
+                    Preis bis:
+                </div>
+                <div class="preis-bis-wert">
+                    <input type="number" id="preis_bis">
+                </div>
+                <div class="anz-pers">
+                    Anzahl Personen:
+                </div>
+                <div class="anz-pers-wert">
+                    <input type="number" id="anz_pers">
+                </div>
+                <div class="art">
+                    Art der Unterkunft
+                </div>
+                <div class="art-wert">
+                    <select name="" id="unterkunftart">
+                        <option value="Egal">Egal</option>
+                        <option value="Hotel">Hotel</option>
+                        <option value="Pension">Pension</option>
+                        <option value="Haus">Haus</option>
+                        <option value="Appartment">Appartment</option>
+                        <option value="Bauernhof">Bauernhof</option>
+                        <option value="Bergütte">Bergütte</option>
+                        <option value="Gasthof">Gasthof</option>
+                    </select>
+                </div>
+                <div class="bt-search">
+                    <a id="suchen">Suchen</a>
+                </div>
+                <br>
+                <br>
+            </div>
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li class="logo">
-                    <label class="logo">BUCHMICHL</label>
-                </li>
-                <li class="dropdown">
-                    <a id="home" class="dropbtn dropdown">Home</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Settings <%=username%></a>
-                    <div class="dropdown-content">
-                        <%-options%>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    
-    <div class="container">
-        <h1>Wo solls hingehen?</h1>
-        <div class="grid-container">
-            <div class="search">
-                Region:
-            </div>
-            <div class="region-input">
-                <input type="text" id="region">
-            </div>
-            <div class="bewertung">
-                Sterne
-            </div>
-            <div class="bewertung-auswahl">
-                
-                <select name="" id="sterne">
-                    <option value="Egal">Egal</option>
-                    <option value="1">1 Stern</option>
-                    <option value="2">2 Sterne</option>
-                    <option value="3">3 Sterne</option>
-                    <option value="4">4 Sterne</option>
-                    <option value="5">5 Sterne</option>
-                </select>
-            </div>
-            <div class="preis-von">
-                Preis von:
-            </div>
-            <div class="preis-von-wert">
-                <input type="number" id="preis_von" value="0">
-            </div>
-            <div class="preis-bis">
-                Preis bis:
-            </div>
-            <div class="preis-bis-wert">
-                <input type="number" id="preis_bis">
-            </div>
-            <div class="anz-pers">
-                Anzahl Personen:
-            </div>
-            <div class="anz-pers-wert">
-                <input type="number" id="anz_pers">
-            </div>
-            <div class="art">
-                Art der Unterkunft
-            </div>
-            <div class="art-wert">
-                <select name="" id="unterkunftart">
-                    <option value="Egal">Egal</option>
-                    <option value="Hotel">Hotel</option>
-                    <option value="Pension">Pension</option>
-                    <option value="Haus">Haus</option>
-                    <option value="Appartment">Appartment</option>
-                    <option value="Bauernhof">Bauernhof</option>
-                    <option value="Bergütte">Bergütte</option>
-                    <option value="Gasthof">Gasthof</option>
-                </select>
-            </div>
-            <div class="bt-search">
-                <a id="suchen">Suchen</a>
-            </div>
-            <br>
-            <br>
+            <div id="list"></div>
         </div>
 
-        <div id="list"></div>
-    </div>
+        <template>
+            <div class="listContainer">
+                <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+                <div class="listItem">
+                    <h3 id="t_name">Platzhalter</h3>
+                    <p id="t_art"> Art: Values</p>
+                    <p id="t_region">Region: Values</p>
+                    <p id="t_stars">Sterne: Values</p>
+                    <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
+                </div>
+        </template>
 
-    <template>
-        <div class="listContainer">
-            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
-            <div class="listItem">
-                <h3 id="t_name">Platzhalter</h3>
-                <p id="t_art"> Art: Values</p>
-                <p id="t_region">Region: Values</p>
-                <p id="t_stars">Sterne: Values</p>
-                <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
-            </div>
-    </template>
-
-</body>
-
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-<script src="dist/starrr.js"></script>
-<script>
-    $('#star1').starrr({
-      change: function(e, value){
-        if (value) {
-          $('.your-choice-was').show();
-          $('.choice').text(value);
-        } else {
-          $('.your-choice-was').hide();
-        }
-      }
-    });
-</script>
-
+    </body>
+</div>
 </html>
