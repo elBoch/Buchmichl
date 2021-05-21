@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const client = require("./login").client;
+const client = require("./api").client;
 let unterkunft;
 
 router.get("/roomList", async(req, res) => {
