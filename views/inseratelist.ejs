@@ -1,66 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../public/stylesheets/global.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../public/view/globalrequestclient.js" type="text/javascript" defer></script>
     <script src="../public/view/inseratelistclient.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
-    <title>Buchmichl</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../public/stylesheets/global.css">
+    <link rel="stylesheet" href="../public/stylesheets/inserat.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Inseratansicht</title>
 </head>
-<div class="page">
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><label class="logo">BUCHMICHL</label></li>
-                    <li class="dropdown "><a id="home" class="dropbtn">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropbtn">Settings <%=username%></a>
-                        <div class="dropdown-content">
-                            <%-options%>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
 
-        
-        <table><tr><td>
-            <div id="list"></div>
-        </td></tr></table>
-        
+<body>
 
-        <template id="unterkunftTemplate">
-            <div class="listContainer">
-                <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
-                <div class="listItem">
-                    <h3 id="t_name">Platzhalter</h3>
-                    <p id="t_art"> Art: Values</p>
-                    <p id="t_stars">Sterne: Values</p>
-                    <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
-                </div>
+    <header>
+        <nav>
+            <ul>
+                <li><label class="logo">BUCHMICHL</label></li>
+                <li class="dropdown "><a id="home" class="dropbtn">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Settings <%=username%></a>
+                    <div class="dropdown-content">
+                        <%-options%>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Alle Inserate in der Übersicht</h1>
+
+    <div id="list">
+
+    </div>
+    
+
+    <template id="unterkunftTemplate">
+        <h3 class="temp-header">Unterkunft</h3>
+        <div class="listContainer">
+            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+            <div class="listItem">
+                <h3 id="t_name">Platzhalter</h3>
+                <p id="t_art"> Art: Values</p>
+                <p id="t_stars">Sterne: Values</p>
+                <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
             </div>
-        </template>
-        <template id="zimmerTamplate">
-            <div class="listContainer">
-                <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
-                <div class="listItem">
-                    <h3 id="t_name2">Platzhalter</h3>
-                    <p id="t_art2"> Art: Values</p>
-                    <p id="t_anzahlpersonen">Personen: Values</p>
-                    <p id="t_preis">Preis: Values</p>
-                    <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
-                </div>
-            </div>
-        </template>
+        </div>
+        <hr>
+    </template>
 
-    </body>
-</div>
+    <template id="zimmerTamplate">
+        <h3 class="temp-header">Zimmer</h3>
+        <div class="listContainer">
+            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+            <div class="listItem">
+                <h3 id="t_name2">Platzhalter</h3>
+                <p id="t_art2"> Art: Values</p>
+                <p id="t_anzahlpersonen">Personen: Values</p>
+                <p id="t_preis">Preis: Values</p>
+                <button id="bt_details" class="submit-btn" onclick="clicked(this.value)" value="">View Details</button>
+            </div>
+        </div>
+        <hr>
+    </template>
+
+   
+</body>
+
 </html>

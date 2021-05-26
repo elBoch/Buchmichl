@@ -1,11 +1,6 @@
 body {
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-repeat: none;
-    background-position: center;
-    display: block;
-    /*overflow: hidden;*/
-    height: auto;
+    background: rgb(24,85,66);
+    background: radial-gradient(circle, rgba(24,85,66,1) 0%, rgba(56,120,94,1) 0%, rgba(24,85,66,1) 75%);
 }
 
 * {

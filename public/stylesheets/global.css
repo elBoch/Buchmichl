@@ -1,14 +1,33 @@
-ul {
-    list-style-type: none;
-    margin: 0 !important;
+* {
+    margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.logo{
+    float: left;
+}
+
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    margin: 0;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background: #053426;
     height: 80px;
     width: 100%;
-}
-  
-.logo{
-    float: left;
 }
 
 .dropdown{
@@ -25,7 +44,6 @@ ul {
     font-size: 20px;
     text-align: center;
     font-weight: bold;
-    text-decoration: none;
 }
 
 .dropbtn:hover{
@@ -46,12 +64,10 @@ li a, .dropbtn {
 
 li.dropdown {
     display: inline-block;
-    text-decoration: none;
 }
 
 li.dropdown:hover{
     cursor: pointer;
-    text-decoration: none;
 }
   
 .dropdown-content {
@@ -63,7 +79,6 @@ li.dropdown:hover{
     margin-top: -20px;
     margin-left: 20px;
     font-weight: bold;
-    text-decoration: none;
 }
   
 .dropdown-content a {
@@ -72,15 +87,16 @@ li.dropdown:hover{
     text-decoration: none;
     display: block;
     text-align: center;
-    text-decoration: none;
 }
   
 .dropdown-content a:hover {
     background-color: #AD8D49;
-    text-decoration: none;
 }
   
 .dropdown:hover .dropdown-content {
     display: block;
-    text-decoration: none;
+}
+
+.submit-btn:hover{
+    background-color: #AD8D49;
 }

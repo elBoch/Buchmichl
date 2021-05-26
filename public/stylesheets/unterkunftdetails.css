@@ -1,22 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-}
-
-
-label.logo {
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-    margin: 0;
-}
-
 
 .details {
     width: 50%;
@@ -37,13 +18,6 @@ h1 {
     margin-right: 10px;
 }
 
-.datepicker {
-    margin-top: 2%;
-    margin-left: 10px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-}
 
 .sec-date{
     margin-left: 50px;
@@ -144,93 +118,6 @@ hr {
     justify-content: space-evenly;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: #053426;
-    height: 80px;
-    width: 100%;
-}
-  
-.logo{
-    float: left;
-}
-
-.dropdown{
-    height: 30px;
-    float: right;
-    margin-right: 80px;
-    text-align: center;
-    justify-content: center;
-    align-content: center;
-}
-
-.dropbtn{
-    line-height: 80px;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.dropbtn:hover{
-    color: #AD8D49;
-}
-
-.dropbtn{
-    text-align: center;
-    justify-content: center;
-}
-  
-li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-li.dropdown:hover{
-    cursor: pointer;
-}
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 100px;
-    z-index: 1;
-    margin-top: -20px;
-    margin-left: 20px;
-    font-weight: bold;
-}
-  
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-  
-.dropdown-content a:hover {
-    background-color: #AD8D49;
-}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
 .submit-btn {
     padding: 5px;
     cursor: pointer;
@@ -314,4 +201,3 @@ li.dropdown:hover{
 .detail-btn:hover{
     background-color: #AD8D49;
 }
-
