@@ -12,18 +12,18 @@ router.get("/unterkunftdetails", async (req, res) => {
   );
   const unterkunftData = await client.query(
     "SELECT e.einrichtungsname, ua.unterkunftartname, r.regionname, fa.freizeitausstattungsname, u.sterne, s.sehenswuerdigkeitsname, v.verpflegungname " +
-    "FROM einrichtung e INNER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid " +
-                       "INNER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
-                       "INNER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
-                       "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
-                       "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
-                       "INNER JOIN region r ON r.regionid = g.regionid " +
+    "FROM einrichtung e LEFT OUTER JOIN unterkunftseinrichtung ue ON e.einrichtungsid = ue.einrichtungsid " +
+                       "LEFT OUTER JOIN unterkunft u ON ue.unterkunftid = u.unterkunftid " +
+                       "LEFT OUTER JOIN unterkunftart ua ON u.unterkunftartid = ua.unterkunftartid " +
+                       "LEFT OUTER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
+                       "LEFT OUTER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
+                       "LEFT OUTER JOIN region r ON r.regionid = g.regionid " +
                        "LEFT OUTER JOIN freizeitausstattungregion far ON far.regionid = r.regionid " +
                        "LEFT OUTER JOIN freizeitausstattung fa ON fa.freizeitausstattungid = far.freizeitausstattungid " +
                        "LEFT OUTER JOIN sehenswuerdigkeiten s ON s.regionid = r.regionid " +
-                       "INNER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid " +
-                       "INNER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid " +
-                       "INNER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid " +
+                       "LEFT OUTER JOIN zimmerartinunterkunft ziu ON ziu.unterkunftid = u.unterkunftid " +
+                       "LEFT OUTER JOIN zimmerverpflegunginunterkunft zviu ON zviu.unterkunftid = ziu.unterkunftid " +
+                       "LEFT OUTER JOIN verpflegung v ON v.verpflegungid = zviu.verpflegungid " +
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
