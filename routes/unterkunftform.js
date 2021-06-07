@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
+const upload = require("./api").upload;
 
 router.get('/unterkunftform', async (req, res) => {
     let check = await checkAuthentication(req, res);
@@ -28,6 +29,11 @@ router.get('/unterkunftform', async (req, res) => {
             options: "<a id='login'>Login</a>",
         });
     }*/
+});
+
+router.post('/upload', upload.array('avatar'), (req, res) => {
+    console.log('lol');
+    return res.json({status: 'OK', uploaded: req.files.length});
 });
 
 router.post("/createUnterkunft", async (req, res) => {

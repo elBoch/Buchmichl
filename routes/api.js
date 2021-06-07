@@ -8,6 +8,19 @@ const iv = crypto.randomBytes(16);
 
 const passwordHash = require("password-hash");
 
+const multer = require("multer");
+const uuid = require("uuid").v4;
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images');
+    },
+    filename: (req, file, cb) => {
+        const {originalname} = file;
+        cb(null, `${uuid()}-${originalname}`);
+    }
+})
+const upload = multer({storage});
+
 const { Client } = require("pg");
 const client = new Client({
   connectionString:
@@ -63,6 +76,7 @@ router.post("/authenticate", async (req, res) => {
 
 module.exports = router;
 module.exports.client = client;
+module.exports.upload = upload;
 
 module.exports.checkAuthentication = async function checkIfAuthenticated(req,res){
     try {

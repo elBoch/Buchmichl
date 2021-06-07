@@ -108,7 +108,10 @@
             </div>
             <br>
             <br>
-            <input type="button" id="create" class="submit-btn" value="Erstellen"/>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" accept="image/*" name="avatar" multiple>
+                <input type="submit" id="create" class="submit-btn" value="Erstellen"/>
+            </form>
             <br>
             <br>
     </div>
