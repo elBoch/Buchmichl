@@ -7,6 +7,7 @@ const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
 
 const passwordHash = require("password-hash");
+let filename = '';
 
 const multer = require("multer");
 const uuid = require("uuid").v4;
@@ -16,7 +17,8 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const {originalname} = file;
-        cb(null, `${uuid()}-${originalname}`);
+        cb(null,`${uuid()}-${originalname}`);
+        return originalname;
     }
 })
 const upload = multer({storage});
@@ -77,6 +79,7 @@ router.post("/authenticate", async (req, res) => {
 module.exports = router;
 module.exports.client = client;
 module.exports.upload = upload;
+module.exports.storage = storage;
 
 module.exports.checkAuthentication = async function checkIfAuthenticated(req,res){
     try {

@@ -3,7 +3,7 @@ let unterkunftbeschreibung;
 let region, strasse, nummer, ort, plz, sterne;
 let unterkunftausstattung, freizeitausstattung;
 
-$(document).ready(() => {
+/*$(document).ready(() => {
   $("#create").on("click", (e) => {
     console.log("here we go");
 
@@ -54,7 +54,7 @@ $(document).ready(() => {
     }
 
   });
-});
+});*/
 
 const getOptionalData = (type) => {
   let dataNames = new Array();

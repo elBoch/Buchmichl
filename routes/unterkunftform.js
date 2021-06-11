@@ -3,6 +3,8 @@ const router = express.Router();
 const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
 const upload = require("./api").upload;
+const storage = require("./api").storage;
+const path = require('path')
 
 router.get('/unterkunftform', async (req, res) => {
     let check = await checkAuthentication(req, res);
@@ -32,7 +34,9 @@ router.get('/unterkunftform', async (req, res) => {
 });
 
 router.post('/upload', upload.array('avatar'), (req, res) => {
-    console.log('lol');
+    //const insertImages = await client.query("INSERT INTO image (...");
+    
+    console.log(req.files[0]['filename']);
     return res.json({status: 'OK', uploaded: req.files.length});
 });
 
