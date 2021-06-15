@@ -32,11 +32,10 @@ router.get("/zimmerform", async (req, res) => {
 });
 
 router.post("/upload", upload.array("avatar"), (req, res) => {
-  console.log("lol");
-  return res.json({ status: "OK", uploaded: req.files.length });
+  console.log(req.body.unterkunftname);
 });
 
-router.post("/createZimmer", async (req, res) => {
+/*router.post("/createZimmer", async (req, res) => {
   //inserts
   try {
     let getZimmerartInUnterkunft = await client.query(
@@ -159,7 +158,7 @@ router.post("/createZimmer", async (req, res) => {
   } catch (err) {
     res.send("unsuccess");
   }
-});
+});*/
 
 async function getUnterkunft(name) {
   let htmlData = "";

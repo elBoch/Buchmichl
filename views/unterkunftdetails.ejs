@@ -51,16 +51,13 @@
 
             <div class="w3-row-padding w3-section">
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer1.jpg"
-                        style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                    <%-bild1%>
                 </div>
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer2.jpg"
-                        style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                    <%-bild2%>
                 </div>
                 <div class="w3-col s4">
-                    <img class="demo w3-opacity w3-hover-opacity-off" src="../public/images/zimmer3.jpg"
-                        style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                    <%-bild3%>
                 </div>
             </div>
         </div>
@@ -109,7 +106,7 @@
 
     <template>
         <div class="listContainer">
-            <img src="../public/images/zimmer5.jpg" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
+            <img id="t_bild" src="" style="float: left; margin: 0px 15px 15px 0px;" width="250" class="l-img"/>
             <div class="listItem">
                 <h3 id="t_name">Zimmername</h3>
                 <p id="t_personen">Personen: 69</p>

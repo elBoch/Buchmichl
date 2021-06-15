@@ -19,6 +19,12 @@ router.get('/zimmerdetails', async(req, res) => {
                 "WHERE u.unterkunftname = $1 AND z.zimmername=$2 AND z.preis=$3; ",
                 [unterkunft,zimmer,preis]
       );
+      let bilder = await client.query(
+        "SELECT b.url "+
+        "FROM bild b INNER JOIN zimmer z ON b.zimmerid = z.zimmerid "+
+        "WHERE z.zimmername =$1",
+        [zimmer]
+      );
       //console.log(zimmerData.rows);
 
       let verpflegungString = buildString(zimmerData.rows, "verpflegungname");
@@ -30,6 +36,9 @@ router.get('/zimmerdetails', async(req, res) => {
             username: check,
             options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
             zimmername: unterkunft+" - "+zimmer,
+            bild1: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[0].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(1)'>",
+            bild2: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[1].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(2)'>",
+            bild3: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[2].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(3)'>",
             zimmertext: zimmerData.rows[0].unterkunftstext,
             preis: zimmerData.rows[0].preis+" €",
             anzahlpersonen: zimmerData.rows[0].anzahlpersonen,
@@ -43,6 +52,9 @@ router.get('/zimmerdetails', async(req, res) => {
         username: check,
         options: "<a id='login'>Login</a>",
         zimmername: unterkunft+" - "+zimmer,
+        bild1: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[0].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(1)'>",
+        bild2: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[1].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(2)'>",
+        bild3: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[2].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(3)'>",
         zimmertext: zimmerData.rows[0].unterkunftstext,
         preis: zimmerData.rows[0].preis+" €",
         anzahlpersonen: zimmerData.rows[0].anzahlpersonen,

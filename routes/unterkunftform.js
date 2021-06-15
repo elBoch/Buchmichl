@@ -33,11 +33,19 @@ router.get('/unterkunftform', async (req, res) => {
     }*/
 });
 
-router.post('/upload', upload.array('avatar'), (req, res) => {
-    //const insertImages = await client.query("INSERT INTO image (...");
-    
-    console.log(req.files[0]['filename']);
-    return res.json({status: 'OK', uploaded: req.files.length});
+router.post('/upload', upload.array('avatar'), async(req, res) => {
+    //bild in Datenbank aber keine unterkunftid dazu + 2.Button hinzufügen
+    console.log("test");
+    const path = '../public/images/';
+    const getUnterkunftID = await client.query(
+        "SELECT MAX(unterkunftid) "+
+        "FROM unterkunft ");
+
+    for(let i = 0;  i < req.files.length; i++){
+        let insertImage = path+req.files[i]['filename'];
+        const insertImages = await client.query("INSERT INTO bild (url, unterkunftid, zimmerid) VALUES($1,$2,$3);",[insertImage, getUnterkunftID.rows[0].unterkunftid, null]);
+    }
+    //return res.json({status: 'OK', uploaded: req.files.length});
 });
 
 router.post("/createUnterkunft", async (req, res) => {
