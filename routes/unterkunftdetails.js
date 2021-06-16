@@ -28,12 +28,6 @@ router.get("/unterkunftdetails", async (req, res) => {
     [unterkunft]
   );
 
-  let bilder = await client.query(
-    "SELECT b.url "+
-    "FROM bild b INNER JOIN unterkunft u ON b.unterkunftid = u.unterkunftid "+
-    "WHERE u.unterkunftname =$1",
-    [unterkunft]
-  );
 
   let einrichtungsString = buildString(unterkunftData.rows, "einrichtungsname");
   let sterneString = buildString(unterkunftData.rows, "sterne");
@@ -52,9 +46,6 @@ router.get("/unterkunftdetails", async (req, res) => {
       username: check,
       options: "<a id='konto'>Konto</a> <a id='logout'>Logout</a> ",
       unterkunftname: unterkunftView.rows[0].unterkunftname,
-      bild1: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[0].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(1)'>",
-      bild2: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[1].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(2)'>",
-      bild3: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[2].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(3)'>",
       unterkunftstext: unterkunftView.rows[0].unterkunftstext,
       einrichtungen: einrichtungsString,
       sterne: sterneString,
@@ -71,9 +62,6 @@ router.get("/unterkunftdetails", async (req, res) => {
       username: check,
       options: "<a id='login'>Login</a>",
       unterkunftname: unterkunftView.rows[0].unterkunftname,
-      bild1: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[0].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(1)'>",
-      bild2: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[1].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(2)'>",
-      bild3: "<img class='demo w3-opacity w3-hover-opacity-off' src='"+bilder.rows[2].url+"' style='width:100%;cursor:pointer' onclick='currentDiv(3)'>",
       unterkunftstext: unterkunftView.rows[0].unterkunftstext,
       einrichtungen: einrichtungsString,
       sterne: sterneString,
@@ -94,11 +82,10 @@ router.post("/unterkunftdetails", (req, res) => {
 
 router.post("/getRoomList", async (req, res) => {
   const zimmer = await client.query(
-    "SELECT z.zimmerid, z.zimmername, z.preis, z.anzahlpersonen, za.zimmerartname,b.url " +
+    "SELECT z.zimmerid, z.zimmername, z.preis, z.anzahlpersonen, za.zimmerartname " +
     "FROM unterkunft u INNER JOIN zimmerartinunterkunft ziu ON u.unterkunftid = ziu.unterkunftid " +
                       "INNER JOIN zimmer z ON ziu.zimmerartid = z.zimmerartid AND ziu.unterkunftid = z.unterkunftid " +
                       "INNER JOIN zimmerart za ON ziu.zimmerartid = za.zimmerartid " +
-                      "LEFT OUTER bild b ON z.zimmerid = b.zimmerid "+
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );

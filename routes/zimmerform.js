@@ -31,11 +31,8 @@ router.get("/zimmerform", async (req, res) => {
   }
 });
 
-router.post("/upload", upload.array("avatar"), (req, res) => {
-  console.log(req.body.unterkunftname);
-});
 
-/*router.post("/createZimmer", async (req, res) => {
+router.post("/createZimmer", async (req, res) => {
   //inserts
   try {
     let getZimmerartInUnterkunft = await client.query(
@@ -95,14 +92,14 @@ router.post("/upload", upload.array("avatar"), (req, res) => {
         "FROM zimmerartinunterkunft zu INNER JOIN unterkunft u ON zu.unterkunftid = u.unterkunftid " +
         "INNER JOIN zimmerart za ON zu.zimmerartid = za.zimmerartid " +
         "WHERE u.unterkunftname=$1 AND za.zimmerartname=$2;",
-      [req.body.zimmerart, req.body.unterkunft]
+      [req.body.unterkunftname,req.body.zimmerart]
     );
 
     let verpflegungen = new Array();
     try {
       for (let i = 0; i < req.body.verpflegung.length; i++) {
         const getVerpflegungId = await client.query(
-          "SELECT verpflegungsid FROM verpflegung WHERE verpflegungsname = $1;",
+          "SELECT verpflegungid FROM verpflegung WHERE verpflegungname = $1;",
           [req.body.verpflegung[i]]
         );
         verpflegungen.push(getVerpflegungId.rows[0]);
@@ -110,10 +107,10 @@ router.post("/upload", upload.array("avatar"), (req, res) => {
       for (let i = 0; i < verpflegungen.length; i++) {
         try {
           const insertVerpflegungen = await client.query(
-            "INSERT INTO zimmerverpflegunginunterkunft (verpflegungsid, zimmerartid, unterkunftid) " +
+            "INSERT INTO zimmerverpflegunginunterkunft (verpflegungid, zimmerartid, unterkunftid) " +
               "VALUES ($1,$2,$3);",
             [
-              verpflegungen[i].einrichtungsid,
+              verpflegungen[i].verpflegungid,
               getZimmerartInUnterkunft.rows[0].zimmerartid,
               getZimmerartInUnterkunft.rows[0].unterkunftid,
             ]
@@ -130,7 +127,7 @@ router.post("/upload", upload.array("avatar"), (req, res) => {
     try {
       for (let i = 0; i < req.body.verpflegung.length; i++) {
         const getAusstattungId = await client.query(
-          "SELECT ausstattungsid FROM zimmerausstattung WHERE austattungsname = $1;",
+          "SELECT ausstattungid FROM zimmerausstattung WHERE ausstattungsname = $1;",
           [req.body.zimmerausstattung[i]]
         );
         ausstattungen.push(getAusstattungId.rows[0]);
@@ -158,7 +155,7 @@ router.post("/upload", upload.array("avatar"), (req, res) => {
   } catch (err) {
     res.send("unsuccess");
   }
-});*/
+});
 
 async function getUnterkunft(name) {
   let htmlData = "";

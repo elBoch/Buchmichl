@@ -74,7 +74,6 @@ const printData = (data) => {
   for (let i = 0; i < data.length; i++) {
     if ( i == 0 || data[i].zimmerid !== data[i - 1].zimmerid) {
         let clone = temp.content.cloneNode(true);
-        clone.getElementById("t_bild").src = data[i].url;
         clone.getElementById("t_name").innerHTML = data[i].zimmername;
         clone.getElementById("t_name").style.marginTop = "0";
         clone.getElementById("t_personen").innerHTML = "<b>Personen: </b>" + data[i].anzahlpersonen;

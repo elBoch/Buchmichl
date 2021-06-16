@@ -13,7 +13,7 @@ router.get('/unterkunftform', async (req, res) => {
     let freizeitausstattungen = await getFormData("freizeitausstattungen");
     let unterkunftausstattungen = await getFormData("unterkunftausstattungen");
 
-    //if (check != "") {
+    if (check != "") {
     res.render('unterkunftform.ejs', {
         pageTitle: 'Start',
         username: check,
@@ -23,29 +23,14 @@ router.get('/unterkunftform', async (req, res) => {
         freizeitausstattung: freizeitausstattungen,
         unterkunftausstattung: unterkunftausstattungen,
     });
-    /*}
+    }
     else {
         res.render('start.ejs', {
             pageTitle: 'Start',
             username: check,
             options: "<a id='login'>Login</a>",
         });
-    }*/
-});
-
-router.post('/upload', upload.array('avatar'), async(req, res) => {
-    //bild in Datenbank aber keine unterkunftid dazu + 2.Button hinzufügen
-    console.log("test");
-    const path = '../public/images/';
-    const getUnterkunftID = await client.query(
-        "SELECT MAX(unterkunftid) "+
-        "FROM unterkunft ");
-
-    for(let i = 0;  i < req.files.length; i++){
-        let insertImage = path+req.files[i]['filename'];
-        const insertImages = await client.query("INSERT INTO bild (url, unterkunftid, zimmerid) VALUES($1,$2,$3);",[insertImage, getUnterkunftID.rows[0].unterkunftid, null]);
     }
-    //return res.json({status: 'OK', uploaded: req.files.length});
 });
 
 router.post("/createUnterkunft", async (req, res) => {

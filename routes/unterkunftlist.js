@@ -15,7 +15,6 @@ const buildStatement = (req) => {
                       "INNER JOIN anschrift a ON u.anschriftid = a.anschriftid "+
                       "INNER JOIN gemeinde g ON a.gemeindeid = g.gemeindeid "+
                       "INNER JOIN region r ON g.regionid = r.regionid " +
-                      "LEFT OUTER JOIN bild b ON u.unterkunftid = b.unterkunftid "+
     "WHERE z.preis BETWEEN " +
     req.body.preis_von +
     " AND ";

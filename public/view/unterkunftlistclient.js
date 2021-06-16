@@ -53,7 +53,6 @@ const printData = (data) => {
       //console.log(i);
       try {
         let clone = temp.content.cloneNode(true);
-        clone.getElementById("t_bild").src = data[i].url;
         clone.getElementById("t_name").innerHTML = data[i].unterkunftname;
         clone.getElementById("t_name").style.marginTop = "0";
         clone.getElementById("t_art").innerHTML = "<b>Art: </b>" + data[i].unterkunftartname;
