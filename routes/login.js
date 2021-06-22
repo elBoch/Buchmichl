@@ -1,3 +1,7 @@
+/**
+ * Regsitrieren und ausloggen der User.
+ */
+
 const express = require("express");
 const router = express.Router();
 const client = require("./api").client;

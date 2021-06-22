@@ -1,3 +1,8 @@
+/**
+ * Form Daten holen und Request zum Erstellen der Unterkunft.
+ */
+
+
 let unterkunftname, unterkunftart;
 let unterkunftbeschreibung;
 let region, strasse, nummer, ort, plz, sterne;

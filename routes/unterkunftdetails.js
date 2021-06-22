@@ -1,3 +1,7 @@
+/**
+ * Details einer Unterkunft holen + Liste von Zimmern.
+ */
+
 const express = require("express");
 const router = express.Router();
 const client = require("./api").client;

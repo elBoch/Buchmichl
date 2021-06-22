@@ -1,3 +1,7 @@
+/**
+ * Authentifizierung der User und Connection zur Datenbank.
+ */
+
 const express = require('express');
 const router = express.Router();
 
@@ -7,20 +11,6 @@ const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
 
 const passwordHash = require("password-hash");
-
-const multer = require("multer");
-const uuid = require("uuid").v4;
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/images');
-    },
-    filename: (req, file, cb) => {
-        const {originalname} = file;
-        cb(null,`${uuid()}-${originalname}`);
-        return originalname;
-    }
-})
-const upload = multer({storage});
 
 const { Client } = require("pg");
 const client = new Client({

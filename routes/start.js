@@ -1,3 +1,7 @@
+/**
+ * Startseite zurückschicken
+ */
+
 const express = require('express');
 const router = express.Router();
 let checkAuthentication = require("./api").checkAuthentication;

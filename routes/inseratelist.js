@@ -1,3 +1,7 @@
+/**
+ * Liste aller Inserate eines Users holen.
+ */
+
 const express = require('express');
 const router = express.Router();
 const client = require("./api").client;

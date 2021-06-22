@@ -1,3 +1,8 @@
+/**
+ * Request für die Daten der Unterkünfte.
+ */
+
+
 window.onload = () => {
   console.log("lol");
   $.ajax({

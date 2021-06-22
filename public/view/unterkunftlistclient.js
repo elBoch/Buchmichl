@@ -1,3 +1,6 @@
+/**
+ * Filterdaten holen und Liste von Unterkünften anzeigen. 
+ */
 
 $(document).ready(() => {
   $("#suchen").on("click",(e) => {

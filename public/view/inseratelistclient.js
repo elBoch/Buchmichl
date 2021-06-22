@@ -1,3 +1,8 @@
+/**
+ * Request für alle Inserate und diese ausgeben.
+ */
+
+
 window.onload = () => {
 
     $.ajax({

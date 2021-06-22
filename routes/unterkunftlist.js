@@ -1,3 +1,7 @@
+/**
+ * Liste aller Unterkünfte nach Filterkriterien holen.
+ */
+
 const express = require("express");
 const router = express.Router();
 const client = require("./api").client;

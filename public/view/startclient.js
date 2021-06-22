@@ -1,3 +1,7 @@
+/**
+ * Request zur Startseite.
+ */
+
 
 $(document).ready(function(){
     $("#unterkunftlist").on('click',function(e){

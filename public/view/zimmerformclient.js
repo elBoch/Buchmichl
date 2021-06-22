@@ -1,3 +1,7 @@
+/**
+ * Daten holen, Request zum Erstellen von Zimmern.
+ */
+
 let unterkunftname;
 let zimmerart;
 let personen;

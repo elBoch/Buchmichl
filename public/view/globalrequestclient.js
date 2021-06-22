@@ -1,3 +1,7 @@
+/**
+ * Requests, die für mehrere Seiten verwendet werden.
+ */
+
 $(document).ready(function () {
     $("#home").on("click", function (e) {
   

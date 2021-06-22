@@ -1,3 +1,7 @@
+/**
+ * Request, für die Verwaltung von Unterkunft und Zimmer.
+ */
+
 $(document).ready(() => {
     $("#unterkunftform").on("click", (e) => {
   

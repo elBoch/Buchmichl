@@ -1,3 +1,7 @@
+/**
+ * Login-Daten holen und Request zum authentifizieren.
+ */
+
 
 $(document).ready(() => {
     $("#anmelden").on('click', function (e) {
