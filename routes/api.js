@@ -25,8 +25,6 @@ const client = new Client({
 client.on("error", (er) => console.log);
 client.connect();
 
-
-
 router.post("/authenticate", async (req, res) => {
     try {
         const data = await client.query(
