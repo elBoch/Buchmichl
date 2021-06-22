@@ -4,7 +4,6 @@ const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
 let unterkunft;
 
-
 router.get("/unterkunftdetails", async (req, res) => {
   const unterkunftView = await client.query(
     "SELECT * FROM unterkunft WHERE unterkunftname=$1",
@@ -27,7 +26,6 @@ router.get("/unterkunftdetails", async (req, res) => {
     "WHERE u.unterkunftname = $1;",
     [unterkunft]
   );
-
 
   let einrichtungsString = buildString(unterkunftData.rows, "einrichtungsname");
   let sterneString = buildString(unterkunftData.rows, "sterne");

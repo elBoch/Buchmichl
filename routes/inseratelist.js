@@ -7,7 +7,6 @@ router.get('/inseratelist', async (req, res) => {
     let check = await checkAuthentication(req, res);
 
     if (check != "") {
-        //getUnterkunftMitZimmer(check);
         //inserate holen
         res.render('inseratelist.ejs', {
             pageTitle: 'Start',

@@ -8,31 +8,24 @@ let verpflegung;
 
 $(document).ready(function() {
     $("#create").on("click", function(e) {
-      console.log("here we go");
-
         if (valid()) {
             zimmerausstattung = getOptionalData("zimmerausstattung");
             verpflegung = getOptionalData("verpflegung");
             $.ajax({
                 type: 'POST',
                 url: '/createZimmer',
-                //contentType: 'application/json',
-                //data: "test",
                 data: {
                     unterkunftname: unterkunftname, zimmerart: zimmerart,
                     personen: personen, preis: preis, zimmername: zimmername,
                     zimmerausstattung: zimmerausstattung, verpflegung: verpflegung,
                 },
                 success: function(data) {
-                    console.log("Successfully saved the matched beans to the user.");
-                    //window.location='/unterkunftlist';
                     if (data == "success") {
                         alert("Huray! Successful insert!");
                         $.ajax({
                             type: "GET",
                             url: "/kontodetails",
                             success: (data) => {
-                                console.log("Successfully saved the matched beans to the user.");
                                 window.location = "/kontodetails";
                             },
                         });

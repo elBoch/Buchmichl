@@ -94,8 +94,6 @@ router.post("/createUnterkunft", async (req, res) => {
     catch(err){
 
     }
-        //unändern
-        //check = "hormad17";
         let getUserId = await client.query(
             "SELECT a.userid " +
             "FROM anbieter a INNER JOIN benutzer b ON a.userid = b.userid " +
@@ -134,7 +132,6 @@ router.post("/createUnterkunft", async (req, res) => {
     catch (err) {
         res.send("unsuccess");
     }
-    //console.log("funzt");
 
 });
 

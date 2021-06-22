@@ -5,7 +5,6 @@ let unterkunftausstattung, freizeitausstattung;
 
 $(document).ready(() => {
   $("#create").on("click", (e) => {
-    console.log("here we go");
 
     if (valid()) {
       unterkunftausstattung = getOptionalData("unterkunftausstattung");
@@ -23,14 +22,12 @@ $(document).ready(() => {
           freizeitausstattung:freizeitausstattung,
         },
         success: function(data) {
-          console.log("Successfully saved the matched beans to the user.");
           if(data=="success"){
             alert("Huray! Successful insert!");
             $.ajax({
               type: "GET",
               url: "/kontodetails",
               success: function (data) {
-                console.log("Successfully saved the matched beans to the user.");
                 window.location = "/kontodetails";
               },
             });
@@ -72,7 +69,6 @@ const getOptionalData = (type) => {
       dataNames.push(boxen[i].id);
     }
   }
-  console.log(dataNames);
   return dataNames;
 
 }

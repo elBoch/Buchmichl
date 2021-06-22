@@ -1,13 +1,11 @@
 $(document).ready(() => {
     $("#unterkunftform").on("click", (e) => {
-      console.log("here we go");
   
       e.preventDefault();
       $.ajax({
         type: "GET",
         url: "/unterkunftform",
         success: function (data) {
-          console.log("Successfully saved the matched beans to the user.");
           window.location = "/unterkunftform";
         },
       })
@@ -24,14 +22,12 @@ $(document).ready(() => {
 
   $(document).ready(() => {
     $("#zimmerform").on("click", (e) => {
-      console.log("here we go");
   
       e.preventDefault();
       $.ajax({
         type: "GET",
         url: "/zimmerform",
         success: function (data) {
-          console.log("Successfully saved the matched beans to the user.");
           window.location = "/zimmerform";
         },
       })
@@ -48,14 +44,12 @@ $(document).ready(() => {
 
   $(document).ready(() => {
     $("#inseratelist").on("click", (e) => {
-      console.log("here we go");
   
       e.preventDefault();
       $.ajax({
         type: "GET",
         url: "/inseratelist",
         success: function (data) {
-          console.log("Successfully saved the matched beans to the user.");
           window.location = "/inseratelist";
         },
       })

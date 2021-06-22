@@ -4,9 +4,6 @@ $(document).ready(() => {
 
         const username = document.getElementById('l_username').value;
         const passwort = document.getElementById('l_passwort').value;
-        let redirect = false;
-
-        //console.log(username);
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -16,8 +13,6 @@ $(document).ready(() => {
                 passw: passwort
             },
             success: function (data) {
-                console.log("Successfully saved the matched beans to the user.");
-                //console.log(data);
             }
         }).done(function (data) {
 
@@ -26,7 +21,6 @@ $(document).ready(() => {
                     type: 'GET',
                     url: '/unterkunftlist',
                     success: function (data) {
-                        console.log("Successfully saved the matched beans to the user.");
                         window.location = '/unterkunftlist';
                     }
                 });
@@ -70,7 +64,6 @@ $(document).ready(() => {
                     telefonnnummer:telefonnnummer,
                 },
                 success: function (data) {
-                    console.log("Successfully saved the matched beans to the user.");
                     console.log(data);
                     alert(data);
                     if (data == 'register successed') {

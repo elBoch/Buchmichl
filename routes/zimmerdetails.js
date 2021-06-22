@@ -5,7 +5,6 @@ const client = require("./api").client;
 let unterkunft,zimmer,preis;
 
 router.get('/zimmerdetails', async(req, res) => {
-    //console.log(unterkunft,zimmer,preis);
     
     const zimmerData = await client.query(
                 "SELECT z.preis, z.anzahlpersonen, za.zimmerartname, v.verpflegungname, u.unterkunftname, u.unterkunftstext, zas.ausstattungsname "+
@@ -19,7 +18,6 @@ router.get('/zimmerdetails', async(req, res) => {
                 "WHERE u.unterkunftname = $1 AND z.zimmername=$2 AND z.preis=$3; ",
                 [unterkunft,zimmer,preis]
       );
-      //console.log(zimmerData.rows);
 
       let verpflegungString = buildString(zimmerData.rows, "verpflegungname");
       let ausstattungString = buildString(zimmerData.rows, "ausstattungsname");
@@ -54,7 +52,6 @@ router.get('/zimmerdetails', async(req, res) => {
 });
 
 router.post("/zimmerdetails", (req, res) => {
-    //console.log("postet");
     unterkunft = req.body.unterkunft;
     zimmer = req.body.zimmer.split(",")[0];
     preis = req.body.zimmer.split(",")[1];

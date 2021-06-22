@@ -4,8 +4,6 @@ window.onload = () => {
         type: "GET",
         url: "/getInserate",
         success: function (data) {
-            console.log("Successfully saved the matched beans to the user.");
-            console.log(data[1][1][0].zimmername);
             printData(data);
         },
     }).fail((jqXHR, textStatus, errorThrown) => {
@@ -20,7 +18,6 @@ const printData = (data) => {
     let zimmertemp = document.getElementsByTagName("template")[1];
 
     document.getElementById("list").innerHTML = "";
-    //document.getElementById("zimmerlist").innerHTML = "";
     console.log(data[0][1].length);
 
     for (let i = 0; i < data.length; i++) {

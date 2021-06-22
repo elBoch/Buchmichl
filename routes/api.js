@@ -7,7 +7,6 @@ const key = crypto.randomBytes(32);
 const iv = crypto.randomBytes(16);
 
 const passwordHash = require("password-hash");
-let filename = '';
 
 const multer = require("multer");
 const uuid = require("uuid").v4;
@@ -44,28 +43,15 @@ router.post("/authenticate", async (req, res) => {
             "SELECT passwort FROM benutzer WHERE username=$1",
             [req.body.name]
         );
-        /*const data2 = await client.query(
-            "UPDATE benutzer SET passwort = $1 WHERE username='hormad17'",
-            [passwordHash.generate(data.rows[0].passwort)]
-        );
-        const data3 = await client.query(
-            "SELECT passwort FROM benutzer WHERE username=$1",
-            [req.body.name]
-        );*/
 
         if (passwordHash.verify(req.body.passw, data.rows[0].passwort)) {
 
-
             let cipher = crypto.createCipheriv(algorithm, key, iv);
             let cookieHash = cipher.update(req.body.name + "," + req.body.passw);
-            //console.log("nach update encrypt: "+cookieHash);
             cookieHash = Buffer.concat([cookieHash, cipher.final()]);
             cookieHash = cookieHash.toString('hex');
 
-
-            //console.log(cookieHash);
             res.cookie('AUTH-Token', cookieHash, { maxAge: 900000, httpOnly: true });
-            //console.log('cookie created successfully');
 
             res.send({ query: "ok" });
         } else {
@@ -98,19 +84,14 @@ module.exports.checkAuthentication = async function checkIfAuthenticated(req,res
             [daten[0]]
         );
 
-
         if (passwordHash.verify(daten[1], passw.rows[0].passwort)) {
-            //req.app.locals.username = daten[0];
-            return daten[0];
-            
+            return daten[0];  
         }
         else {
-            //req.app.locals.username = "";
             return "";
         }
     }
     catch (err) {
-        //req.app.locals.username = "";
         return "";
     }
 }

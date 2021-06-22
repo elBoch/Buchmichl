@@ -7,8 +7,6 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const crypto = require('express-crypto');
 
-
-
 app.set('view engine', 'ejs');
 
 app.use('/public',express.static(__dirname + '/public'));
@@ -29,7 +27,6 @@ app.use(express.static('public'));
 app.use(require('./routes/api'));
 app.use(require('./routes/start'));
 app.use(require('./routes/login'));
-app.use(require('./routes/roomList'));
 app.use(require('./routes/unterkunftlist'));
 app.use(require('./routes/unterkunftdetails'));
 app.use(require('./routes/kontodetails'));

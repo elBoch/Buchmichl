@@ -3,8 +3,6 @@ const router = express.Router();
 const client = require("./api").client;
 let checkAuthentication = require("./api").checkAuthentication;
 
-
-
 const buildStatement = (req) => {
   let filterStatement = "";
   filterStatement +=
@@ -65,7 +63,6 @@ router.get("/unterkunftlist", async(req, res) => {
 });
 
 router.post("/getUnterkunftList", async(req, res) => {
-  //console.log(buildStatement(req));
   const data = await client.query(
     buildStatement(req),
     []

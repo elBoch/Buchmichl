@@ -5,7 +5,6 @@ window.onload = () => {
     url: "/getRoomList",
     success: (data) => {
       printData(data);
-      console.log(data);
     },
   }).fail((jqXHR, textStatus, errorThrown) => {
     console.log(jqXHR);
@@ -20,7 +19,6 @@ window.onload = () => {
 const zimmerdetails = (value) => {
   let unterkunft = document.getElementById("unterkunft").innerText;
   let zimmer = value
-  //console.log(zimmer);
   $.ajax({
     type: "POST",
     url: "/zimmerdetails",
@@ -31,7 +29,6 @@ const zimmerdetails = (value) => {
         type: "GET",
         url: "/zimmerdetails",
         success: function (data) {
-          console.log("Successfully saved the matched beans to the user.");
           window.location = "/zimmerdetails";
         },
       });
@@ -62,8 +59,6 @@ function showDivs(n) {
   x[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " w3-opacity-off";
 }
-
-/* Martin's Spaßecke */
 
 const printData = (data) => {
   console.log(data);

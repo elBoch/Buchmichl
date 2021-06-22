@@ -41,7 +41,7 @@ router.post("/createZimmer", async (req, res) => {
         "WHERE u.unterkunftname=$1 AND za.zimmerartname=$2;",
       [req.body.unterkunftname, req.body.zimmerart]
     );
-    //console.log(getZimmerartInUnterkunft.rows.length);
+
     if (getZimmerartInUnterkunft.rows.length == 0) {
       const getZimmerartId = await client.query(
         "SELECT zimmerartid FROM zimmerart WHERE zimmerartname=$1;",
@@ -52,7 +52,7 @@ router.post("/createZimmer", async (req, res) => {
         "SELECT unterkunftid FROM unterkunft WHERE unterkunftname=$1;",
         [req.body.unterkunftname]
       );
-      //console.log(getZimmerartId.rows[0]);
+
       const insertZimmerartInUnterkunft = await client.query(
         "INSERT INTO zimmerartinUnterkunft (zimmerartid,unterkunftid) " +
           "VALUES ($1,$2);",
@@ -150,7 +150,6 @@ router.post("/createZimmer", async (req, res) => {
     } catch (err) {
       //keine vorhanden ist ok
     }
-    //console.log("dufhgfgjoidfghj");
     res.send("success");
   } catch (err) {
     res.send("unsuccess");
