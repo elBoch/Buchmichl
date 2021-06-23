@@ -1,5 +1,5 @@
 /**
- * Authentifizierung der User und Connection zur Datenbank.
+ * Authentifizierung der User und Connection zur Datenbank.  
  */
 
 const express = require('express');
